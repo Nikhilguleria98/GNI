@@ -7,22 +7,22 @@ const testimonials = [
     name: "James Pattinson",
     image: "/testimonial1.png",
     rating: 4,
-    text: "Lobortis leo pretium facilisis amet nisl at nec. Scelerisque risus tortor donec ipsum consequat semper consequat adipiscing ultrices.",
+    text: "Lobortis leo pretium facilisis amet nisl at nec. Scelerisque risus tortor donec ipsum consequat semper consequat adipiscing ultrices."
   },
   {
     id: 2,
     name: "Greg Stuart",
     image: "/testimonial2.png",
     rating: 5,
-    text: "Vestibulum, cum nam non amet consectetur morbi aenean condimentum eget. Ultricies integer nunc neque accumsan laoreet. Viverra nibh ultrices.",
+    text: "Vestibulum, cum nam non amet consectetur morbi aenean condimentum eget. Ultricies integer nunc neque accumsan laoreet. Viverra nibh ultrices."
   },
   {
     id: 3,
     name: "Trevor Mitchell",
     image: "/testimonial3.png",
     rating: 3,
-    text: "Ut tristique viverra sed porttitor senectus. A facilisis metus pretium ut habitant lorem. Velit vel bibendum eget aliquet sem nec, id sed. Tincidunt.",
-  },
+    text: "Ut tristique viverra sed porttitor senectus. A facilisis metus pretium ut habitant lorem. Velit vel bibendum eget aliquet sem nec, id sed. Tincidunt."
+  }
 ];
 
 export default function TestimonialsSection() {

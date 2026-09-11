@@ -23,20 +23,20 @@ const philosophyPoints = [
 const missionPoints = [
   {
     title: "Excellence in Education",
-    description: "To be recognized as a premier institution delivering world-class education, innovation, and academic excellence.",
+    description: "To be recognized as a premier institution delivering world-class education, innovation, and academic excellence."
   },
   {
     title: "Future-Ready Leaders",
-    description: "To nurture creative thinkers, skilled professionals, and ethical leaders equipped to drive technological and societal transformation.",
+    description: "To nurture creative thinkers, skilled professionals, and ethical leaders equipped to drive technological and societal transformation."
   },
   {
     title: "Global Competence",
-    description: "To create graduates with global perspectives, research capabilities, and industry-ready skills that meet international standards.",
+    description: "To create graduates with global perspectives, research capabilities, and industry-ready skills that meet international standards."
   },
   {
     title: "Sustainable Growth",
-    description: "To foster a culture of continuous learning and innovation that benefits students, industries, and society.",
-  },
+    description: "To foster a culture of continuous learning and innovation that benefits students, industries, and society."
+  }
 ];
 
 const VisionMissionSection = () => {

@@ -5,23 +5,23 @@ const WhyChooseUs = () => {
     {
       value: "100%",
       label: "PROJECTS DELIVERED TO CLIENTS",
-      icon: FaMapMarkerAlt,
+      icon: FaMapMarkerAlt
     },
     {
       value: "180+",
       label: "SATISFIED HAPPY CLIENTS",
-      icon: FaUsers,
+      icon: FaUsers
     },
     {
       value: "50+",
       label: "SUCCESSFUL PROJECTS",
-      icon: FaStar,
+      icon: FaStar
     },
     {
       value: "99%",
       label: "CLIENT SATISFACTION",
-      icon: FaRegStar,
-    },
+      icon: FaRegStar
+    }
   ];
 
   return (
