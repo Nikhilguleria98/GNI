@@ -3,57 +3,43 @@ import { FaCogs, FaSun, FaCapsules, FaArrowRight } from "react-icons/fa";
 const programs = [
   {
     title: "Engineering",
-    description:
-      "B.E. in Engineering provides students with strong technical knowledge and practical experience.",
-    icon: <FaCogs />,
+    description: "B.E. in Engineering provides students with strong technical knowledge and practical experience.",
+    icon: <FaCogs />
   },
   {
     title: "Management",
-    description:
-      "Management programs help students build leadership, business and professional management skills.",
-    icon: <FaSun />,
+    description: "Management programs help students build leadership, business and professional management skills.",
+    icon: <FaSun />
   },
   {
     title: "Pharmacy",
-    description:
-      "Modern pharmacy teaching with strong practical knowledge and professional experience.",
-    icon: <FaCapsules />,
-  },
+    description: "Modern pharmacy teaching with strong practical knowledge and professional experience.",
+    icon: <FaCapsules />
+  }
 ];
 
-const recruiters = [
-  "/intel.png",
-  "/hp.png",
-  "/manpower.png",
-  "/ranbaxy.png",
-  "/sap.png",
-  "/intel.png",
-];
+const recruiters = ["/intel.png", "/hp.png", "/manpower.png", "/ranbaxy.png", "/sap.png", "/intel.png"];
 
 const events = [
   {
     date: "FEB 14, 2026",
     title: "University 2026 Scholarship Result Declared",
-    description:
-      "We are pleased to announce the scholarship results for our deserving students.",
+    description: "We are pleased to announce the scholarship results for our deserving students.",
   },
   {
     date: "FEB 17, 2026",
     title: "Faculty Development Program (FDP)",
-    description:
-      "We are pleased to announce our upcoming faculty development program.",
+    description: "We are pleased to announce our upcoming faculty development program.",
   },
   {
     date: "FEB 18, 2026",
     title: "Research & Innovation Conference",
-    description:
-      "Join us for an inspiring conference focused on research and innovation.",
+    description: "Join us for an inspiring conference focused on research and innovation.",
   },
   {
     date: "FEB 19, 2026",
     title: "Skill Development Workshop",
-    description:
-      "A practical workshop designed to enhance professional and technical skills.",
+    description: "A practical workshop designed to enhance professional and technical skills.",
   },
 ];
 
@@ -61,10 +47,10 @@ const StudyAtGniSection = () => {
   return (
     <section className="w-full bg-white">
 
-      {/* Study At GNI */}
+      {/* study at gni */}
       <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-14 lg:px-10 lg:py-16">
 
-        {/* Heading */}
+        {/* heading */}
         <div className="text-center">
 
           <div className="group inline-block cursor-pointer">
@@ -86,10 +72,10 @@ const StudyAtGniSection = () => {
 
         </div>
 
-        {/* Programs */}
+        {/* programs */}
         <div className="mt-9 grid overflow-hidden rounded-md md:grid-cols-2 lg:grid-cols-4">
 
-          {/* Orange Intro Card */}
+          {/* intro card */}
           <div className="bg-[#ff5b00] p-6 text-white sm:p-7 lg:p-6">
 
             <h3 className="text-[15px] font-bold sm:text-[16px] lg:text-[17px]">
@@ -109,30 +95,21 @@ const StudyAtGniSection = () => {
 
           </div>
 
-          {/* Program Cards */}
+          {/* program cards */}
           {programs.map((program, index) => (
-            <div
-              key={program.title}
-              className={`flex min-h-[220px] flex-col justify-center p-6 text-white sm:p-7 lg:min-h-[225px] lg:p-6 ${
-                index === 0
-                  ? "bg-[#858383]"
-                  : index === 1
-                    ? "bg-[#6d6d6d]"
-                    : "bg-[#4d4d4d]"
-              }`}
-            >
+            <div key={program.title} className={`flex min-h-[220px] flex-col justify-center p-6 text-white sm:p-7 lg:min-h-[225px] lg:p-6 ${index === 0 ? "bg-[#858383]" : index === 1 ? "bg-[#6d6d6d]" : "bg-[#4d4d4d]"}`}>
 
-              {/* Icon */}
+              {/* icon */}
               <div className="mb-5 text-[34px] font-light text-white sm:text-[38px] md:text-[40px]">
                 {program.icon}
               </div>
 
-              {/* Title */}
+              {/* title */}
               <h3 className="text-[17px] font-bold sm:text-[19px] md:text-[20px]">
                 {program.title}
               </h3>
 
-              {/* Description */}
+              {/* description */}
               <p className="mt-3 text-[13px] leading-5 text-gray-100 sm:text-[14px] sm:leading-6 md:text-[15px]">
                 {program.description}
               </p>
@@ -144,15 +121,15 @@ const StudyAtGniSection = () => {
 
       </div>
 
-      {/* Placement Recruiters */}
+      {/* placement recruiters */}
       <div className="w-full bg-[#f5f5f5]">
 
         <div className="mx-auto grid max-w-7xl lg:grid-cols-2">
 
-          {/* Placements */}
+          {/* placements */}
           <div className="px-5 py-10 sm:px-8 sm:py-12 lg:px-10 lg:py-12">
 
-            {/* Heading + Stats */}
+            {/* heading & stats */}
             <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
 
               <div>
@@ -175,10 +152,10 @@ const StudyAtGniSection = () => {
 
             </div>
 
-            {/* Divider */}
+            {/* divider */}
             <div className="my-6 h-px w-full bg-gray-300" />
 
-            {/* Placement Content */}
+            {/* placement content */}
             <div className="flex gap-5">
 
               <div className="flex-1">
@@ -198,24 +175,17 @@ const StudyAtGniSection = () => {
                   GNI TECHNOLOGIES
                 </p>
 
-                <button
-                  type="button"
-                  className="mt-6 flex items-center gap-1 text-[12px] font-bold tracking-wide text-gray-700 transition-colors hover:text-[#ff5b00] sm:text-[13px] md:text-[14px]"
-                >
+                <button type="button" className="mt-6 flex items-center gap-1 text-[12px] font-bold tracking-wide text-gray-700 transition-colors hover:text-[#ff5b00] sm:text-[13px] md:text-[14px]">
                   VIEW MORE
                   <FaArrowRight className="text-[10px] text-[#ff5b00] sm:text-[11px]" />
                 </button>
 
               </div>
 
-              {/* Student Image */}
+              {/* student image */}
               <div className="hidden w-[100px] shrink-0 sm:block sm:w-[115px]">
                 <div className="relative h-[145px] w-full overflow-hidden">
-                  <img
-                    src="/placement.png"
-                    alt="GNI student"
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
+                  <img src="/placement.png" alt="GNI student" className="absolute inset-0 h-full w-full object-cover" />
                 </div>
               </div>
 
@@ -223,14 +193,14 @@ const StudyAtGniSection = () => {
 
           </div>
 
-          {/* Recruiters */}
+          {/* recruiters */}
           <div className="bg-[#dedede] px-5 py-10 sm:px-8 sm:py-12 lg:px-10 lg:py-12">
 
             <h3 className="text-[14px] font-extrabold tracking-[0.12em] text-[#ff5b00] sm:text-[15px] md:text-[16px]">
               RECRUITERS
             </h3>
 
-            {/* Recruiter Stats */}
+            {/* recruiter stats */}
             <div className="mt-3 grid grid-cols-2 gap-5">
 
               <div>
@@ -255,30 +225,18 @@ const StudyAtGniSection = () => {
 
             </div>
 
-            {/* Recruiter Logos */}
+            {/* recruiter logos */}
             <div className="mt-7 grid grid-cols-2 gap-x-2 gap-y-2 sm:gap-x-3 sm:gap-y-3">
 
               {recruiters.map((logo, index) => (
-                <div
-                  key={index}
-                  className="group flex h-[82px] w-full items-center justify-center overflow-hidden rounded-sm bg-white px-2 py-2 transition-all duration-300 hover:shadow-md sm:h-[92px] sm:px-3"
-                >
-                  <img
-                    src={logo}
-                    alt="Recruiter company"
-                    width="160"
-                    height="75"
-                    className="h-auto w-auto max-h-[55px] max-w-[145px] object-contain transition-transform duration-300 ease-out group-hover:scale-105 sm:max-h-[62px] sm:max-w-[160px]"
-                  />
+                <div key={index} className="group flex h-[82px] w-full items-center justify-center overflow-hidden rounded-sm bg-white px-2 py-2 transition-all duration-300 hover:shadow-md sm:h-[92px] sm:px-3">
+                  <img src={logo} alt="Recruiter company" width="160" height="75" className="h-auto w-auto max-h-[55px] max-w-[145px] object-contain transition-transform duration-300 ease-out group-hover:scale-105 sm:max-h-[62px] sm:max-w-[160px]" />
                 </div>
               ))}
 
             </div>
 
-            <button
-              type="button"
-              className="mt-7 flex items-center gap-1 text-[12px] font-bold tracking-wide text-gray-700 transition-colors hover:text-[#ff5b00] sm:text-[13px] md:text-[14px]"
-            >
+            <button type="button" className="mt-7 flex items-center gap-1 text-[12px] font-bold tracking-wide text-gray-700 transition-colors hover:text-[#ff5b00] sm:text-[13px] md:text-[14px]">
               VIEW MORE
               <FaArrowRight className="text-[10px] text-[#ff5b00] sm:text-[11px]" />
             </button>
@@ -289,10 +247,10 @@ const StudyAtGniSection = () => {
 
       </div>
 
-      {/* Latest Updates and Events */}
+      {/* latest updates and events */}
       <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-14 lg:px-10 lg:py-16">
 
-        {/* Header */}
+        {/* header */}
         <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
 
           <h2 className="text-[20px] font-extrabold tracking-wide text-[#18233b] sm:text-[22px] md:text-[24px] lg:text-[25px]">
@@ -307,10 +265,7 @@ const StudyAtGniSection = () => {
               achievements, events and opportunities.
             </p>
 
-            <button
-              type="button"
-              className="rounded-full bg-[#ff5b00] px-5 py-2 text-[12px] font-semibold text-white transition-all duration-300 hover:bg-[#e64f00] sm:text-[13px] md:text-[14px]"
-            >
+            <button type="button" className="rounded-full bg-[#ff5b00] px-5 py-2 text-[12px] font-semibold text-white transition-all duration-300 hover:bg-[#e64f00] sm:text-[13px] md:text-[14px]">
               View All
             </button>
 
@@ -318,19 +273,15 @@ const StudyAtGniSection = () => {
 
         </div>
 
-        {/* Events */}
+        {/* events */}
         <div className="mt-7 grid gap-4 lg:grid-cols-[1.05fr_1.5fr]">
 
-          {/* Featured Event */}
+          {/* featured event */}
           <article className="group relative min-h-[300px] overflow-hidden rounded-xl sm:min-h-[340px] lg:min-h-[380px]">
 
-            <img
-              src="/latest-event.png"
-              alt="Latest GNI event"
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
+            <img src="/latest-event.png" alt="Latest GNI event" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
 
-            {/* Overlay */}
+            {/* overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
 
             <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
@@ -348,10 +299,7 @@ const StudyAtGniSection = () => {
                 deserving students.
               </p>
 
-              <button
-                type="button"
-                className="mt-3 flex items-center gap-1 text-[12px] font-semibold text-white sm:text-[13px] md:text-[14px]"
-              >
+              <button type="button" className="mt-3 flex items-center gap-1 text-[12px] font-semibold text-white sm:text-[13px] md:text-[14px]">
                 Read More
                 <FaArrowRight className="text-[#ff5b00]" />
               </button>
@@ -360,14 +308,11 @@ const StudyAtGniSection = () => {
 
           </article>
 
-          {/* Event Cards */}
+          {/* event cards */}
           <div className="grid gap-4 sm:grid-cols-2">
 
             {events.map((event, index) => (
-              <article
-                key={index}
-                className="rounded-xl border border-[#b8c1d4] bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-5"
-              >
+              <article key={index} className="rounded-xl border border-[#b8c1d4] bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-5">
 
                 <p className="text-[11px] font-medium uppercase tracking-wide text-gray-400 sm:text-[12px] md:text-[13px]">
                   {event.date}
@@ -381,10 +326,7 @@ const StudyAtGniSection = () => {
                   {event.description}
                 </p>
 
-                <button
-                  type="button"
-                  className="mt-3 flex items-center gap-1 text-[12px] font-semibold text-[#ff5b00] sm:text-[13px] md:text-[14px]"
-                >
+                <button type="button" className="mt-3 flex items-center gap-1 text-[12px] font-semibold text-[#ff5b00] sm:text-[13px] md:text-[14px]">
                   Read More
                   <FaArrowRight />
                 </button>

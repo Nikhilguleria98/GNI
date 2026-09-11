@@ -44,23 +44,13 @@ const ApplyNowForm = ({ isOpen, onClose }) => {
 
   return (
     <>
-      {/* Overlay */}
-      <div
-        className={`fixed inset-0 z-[9998] bg-black/50 transition-opacity duration-500 ${
-          isOpen
-            ? "pointer-events-auto opacity-100"
-            : "pointer-events-none opacity-0"
-        }`}
-        onClick={onClose}
-      />
+      {/* overlay */}
+      <div className={`fixed inset-0 z-[9998] bg-black/50 transition-opacity duration-500 ${isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`} onClick={onClose} />
 
-      {/* Right Drawer */}
-      <div
-        className={`fixed right-0 top-0 z-[9999] h-full w-full max-w-[900px] bg-white shadow-2xl transition-transform duration-500 ease-out ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        {/* Header */}
+      {/* right drawer */}
+      <div className={`fixed right-0 top-0 z-[9999] h-full w-full max-w-[900px] bg-white shadow-2xl transition-transform duration-500 ease-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
+
+        {/* header */}
         <div className="flex h-[78px] items-center justify-between bg-gradient-to-r from-[#f4510b] to-[#8f2d00] px-5 text-white sm:px-7">
           <div>
             <h2 className="text-2xl font-bold leading-tight sm:text-[26px] md:text-[28px]">
@@ -72,211 +62,71 @@ const ApplyNowForm = ({ isOpen, onClose }) => {
             </p>
           </div>
 
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="Close application form"
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors duration-200 hover:bg-white/10"
-          >
+          <button type="button" onClick={onClose} aria-label="Close application form" className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors duration-200 hover:bg-white/10">
             <FiX size={25} strokeWidth={1.8} />
           </button>
         </div>
 
-        {/* Form Area */}
+        {/* form */}
         <div className="h-[calc(100%-78px)] overflow-y-auto bg-gray-50 px-4 py-5 sm:px-6 sm:py-7 lg:px-8 lg:py-8">
           <div className="mx-auto w-full max-w-[807px] rounded-2xl border border-gray-200 bg-white p-5 shadow-sm sm:p-7 lg:p-9">
             <form onSubmit={handleSubmit} className="space-y-3">
 
-              {/* Full Name */}
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Enter Full Name"
-                required
-                className="form-input"
-              />
+              {/* full name */}
+              <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Enter Full Name" required className="form-input" />
 
-              {/* Email + Mobile */}
+              {/* email & mobile */}
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Enter Email"
-                  required
-                  className="form-input"
-                />
+                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter Email" required className="form-input" />
 
-                <input
-                  type="tel"
-                  name="mobile"
-                  value={formData.mobile}
-                  onChange={handleChange}
-                  placeholder="Enter Mobile No"
-                  required
-                  className="form-input"
-                />
+                <input type="tel" name="mobile" value={formData.mobile} onChange={handleChange} placeholder="Enter Mobile No" required className="form-input" />
               </div>
 
-              {/* Program + Course */}
+              {/* program & course */}
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                <SelectField
-                  name="program"
-                  value={formData.program}
-                  onChange={handleChange}
-                  placeholder="Select Program"
-                  options={[
-                    "B.Tech",
-                    "BCA",
-                    "BBA",
-                    "MBA",
-                    "MCA",
-                    "B.Com",
-                  ]}
-                />
 
-                <SelectField
-                  name="course"
-                  value={formData.course}
-                  onChange={handleChange}
-                  placeholder="Select Course"
-                  options={[
-                    "Computer Science Engineering",
-                    "Mechanical Engineering",
-                    "Civil Engineering",
-                    "Electronics Engineering",
-                    "Information Technology",
-                  ]}
-                />
+                <SelectField name="program" value={formData.program} onChange={handleChange} placeholder="Select Program" options={["B.Tech", "BCA", "BBA", "MBA", "MCA", "B.Com"]} />
+
+                <SelectField name="course" value={formData.course} onChange={handleChange} placeholder="Select Course" options={["Computer Science Engineering", "Mechanical Engineering", "Civil Engineering", "Electronics Engineering", "Information Technology"]} />
               </div>
 
-              {/* State + Taluka */}
+              {/* state & taluka */}
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                <SelectField
-                  name="state"
-                  value={formData.state}
-                  onChange={handleChange}
-                  label="State"
-                  options={[
-                    "India - Maharashtra",
-                    "India - Punjab",
-                    "India - Haryana",
-                    "India - Delhi",
-                    "India - Uttar Pradesh",
-                  ]}
-                />
 
-                <SelectField
-                  name="taluka"
-                  value={formData.taluka}
-                  onChange={handleChange}
-                  placeholder="Select Taluka"
-                  options={[
-                    "Mullana",
-                    "Ambala",
-                    "Chandigarh",
-                    "Other",
-                  ]}
-                />
+                <SelectField name="state" value={formData.state} onChange={handleChange} label="State" options={["India - Maharashtra", "India - Punjab", "India - Haryana", "India - Delhi", "India - Uttar Pradesh"]} />
+
+                <SelectField name="taluka" value={formData.taluka} onChange={handleChange} placeholder="Select Taluka" options={["Mullana", "Ambala", "Chandigarh", "Other"]} />
               </div>
 
-              {/* 10th + 12th */}
+              {/* 10th & 12th score*/}
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                <input
-                  type="text"
-                  name="score10"
-                  value={formData.score10}
-                  onChange={handleChange}
-                  placeholder="Enter 10th Score"
-                  className="form-input"
-                />
 
-                <input
-                  type="text"
-                  name="score12"
-                  value={formData.score12}
-                  onChange={handleChange}
-                  placeholder="Enter 12th Score"
-                  className="form-input"
-                />
+                <input type="text" name="score10" value={formData.score10} onChange={handleChange} placeholder="Enter 10th Score" className="form-input" />
+
+                <input type="text" name="score12" value={formData.score12} onChange={handleChange} placeholder="Enter 12th Score" className="form-input" />
               </div>
 
-              {/* College + Entrance Score */}
+              {/* college & entrance score */}
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                <input
-                  type="text"
-                  name="college"
-                  value={formData.college}
-                  onChange={handleChange}
-                  placeholder="Enter Last College/School Name"
-                  className="form-input"
-                />
 
-                <input
-                  type="text"
-                  name="entranceScore"
-                  value={formData.entranceScore}
-                  onChange={handleChange}
-                  placeholder="Enter Entrance Exam Score"
-                  className="form-input"
-                />
+                <input type="text" name="college" value={formData.college} onChange={handleChange} placeholder="Enter Last College/School Name" className="form-input" />
+
+                <input type="text" name="entranceScore" value={formData.entranceScore} onChange={handleChange} placeholder="Enter Entrance Exam Score" className="form-input" />
               </div>
 
-              {/* Caste + Gender */}
+              {/* caste & gender */}
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                <SelectField
-                  name="caste"
-                  value={formData.caste}
-                  onChange={handleChange}
-                  placeholder="Select Caste Category"
-                  options={[
-                    "General",
-                    "OBC",
-                    "SC",
-                    "ST",
-                    "Other",
-                  ]}
-                />
 
-                <SelectField
-                  name="gender"
-                  value={formData.gender}
-                  onChange={handleChange}
-                  placeholder="Select Gender"
-                  options={[
-                    "Male",
-                    "Female",
-                    "Other",
-                  ]}
-                />
+                <SelectField name="caste" value={formData.caste} onChange={handleChange} placeholder="Select Caste Category" options={["General", "OBC", "SC", "ST", "Other"]} />
+
+                <SelectField name="gender" value={formData.gender} onChange={handleChange} placeholder="Select Gender" options={["Male", "Female", "Other"]} />
               </div>
 
-              {/* Source */}
-              <SelectField
-                name="source"
-                value={formData.source}
-                onChange={handleChange}
-                placeholder="Enter How do you know about Sanjivani?"
-                options={[
-                  "Google",
-                  "Instagram",
-                  "Facebook",
-                  "YouTube",
-                  "Friend / Relative",
-                  "Newspaper",
-                  "College Website",
-                  "Other",
-                ]}
-              />
+              {/* source */}
+              <SelectField name="source" value={formData.source} onChange={handleChange} placeholder="Enter How do you know about Sanjivani ?" options={["Google", "Instagram", "Facebook", "YouTube", "Friend / Relative", "Newspaper", "College Website", "Other"]} />
 
-              {/* Submit */}
-              <button
-                type="submit"
-                className="mt-2 inline-flex items-center gap-2 rounded-md bg-[#f4510b] px-6 py-2.5 text-[14px] font-semibold text-white transition-all duration-300 hover:bg-[#df4607] hover:shadow-md sm:px-7 sm:py-3 sm:text-[15px]"
-              >
+              {/* submit */}
+              <button type="submit" className="mt-2 inline-flex items-center gap-2 rounded-md bg-[#f4510b] px-6 py-2.5 text-[14px] font-semibold text-white transition-all duration-300 hover:bg-[#df4607] hover:shadow-md sm:px-7 sm:py-3 sm:text-[15px]">
                 <FiSend size={15} />
                 Submit
               </button>
@@ -285,7 +135,7 @@ const ApplyNowForm = ({ isOpen, onClose }) => {
         </div>
       </div>
 
-      {/* Form Styles */}
+      {/* form styles */}
       <style>{`
         .form-input {
           width: 100%;
@@ -321,7 +171,7 @@ const ApplyNowForm = ({ isOpen, onClose }) => {
 };
 
 
-// Select Component
+// select component
 function SelectField({
   name,
   value,
@@ -333,22 +183,14 @@ function SelectField({
   return (
     <div className="relative">
 
-      {/* Label */}
+      {/* label */}
       {label && (
         <span className="absolute left-3 top-[-7px] z-10 bg-white px-1 text-[12px] font-medium text-slate-500">
           {label}
         </span>
       )}
 
-      <select
-        name={name}
-        value={value}
-        onChange={onChange}
-        required={!label}
-        className={`h-[48px] w-full appearance-none rounded-lg border border-gray-200 bg-white px-3 pr-10 text-[15px] outline-none transition-all duration-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-100 ${
-          value ? "text-slate-600" : "text-slate-400"
-        }`}
-      >
+      <select name={name} value={value} onChange={onChange} required={!label} className={`h-[48px] w-full appearance-none rounded-lg border border-gray-200 bg-white px-3 pr-10 text-[15px] outline-none transition-all duration-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-100 ${value ? "text-slate-600" : "text-slate-400"}`}>
         {!label && (
           <option value="" disabled>
             {placeholder}
@@ -362,11 +204,8 @@ function SelectField({
         ))}
       </select>
 
-      {/* Dropdown Icon */}
-      <FiChevronDown
-        size={18}
-        className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-500"
-      />
+      {/* dropdown icon */}
+      <FiChevronDown size={18} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-500" />
     </div>
   );
 }

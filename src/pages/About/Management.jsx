@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  FiArrowLeft,
-  FiArrowRight,
-  FiFacebook,
-  FiLinkedin,
-  FiMail,
-  FiUser,
-} from "react-icons/fi";
+import { FiArrowLeft, FiArrowRight, FiFacebook, FiLinkedin, FiMail, FiUser } from "react-icons/fi";
 
 const ManagementSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -19,11 +12,10 @@ const ManagementSection = () => {
       cardName: "Dr. Shubhkaman",
       role: "Principal",
       image: "/images/management/shubhkaman-rathore.jpg",
-      description:
-        "Dr. Shubhkaman Rathore is a dedicated academic leader committed to fostering excellence in education, innovation, and holistic student development. With a strong focus on academic quality, research, and industry-oriented learning, she strives to create an environment where students are empowered with the knowledge, skills, and values needed to excel in their careers and contribute meaningfully to society.",
+      description: "Dr. Shubhkaman Rathore is a dedicated academic leader committed to fostering excellence in education, innovation, and holistic student development. With a strong focus on academic quality, research, and industry-oriented learning, she strives to create an environment where students are empowered with the knowledge, skills, and values needed to excel in their careers and contribute meaningfully to society.",
       email: "principal@example.com",
       facebook: "#",
-      linkedin: "#",
+      linkedin: "#"
     },
     {
       id: 2,
@@ -31,11 +23,10 @@ const ManagementSection = () => {
       cardName: "Ms. Kajal",
       role: "Asst. Professor",
       image: "/images/management/kajal.jpg",
-      description:
-        "Ms. Kajal is an enthusiastic academic professional focused on creating an engaging and student-centric learning environment. Her approach combines conceptual clarity, practical learning, and continuous academic development.",
+      description: "Ms. Kajal is an enthusiastic academic professional focused on creating an engaging and student-centric learning environment. Her approach combines conceptual clarity, practical learning, and continuous academic development.",
       email: "kajal@example.com",
       facebook: "#",
-      linkedin: "#",
+      linkedin: "#"
     },
     {
       id: 3,
@@ -43,11 +34,10 @@ const ManagementSection = () => {
       cardName: "Ms. Sakshi",
       role: "Asst. Professor",
       image: "/images/management/sakshi.jpg",
-      description:
-        "Ms. Sakshi is committed to academic excellence and student development. She encourages students to explore new ideas, develop confidence, and build the professional skills required for a successful future.",
+      description: "Ms. Sakshi is committed to academic excellence and student development. She encourages students to explore new ideas, develop confidence, and build the professional skills required for a successful future.",
       email: "sakshi@example.com",
       facebook: "#",
-      linkedin: "#",
+      linkedin: "#"
     },
     {
       id: 4,
@@ -55,11 +45,10 @@ const ManagementSection = () => {
       cardName: "Mr. Sanjay",
       role: "Asst. Professor",
       image: "/images/management/sanjay.jpg",
-      description:
-        "Mr. Sanjay brings a practical and innovative approach to teaching. His focus is on developing technical understanding, problem-solving abilities, and industry-relevant skills among students.",
+      description: "Mr. Sanjay brings a practical and innovative approach to teaching. His focus is on developing technical understanding, problem-solving abilities, and industry-relevant skills among students.",
       email: "sanjay@example.com",
       facebook: "#",
-      linkedin: "#",
+      linkedin: "#"
     },
     {
       id: 5,
@@ -67,12 +56,11 @@ const ManagementSection = () => {
       cardName: "Ms. Pooja",
       role: "Asst. Professor",
       image: "/images/management/pooja.jpg",
-      description:
-        "Ms. Pooja is passionate about mentoring students and supporting their academic journey. She focuses on creating an inclusive environment where students can learn, innovate, and grow with confidence.",
+      description: "Ms. Pooja is passionate about mentoring students and supporting their academic journey. She focuses on creating an inclusive environment where students can learn, innovate, and grow with confidence.",
       email: "pooja@example.com",
       facebook: "#",
-      linkedin: "#",
-    },
+      linkedin: "#"
+    }
   ];
 
   const activeMember = members[activeIndex];
@@ -120,19 +108,14 @@ const ManagementSection = () => {
           </p>
         </div>
 
-        {/* main profile */}
+        {/* profile */}
         <div className="overflow-hidden border border-white/10 bg-[#080808]">
           <div className="grid lg:grid-cols-[32%_68%] xl:grid-cols-[33%_67%]">
 
-            {/* profile image */}
+            {/* image */}
             <div className="relative h-[250px] bg-[#bdbdbd] sm:h-[280px] md:h-[310px] lg:h-[330px] xl:h-[340px]">
               {!imageErrors[activeMember.id] ? (
-                <img
-                  src={activeMember.image}
-                  alt={activeMember.name}
-                  className="h-full w-full object-cover object-top"
-                  onError={() => handleImageError(activeMember.id)}
-                />
+                <img src={activeMember.image} alt={activeMember.name} className="h-full w-full object-cover object-top" onError={() => handleImageError(activeMember.id)} />
               ) : (
                 <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#d8d8d8] to-[#9e9e9e]">
                   <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/80 text-[#777] sm:h-24 sm:w-24">
@@ -150,31 +133,21 @@ const ManagementSection = () => {
               </div>
             </div>
 
-            {/* profile content */}
+            {/* content */}
             <div className="relative flex min-h-[320px] flex-col justify-between p-5 sm:min-h-[340px] sm:p-7 md:p-8 lg:min-h-[330px] lg:p-9 xl:p-10">
 
-              {/* Arrows */}
+              {/* arrows */}
               <div className="absolute right-4 top-4 flex gap-1.5 sm:right-5 sm:top-5">
-                <button
-                  type="button"
-                  onClick={previousMember}
-                  aria-label="Previous profile"
-                  className="flex h-8 w-8 items-center justify-center border border-white/15 bg-white/[0.04] text-white transition-all duration-300 hover:border-[#ff5b00] hover:bg-[#ff5b00] focus:outline-none focus:ring-2 focus:ring-[#ff5b00]/40 sm:h-9 sm:w-9"
-                >
+                <button type="button" onClick={previousMember} aria-label="Previous profile" className="flex h-8 w-8 items-center justify-center border border-white/15 bg-white/[0.04] text-white transition-all duration-300 hover:border-[#ff5b00] hover:bg-[#ff5b00] focus:outline-none focus:ring-2 focus:ring-[#ff5b00]/40 sm:h-9 sm:w-9">
                   <FiArrowLeft className="text-sm" />
                 </button>
 
-                <button
-                  type="button"
-                  onClick={nextMember}
-                  aria-label="Next profile"
-                  className="flex h-8 w-8 items-center justify-center border border-white/15 bg-white/[0.04] text-white transition-all duration-300 hover:border-[#ff5b00] hover:bg-[#ff5b00] focus:outline-none focus:ring-2 focus:ring-[#ff5b00]/40 sm:h-9 sm:w-9"
-                >
+                <button type="button" onClick={nextMember} aria-label="Next profile" className="flex h-8 w-8 items-center justify-center border border-white/15 bg-white/[0.04] text-white transition-all duration-300 hover:border-[#ff5b00] hover:bg-[#ff5b00] focus:outline-none focus:ring-2 focus:ring-[#ff5b00]/40 sm:h-9 sm:w-9">
                   <FiArrowRight className="text-sm" />
                 </button>
               </div>
 
-              {/* Profile Text */}
+              {/* text */}
               <div className="pr-16 sm:pr-20">
                 <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-[#ff5b00] sm:text-[13px] md:text-[14px]">
                   {activeMember.role}
@@ -191,10 +164,10 @@ const ManagementSection = () => {
                 </p>
               </div>
 
-              {/* Bottom */}
+              {/* bottom */}
               <div className="mt-7 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-4 sm:mt-8 sm:pt-5">
 
-                {/* Counter */}
+                {/* counter */}
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#ff5b00]" />
 
@@ -204,32 +177,17 @@ const ManagementSection = () => {
                   </span>
                 </div>
 
-                {/* Social Icons */}
+                {/* social icons */}
                 <div className="flex items-center gap-1.5">
-                  <button
-                    type="button"
-                    onClick={handleSocialClick}
-                    aria-label={`Email ${activeMember.name}`}
-                    className="flex h-8 w-8 cursor-default items-center justify-center border border-white/10 text-[#999] transition-all duration-300 hover:border-[#ff5b00] hover:bg-[#ff5b00] hover:text-white"
-                  >
+                  <button type="button" onClick={handleSocialClick} aria-label={`Email ${activeMember.name}`} className="flex h-8 w-8 cursor-default items-center justify-center border border-white/10 text-[#999] transition-all duration-300 hover:border-[#ff5b00] hover:bg-[#ff5b00] hover:text-white">
                     <FiMail className="text-sm" />
                   </button>
 
-                  <button
-                    type="button"
-                    onClick={handleSocialClick}
-                    aria-label={`Facebook ${activeMember.name}`}
-                    className="flex h-8 w-8 cursor-default items-center justify-center border border-white/10 text-[#999] transition-all duration-300 hover:border-[#ff5b00] hover:bg-[#ff5b00] hover:text-white"
-                  >
+                  <button type="button" onClick={handleSocialClick} aria-label={`Facebook ${activeMember.name}`} className="flex h-8 w-8 cursor-default items-center justify-center border border-white/10 text-[#999] transition-all duration-300 hover:border-[#ff5b00] hover:bg-[#ff5b00] hover:text-white">
                     <FiFacebook className="text-sm" />
                   </button>
 
-                  <button
-                    type="button"
-                    onClick={handleSocialClick}
-                    aria-label={`LinkedIn ${activeMember.name}`}
-                    className="flex h-8 w-8 cursor-default items-center justify-center border border-white/10 text-[#999] transition-all duration-300 hover:border-[#ff5b00] hover:bg-[#ff5b00] hover:text-white"
-                  >
+                  <button type="button" onClick={handleSocialClick} aria-label={`LinkedIn ${activeMember.name}`} className="flex h-8 w-8 cursor-default items-center justify-center border border-white/10 text-[#999] transition-all duration-300 hover:border-[#ff5b00] hover:bg-[#ff5b00] hover:text-white">
                     <FiLinkedin className="text-sm" />
                   </button>
                 </div>
@@ -245,32 +203,12 @@ const ManagementSection = () => {
               const isActive = activeIndex === index;
 
               return (
-                <button
-                  key={member.id}
-                  type="button"
-                  onClick={() => setActiveIndex(index)}
-                  aria-label={`Open ${member.name} profile`}
-                  aria-pressed={isActive}
-                  className={`group relative min-w-[125px] shrink-0 overflow-hidden border text-left transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#ff5b00]/30 sm:min-w-[145px] lg:min-w-0 ${
-                    isActive
-                      ? "border-[#ff5b00]/60 bg-[#101010]"
-                      : "border-white/10 bg-[#090909] hover:border-white/25"
-                  }`}
-                >
+                <button key={member.id} type="button" onClick={() => setActiveIndex(index)} aria-label={`Open ${member.name} profile`} aria-pressed={isActive} className={`group relative min-w-[125px] shrink-0 overflow-hidden border text-left transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#ff5b00]/30 sm:min-w-[145px] lg:min-w-0 ${isActive ? "border-[#ff5b00]/60 bg-[#101010]" : "border-white/10 bg-[#090909] hover:border-white/25"}`}>
 
-                  {/* Card Image */}
+                  {/* image */}
                   <div className="relative h-[110px] overflow-hidden bg-[#bdbdbd] sm:h-[125px] md:h-[135px]">
                     {!imageErrors[member.id] ? (
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className={`h-full w-full object-cover object-top transition-transform duration-500 ${
-                          isActive
-                            ? "scale-105"
-                            : "group-hover:scale-105"
-                        }`}
-                        onError={() => handleImageError(member.id)}
-                      />
+                      <img src={member.image} alt={member.name} className={`h-full w-full object-cover object-top transition-transform duration-500 ${isActive ? "scale-105" : "group-hover:scale-105"}`} onError={() => handleImageError(member.id)} />
                     ) : (
                       <div className="flex h-full items-center justify-center bg-gradient-to-br from-[#d8d8d8] to-[#a0a0a0]">
                         <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/80 text-[#777] sm:h-16 sm:w-16">
@@ -279,24 +217,12 @@ const ManagementSection = () => {
                       </div>
                     )}
 
-                    <div
-                      className={`absolute inset-0 transition-all duration-300 ${
-                        isActive
-                          ? "bg-[#ff5b00]/10"
-                          : "bg-black/20 group-hover:bg-black/5"
-                      }`}
-                    />
+                    <div className={`absolute inset-0 transition-all duration-300 ${isActive ? "bg-[#ff5b00]/10" : "bg-black/20 group-hover:bg-black/5"}`} />
                   </div>
 
-                  {/* Card Text */}
+                  {/* text */}
                   <div className="p-2.5 sm:p-3">
-                    <h4
-                      className={`text-[12px] font-bold leading-snug transition-colors duration-300 sm:text-[13px] md:text-[14px] ${
-                        isActive
-                          ? "text-white"
-                          : "text-[#d0d0d0] group-hover:text-white"
-                      }`}
-                    >
+                    <h4 className={`text-[12px] font-bold leading-snug transition-colors duration-300 sm:text-[13px] md:text-[14px] ${isActive ? "text-white" : "text-[#d0d0d0] group-hover:text-white"}`}>
                       {member.cardName}
                     </h4>
 
@@ -313,17 +239,7 @@ const ManagementSection = () => {
         {/* mobile indicators */}
         <div className="mt-3 flex justify-center gap-1.5 lg:hidden">
           {members.map((member, index) => (
-            <button
-              key={member.id}
-              type="button"
-              onClick={() => setActiveIndex(index)}
-              aria-label={`Select ${member.name}`}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                activeIndex === index
-                  ? "w-6 bg-[#ff5b00]"
-                  : "w-1.5 bg-white/20"
-              }`}
-            />
+            <button key={member.id} type="button" onClick={() => setActiveIndex(index)} aria-label={`Select ${member.name}`} className={`h-1.5 rounded-full transition-all duration-300 ${activeIndex === index ? "w-6 bg-[#ff5b00]" : "w-1.5 bg-white/20"}`} />
           ))}
         </div>
       </div>

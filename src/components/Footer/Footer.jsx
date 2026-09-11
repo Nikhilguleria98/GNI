@@ -1,37 +1,23 @@
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaGraduationCap,
-  FaArrowRight,
-  FaRegCopyright,
-} from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaInstagram, FaGraduationCap, FaArrowRight, FaRegCopyright } from "react-icons/fa";
 
 const Footer = () => {
   return (
     <footer className="w-full bg-[#f8f9ff] text-[#18233b]">
 
-      {/* Main Footer */}
+      {/* footer */}
       <div className="mx-auto max-w-7xl px-5 pb-10 pt-10 sm:px-8 sm:pt-12 lg:px-10 lg:pb-12">
 
-        {/* Top Section */}
+        {/* top section */}
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
 
-          {/* About / Logo */}
+          {/* logo */}
           <div className="lg:pr-5">
 
-            {/* Logo */}
             <div className="mb-5">
-              <img
-                src="/logo.png"
-                alt="Guru Nanak Institutions"
-                width="70"
-                height="70"
-                className="h-auto w-[58px] object-contain sm:w-[65px]"
-              />
+              <img src="/logo.png" alt="Guru Nanak Institutions" width="70" height="70" className="h-auto w-[58px] object-contain sm:w-[65px]" />
             </div>
 
-            {/* Description */}
+            {/* description */}
             <p className="max-w-[280px] text-[14px] leading-[1.7] text-gray-600 sm:text-[15px] lg:text-[15px]">
               Empowering students through quality education,
               experienced faculty, and career-focused learning for a
@@ -40,7 +26,7 @@ const Footer = () => {
 
           </div>
 
-          {/* Follow Us */}
+          {/* follow us */}
           <div>
 
             <h3 className="mb-5 text-[18px] font-bold text-[#18233b] sm:text-[19px] lg:text-[20px]">
@@ -49,39 +35,23 @@ const Footer = () => {
 
             <div className="flex items-center gap-2.5">
 
-              {/* Facebook */}
-              <a
-                href="#"
-                aria-label="Facebook"
-                className="flex h-9 w-9 items-center justify-center rounded-[3px] bg-white text-[13px] text-[#ff6b35] shadow-sm transition-all duration-300 hover:bg-[#ff6b35] hover:text-white"
-              >
+              {/* facebook */}
+              <a href="#" aria-label="Facebook" className="flex h-9 w-9 items-center justify-center rounded-[3px] bg-white text-[13px] text-[#ff6b35] shadow-sm transition-all duration-300 hover:bg-[#ff6b35] hover:text-white">
                 <FaFacebookF />
               </a>
 
-              {/* Twitter */}
-              <a
-                href="#"
-                aria-label="Twitter"
-                className="flex h-9 w-9 items-center justify-center rounded-[3px] bg-white text-[13px] text-[#ff6b35] shadow-sm transition-all duration-300 hover:bg-[#ff6b35] hover:text-white"
-              >
+              {/* twitter */}
+              <a href="#" aria-label="Twitter" className="flex h-9 w-9 items-center justify-center rounded-[3px] bg-white text-[13px] text-[#ff6b35] shadow-sm transition-all duration-300 hover:bg-[#ff6b35] hover:text-white">
                 <FaTwitter />
               </a>
 
-              {/* Instagram */}
-              <a
-                href="#"
-                aria-label="Instagram"
-                className="flex h-9 w-9 items-center justify-center rounded-[3px] bg-white text-[13px] text-[#ff6b35] shadow-sm transition-all duration-300 hover:bg-[#ff6b35] hover:text-white"
-              >
+              {/* instagram */}
+              <a href="#" aria-label="Instagram" className="flex h-9 w-9 items-center justify-center rounded-[3px] bg-white text-[13px] text-[#ff6b35] shadow-sm transition-all duration-300 hover:bg-[#ff6b35] hover:text-white">
                 <FaInstagram />
               </a>
 
-              {/* Education */}
-              <a
-                href="#"
-                aria-label="Education"
-                className="flex h-9 w-9 items-center justify-center rounded-[3px] bg-white text-[13px] text-[#ff6b35] shadow-sm transition-all duration-300 hover:bg-[#ff6b35] hover:text-white"
-              >
+              {/* education */}
+              <a href="#" aria-label="Education" className="flex h-9 w-9 items-center justify-center rounded-[3px] bg-white text-[13px] text-[#ff6b35] shadow-sm transition-all duration-300 hover:bg-[#ff6b35] hover:text-white">
                 <FaGraduationCap />
               </a>
 
@@ -89,7 +59,7 @@ const Footer = () => {
 
           </div>
 
-          {/* Newsletter */}
+          {/* newsletter */}
           <div>
 
             <h3 className="mb-4 text-[18px] font-bold text-[#18233b] sm:text-[19px] lg:text-[20px]">
@@ -102,16 +72,9 @@ const Footer = () => {
 
             <form className="flex w-full max-w-[330px]">
 
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                className="min-w-0 flex-1 rounded-l-[3px] border-0 bg-white px-3 py-2.5 text-[13px] text-gray-700 outline-none placeholder:text-gray-400 sm:text-[14px]"
-              />
+              <input type="email" placeholder="Enter your email address" className="min-w-0 flex-1 rounded-l-[3px] border-0 bg-white px-3 py-2.5 text-[13px] text-gray-700 outline-none placeholder:text-gray-400 sm:text-[14px]" />
 
-              <button
-                type="submit"
-                className="flex shrink-0 items-center gap-2 rounded-r-[3px] bg-[#ff6b35] px-4 py-2.5 text-[13px] font-medium text-white transition-all duration-300 hover:bg-[#e85d29] sm:px-5 sm:text-[14px]"
-              >
+              <button type="submit" className="flex shrink-0 items-center gap-2 rounded-r-[3px] bg-[#ff6b35] px-4 py-2.5 text-[13px] font-medium text-white transition-all duration-300 hover:bg-[#e85d29] sm:px-5 sm:text-[14px]">
                 Subscribe
                 <FaArrowRight className="text-[10px]" />
               </button>
@@ -120,15 +83,14 @@ const Footer = () => {
 
           </div>
 
-          {/* Empty on desktop for layout balance */}
           <div className="hidden lg:block" />
 
         </div>
 
-        {/* Links + Contact */}
+        {/* links & contact */}
         <div className="mt-9 grid grid-cols-2 gap-x-8 gap-y-9 sm:grid-cols-3 lg:mt-5 lg:grid-cols-4 lg:gap-8">
 
-          {/* Quick Links */}
+          {/* quick links */}
           <div>
 
             <h3 className="mb-4 text-[17px] font-bold text-[#18233b] sm:text-[18px] lg:text-[19px]">
@@ -138,55 +100,37 @@ const Footer = () => {
             <ul className="space-y-2.5">
 
               <li>
-                <a
-                  href="/about"
-                  className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]"
-                >
+                <a href="/about" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
                   About Us
                 </a>
               </li>
 
               <li>
-                <a
-                  href="/programs"
-                  className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]"
-                >
+                <a href="/programs" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
                   All Courses
                 </a>
               </li>
 
               <li>
-                <a
-                  href="#"
-                  className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]"
-                >
+                <a href="#" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
                   Admission
                 </a>
               </li>
 
               <li>
-                <a
-                  href="#"
-                  className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]"
-                >
+                <a href="#" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
                   Events
                 </a>
               </li>
 
               <li>
-                <a
-                  href="/contact"
-                  className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]"
-                >
+                <a href="/contact" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
                   Contact Us
                 </a>
               </li>
 
               <li>
-                <a
-                  href="/campus-life"
-                  className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]"
-                >
+                <a href="/campus-life" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
                   Gallery
                 </a>
               </li>
@@ -195,7 +139,7 @@ const Footer = () => {
 
           </div>
 
-          {/* Top Categories */}
+          {/* top categories */}
           <div>
 
             <h3 className="mb-4 text-[17px] font-bold text-[#18233b] sm:text-[18px] lg:text-[19px]">
@@ -205,55 +149,37 @@ const Footer = () => {
             <ul className="space-y-2.5">
 
               <li>
-                <a
-                  href="/programs/btech"
-                  className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]"
-                >
+                <a href="/programs/btech" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
                   B.Tech
                 </a>
               </li>
 
               <li>
-                <a
-                  href="/programs/mtech"
-                  className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]"
-                >
+                <a href="/programs/mtech" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
                   M.Tech
                 </a>
               </li>
 
               <li>
-                <a
-                  href="/programs/bba"
-                  className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]"
-                >
+                <a href="/programs/bba" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
                   BBA
                 </a>
               </li>
 
               <li>
-                <a
-                  href="/programs/mba"
-                  className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]"
-                >
+                <a href="/programs/mba" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
                   MBA
                 </a>
               </li>
 
               <li>
-                <a
-                  href="/programs/computer-applications"
-                  className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]"
-                >
+                <a href="/programs/computer-applications" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
                   Computer Applications
                 </a>
               </li>
 
               <li>
-                <a
-                  href="/programs/bpharm"
-                  className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]"
-                >
+                <a href="/programs/bpharm" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
                   B.Pharm
                 </a>
               </li>
@@ -262,7 +188,7 @@ const Footer = () => {
 
           </div>
 
-          {/* Student Corner */}
+          {/* student corner */}
           <div>
 
             <h3 className="mb-4 text-[17px] font-bold text-[#18233b] sm:text-[18px] lg:text-[19px]">
@@ -272,37 +198,25 @@ const Footer = () => {
             <ul className="space-y-2.5">
 
               <li>
-                <a
-                  href="#"
-                  className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]"
-                >
+                <a href="#" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
                   Online Admission
                 </a>
               </li>
 
               <li>
-                <a
-                  href="#"
-                  className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]"
-                >
+                <a href="#" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
                   Examination
                 </a>
               </li>
 
               <li>
-                <a
-                  href="#"
-                  className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]"
-                >
+                <a href="#" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
                   Result
                 </a>
               </li>
 
               <li>
-                <a
-                  href="#"
-                  className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]"
-                >
+                <a href="#" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
                   Academic Calendar
                 </a>
               </li>
@@ -311,7 +225,7 @@ const Footer = () => {
 
           </div>
 
-          {/* Get In Touch */}
+          {/* get in touch */}
           <div className="col-span-2 sm:col-span-1">
 
             <h3 className="mb-4 text-[17px] font-bold text-[#18233b] sm:text-[18px] lg:text-[19px]">
@@ -320,30 +234,24 @@ const Footer = () => {
 
             <div className="space-y-3">
 
-              {/* Email */}
+              {/* email */}
               <div>
                 <p className="mb-1 text-[13px] text-gray-600 sm:text-[14px]">
                   Email:
                 </p>
 
-                <a
-                  href="mailto:info@gni.edu.in"
-                  className="break-all text-[13px] text-[#ff6b35] underline underline-offset-2 sm:text-[14px]"
-                >
+                <a href="mailto:info@gni.edu.in" className="break-all text-[13px] text-[#ff6b35] underline underline-offset-2 sm:text-[14px]">
                   info@gni.edu.in
                 </a>
               </div>
 
-              {/* Phone */}
+              {/* phone */}
               <div>
                 <p className="mb-1 text-[13px] text-gray-600 sm:text-[14px]">
                   Phone:
                 </p>
 
-                <a
-                  href="tel:+91989650140"
-                  className="text-[13px] text-[#ff6b35] underline underline-offset-2 sm:text-[14px]"
-                >
+                <a href="tel:+91989650140" className="text-[13px] text-[#ff6b35] underline underline-offset-2 sm:text-[14px]">
                   (+91) 98965-00140
                 </a>
 
@@ -353,7 +261,7 @@ const Footer = () => {
                 </span>
               </div>
 
-              {/* Address */}
+              {/* address */}
               <div>
                 <p className="mb-1 text-[13px] text-gray-600 sm:text-[14px]">
                   Address:
@@ -374,7 +282,7 @@ const Footer = () => {
 
       </div>
 
-      {/* Copyright */}
+      {/* copyright */}
       <div className="border-t border-gray-200">
 
         <div className="mx-auto max-w-7xl px-5 py-4 text-center sm:px-8 lg:px-10">

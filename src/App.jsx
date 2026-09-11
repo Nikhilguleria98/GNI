@@ -66,20 +66,7 @@ function App() {
     },
   ];
 
-  const recruiterData = [
-    "TCS",
-    "Infosys",
-    "Wipro",
-    "HCL",
-    "Chetu",
-    "IBM",
-    "Bajaj",
-    "HDFC",
-    "Genus",
-    "EduSkills",
-    "NASSCOM",
-    "Intellipaat",
-  ];
+  const recruiterData = ["TCS", "Infosys", "Wipro", "HCL", "Chetu", "IBM", "Bajaj", "HDFC", "Genus", "EduSkills", "NASSCOM", "Intellipaat"];
 
   const placementTestimonialsData = [
     {
@@ -110,75 +97,65 @@ function App() {
 
       <Routes>
 
-        {/* ================= HOME ================= */}
-        <Route
-          path="/"
-          element={
-            <>
-              <Hero />
-              <WhyChooseUsSection />
-              <StudyAtGniSection />
-              <TestimonialsSection />
-              <ApplyNowSection />
-            </>
-          }
+        {/* home */}
+        <Route path="/" element={
+          <>
+            <Hero />
+            <WhyChooseUsSection />
+            <StudyAtGniSection />
+            <TestimonialsSection />
+            <ApplyNowSection />
+          </>
+        }
         />
 
-        {/* ================= ABOUT ================= */}
-        <Route
-          path="/about"
-          element={
-            <>
-              <AboutHeroSection />
-              <AboutWelcomeSection />
-              <VisionMissionSection />
-              <ManagementSection />
-            </>
-          }
+        {/* about */}
+        <Route path="/about" element={
+          <>
+            <AboutHeroSection />
+            <AboutWelcomeSection />
+            <VisionMissionSection />
+            <ManagementSection />
+          </>
+        }
         />
 
-        {/* ================= PLACEMENTS ================= */}
-        <Route
-          path="/placements"
-          element={
-            <>
-              <PlacementHero data={placementData} />
+        {/* placements */}
+        <Route path="/placements" element={
+          <>
+            <PlacementHero data={placementData} />
 
-              <PlacementOverview />
+            <PlacementOverview />
 
-              <PlacementFaculty data={facultyData} />
+            <PlacementFaculty data={facultyData} />
 
-              <PlacementRecruiters data={recruiterData} />
+            <PlacementRecruiters data={recruiterData} />
 
-              <PlacementCTA />
+            <PlacementCTA />
 
-              <PlacementTestimonials data={placementTestimonialsData} />
-            </>
-          }
+            <PlacementTestimonials data={placementTestimonialsData} />
+          </>
+        }
         />
 
-        {/* ================= CAMPUS LIFE ================= */}
-        <Route
-          path="/campus-life"
-          element={
-            <>
-              <CampusHero />
-              <CampusGallery />
-            </>
-          }
+        {/* campus-life */}
+        <Route path="/campus-life" element={
+          <>
+            <CampusHero />
+            <CampusGallery />
+          </>
+        }
         />
 
-        {/* ================= CONTACT ================= */}
-        <Route
-          path="/contact"
-          element={
-            <>
-              <ContactHero />
-              <ContactFormSection />
-              <AdmissionHelpline />
-              <DepartmentContacts />
-            </>
-          }
+        {/* contact */}
+        <Route path="/contact" element={
+          <>
+            <ContactHero />
+            <ContactFormSection />
+            <AdmissionHelpline />
+            <DepartmentContacts />
+          </>
+        }
         />
 
       </Routes>

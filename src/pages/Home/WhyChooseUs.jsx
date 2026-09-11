@@ -28,17 +28,16 @@ const WhyChooseUs = () => {
     <section className="w-full bg-[#f4f7ff] py-14 sm:py-16 lg:py-20">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-10 px-5 sm:px-8 lg:flex-row lg:gap-14 lg:px-10">
 
-        {/* Left Content */}
+        {/* content */}
         <div className="w-full lg:w-1/2">
 
-          {/* Small Heading */}
+          {/* heading */}
           <div className="mb-3 flex items-center gap-2">
             <p className="text-[12px] font-bold tracking-[0.18em] text-[#ff6b35] sm:text-[13px] lg:text-[14px]">
               WHY CHOOSE US
             </p>
           </div>
 
-          {/* Main Heading */}
           <h2 className="max-w-xl text-[30px] font-bold leading-[1.15] text-[#18233b] sm:text-[38px] md:text-[42px] lg:text-[48px] xl:text-[50px]">
             Your Trusted Partner for{" "}
             <span className="text-[#ff6b35]">
@@ -46,7 +45,7 @@ const WhyChooseUs = () => {
             </span>
           </h2>
 
-          {/* Description */}
+          {/* description */}
           <p className="mt-5 max-w-xl text-[14px] leading-6 text-gray-600 sm:text-[15px] sm:leading-7 md:text-[17px] lg:text-[18px] lg:leading-7">
             At our company, we combine innovative technology, an experienced
             team, and a client-first approach to deliver exceptional digital
@@ -54,7 +53,7 @@ const WhyChooseUs = () => {
             impactful solutions that help your business grow.
           </p>
 
-          {/* Stats */}
+          {/* stats */}
           <div className="mt-8 grid grid-cols-2 gap-x-5 gap-y-7 sm:mt-10 sm:gap-x-8">
             {stats.map((stat, index) => {
               const Icon = stat.icon;
@@ -62,12 +61,12 @@ const WhyChooseUs = () => {
               return (
                 <div key={index} className="flex items-center gap-3">
 
-                  {/* Icon */}
+                  {/* icon */}
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center text-[24px] text-[#ff6b35]">
                     <Icon />
                   </div>
 
-                  {/* Number + Label */}
+                  {/* number & label */}
                   <div>
                     <h3 className="text-[20px] font-bold text-[#18233b] sm:text-[22px] lg:text-[24px]">
                       {stat.value}
@@ -83,14 +82,10 @@ const WhyChooseUs = () => {
           </div>
         </div>
 
-        {/* Right Image */}
+        {/* image */}
         <div className="w-full lg:w-1/2">
           <div className="relative overflow-hidden rounded-xl">
-            <img
-              src="/choose.png"
-              alt="Our company building"
-              className="h-[280px] w-full object-cover sm:h-[350px] lg:h-[370px]"
-            />
+            <img src="/choose.png" alt="Our company building" className="h-[280px] w-full object-cover sm:h-[350px] lg:h-[370px]" />
           </div>
         </div>
 
