@@ -5,7 +5,7 @@ import Footer from "./components/Footer/Footer";
 
 import Hero from "./pages/Home/Hero";
 import WhyChooseUsSection from "./pages/Home/WhyChooseUs";
-import StudyAtGniSection from "./pages/Home/StudyAtGNI";
+import StudyAtGniSection from "./pages/Home/StudyAtGni";
 import TestimonialsSection from "./pages/Home/Testimonials";
 import ApplyNowSection from "./pages/Home/ApplyNowSection";
 
@@ -18,9 +18,16 @@ import PlacementHero from "./pages/Placements/PlacementHero";
 import PlacementOverview from "./pages/Placements/PlacementOverview";
 import PlacementFaculty from "./pages/Placements/PlacementFaculty";
 import PlacementRecruiters from "./pages/Placements/PlacementRecruiters";
-import PlacementTestimonials from "./pages/Placements/PlacementTestimonials";
 import PlacementCTA from "./pages/Placements/PlacementCTA";
+import PlacementTestimonials from "./pages/Placements/PlacementTestimonials";
 
+import CampusHero from "./pages/CampusLife/CampusHero";
+import CampusGallery from "./pages/CampusLife/CampusGallery";
+
+import ContactHero from "./pages/Contact/ContactHero";
+import ContactFormSection from "./pages/Contact/Contact";
+import AdmissionHelpline from "./pages/Contact/AdmissionHelpline";
+import DepartmentContacts from "./pages/Contact/DepartmentContacts";
 
 function App() {
   const placementData = {
@@ -141,12 +148,35 @@ function App() {
 
               <PlacementFaculty data={facultyData} />
 
-              <PlacementTestimonials data={placementTestimonialsData} />
-
               <PlacementRecruiters data={recruiterData} />
 
               <PlacementCTA />
 
+              <PlacementTestimonials data={placementTestimonialsData} />
+            </>
+          }
+        />
+
+        {/* ================= CAMPUS LIFE ================= */}
+        <Route
+          path="/campus-life"
+          element={
+            <>
+              <CampusHero />
+              <CampusGallery />
+            </>
+          }
+        />
+
+        {/* ================= CONTACT ================= */}
+        <Route
+          path="/contact"
+          element={
+            <>
+              <ContactHero />
+              <ContactFormSection />
+              <AdmissionHelpline />
+              <DepartmentContacts />
             </>
           }
         />
