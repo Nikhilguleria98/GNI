@@ -9,6 +9,10 @@ import StudyAtGniSection from "./pages/Home/StudyAtGNI";
 import TestimonialsSection from "./pages/Home/Testimonials";
 import ApplyNowSection from "./pages/Home/ApplyNowSection";
 
+import ProgramsPage from "./pages/Programs/ProgramsPage";
+import ProgramDetailsPage from "./pages/Programs/ProgramDetailsPage";
+import ProgramsCTA from "./pages/Programs/ProgramsCTA";
+
 import AboutHeroSection from "./pages/About/AboutHero";
 import AboutWelcomeSection from "./pages/About/AboutWelcome";
 import VisionMissionSection from "./pages/About/VisionMission";
@@ -59,6 +63,9 @@ function App() {
           </>
         }
         />
+        <Route path="/programs" element={<><ProgramDetailsPage /><ProgramsCTA /></>} />
+        <Route path="/programs/:programSlug" element={<><ProgramDetailsPage /><ProgramsCTA /></>} />
+        <Route path="/programscta" element={<ProgramsCTA />} />
 
         {/* placements */}
         <Route path="/placements" element={
