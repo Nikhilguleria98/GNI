@@ -67,7 +67,7 @@ const PlacementRecruiters = ({ data }) => {
         </div>
 
         {/* logos */}
-        <div className="grid grid-cols-2 overflow-hidden rounded-lg border border-gray-200 bg-white sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+        <div className="grid grid-cols-2 overflow-hidden rounded-lg  bg-white sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
 
           {data.map((company, index) => (
             <div key={`${company}-${index}`} className="group flex min-h-[170px] items-center justify-center rounded-2xl gap-4 m-2 border border-gray-400 bg-white px-3 py-6 transition-all duration-300 hover:bg-gray-50 sm:min-h-[150px] sm:px-4 sm:py-5 md:min-h-[155px] lg:min-h-[160px]">
