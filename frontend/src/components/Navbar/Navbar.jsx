@@ -7,13 +7,13 @@ const Navbar = () => {
   const [isProgramsOpen, setIsProgramsOpen] = useState(false);
 
   const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About GNI", href: "/about" },
-  { name: "Programs", href: null },
-  { name: "Placements", href: "/placements" },
-  { name: "Campus Life", href: "/campus-life" },
-  { name: "Contact Us", href: "/contact" }
-];
+    { name: "Home", href: "/" },
+    { name: "About GNI", href: "/about" },
+    { name: "Programs", href: null },
+    { name: "Placements", href: "/placements" },
+    { name: "Campus Life", href: "/campus-life" },
+    { name: "Contact Us", href: "/contact" }
+  ];
 
   return (
     <>
@@ -37,12 +37,7 @@ const Navbar = () => {
 
               {navLinks.map((link) =>
                 link.name === "Programs" ? (
-                  <button
-                    key={link.name}
-                    type="button"
-                    onClick={() => setIsProgramsOpen(true)}
-                    className="relative whitespace-nowrap py-2 text-left text-[14px] font-medium text-[#171717] transition-colors duration-300 hover:text-[#f85b0b] xl:text-[15px] 2xl:text-[16px] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:rounded-full after:bg-[#f85b0b] after:transition-all after:duration-300 hover:after:w-full"
-                  >
+                  <button key={link.name} type="button" onClick={() => setIsProgramsOpen(true)} className="relative whitespace-nowrap py-2 text-left text-[14px] font-medium text-[#171717] transition-colors duration-300 hover:text-[#f85b0b] xl:text-[15px] 2xl:text-[16px] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:rounded-full after:bg-[#f85b0b] after:transition-all after:duration-300 hover:after:w-full">
                     {link.name}
                   </button>
                 ) : (
@@ -82,30 +77,17 @@ const Navbar = () => {
             <div className="flex flex-col">
 
               {navLinks.map((link) =>
-  link.name === "Programs" ? (
-    <button
-      key={link.name}
-      type="button"
-      onClick={() => {
-        setIsOpen(false);
-        setIsProgramsOpen(true);
-      }}
-      className="rounded-md px-3 py-2.5 text-left text-[15px] font-medium text-[#171717] transition-colors hover:bg-orange-50 hover:text-[#f85b0b] sm:text-[16px]"
-    >
-      Programs
-    </button>
-  ) : (
-    <a
-      key={link.name}
-      href={link.href}
-      onClick={() => setIsOpen(false)}
-      className="rounded-md px-3 py-2.5 text-[15px] font-medium text-[#171717] transition-colors hover:bg-orange-50 hover:text-[#f85b0b] sm:text-[16px]"
-    >
-      {link.name}
-    </a>
-  )
-)}
-  
+                link.name === "Programs" ? (
+                  <button key={link.name} type="button" onClick={() => { setIsOpen(false); setIsProgramsOpen(true); }} className="rounded-md px-3 py-2.5 text-left text-[15px] font-medium text-[#171717] transition-colors hover:bg-orange-50 hover:text-[#f85b0b] sm:text-[16px]">
+                    Programs
+                  </button>
+                ) : (
+                  <a key={link.name} href={link.href} onClick={() => setIsOpen(false)} className="rounded-md px-3 py-2.5 text-[15px] font-medium text-[#171717] transition-colors hover:bg-orange-50 hover:text-[#f85b0b] sm:text-[16px]">
+                    {link.name}
+                  </a>
+                )
+              )}
+
 
               {/* mobile apply now */}
               <button type="button" onClick={() => { setIsOpen(false); setIsApplyOpen(true) }} className="mt-3 w-full rounded-[4px] bg-[#f85b0b] py-2.5 text-[15px] font-bold text-white transition-all duration-300 hover:bg-[#dc4e08]">
@@ -125,10 +107,7 @@ const Navbar = () => {
 
       {/* apply now form */}
       <ApplyNowForm isOpen={isApplyOpen} onClose={() => setIsApplyOpen(false)} />
-      <ProgramsSlider
-           isOpen={isProgramsOpen}
-          onClose={() => setIsProgramsOpen(false)}
-      />
+      <ProgramsSlider isOpen={isProgramsOpen} onClose={() => setIsProgramsOpen(false)} />
     </>
   );
 };

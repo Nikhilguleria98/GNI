@@ -82,9 +82,9 @@ function App() {
             <PlacementHero data={placementData} />
             <PlacementOverview />
             <PlacementFaculty data={facultyData} />
+            <PlacementTestimonials data={placementTestimonialsData} />
             <PlacementRecruiters data={recruiterData} />
             <PlacementCTA />
-            <PlacementTestimonials data={placementTestimonialsData} />
           </>
         }
         />
