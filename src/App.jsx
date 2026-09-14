@@ -11,6 +11,10 @@ import ApplyNowSection from "./pages/Home/ApplyNowSection";
 
 import ProgramsPage from "./pages/Programs/ProgramsPage";
 import ProgramDetailsPage from "./pages/Programs/ProgramDetailsPage";
+import ProgramFaculty from "./pages/Programs/ProgramFaculty";
+import ProgramTestimonial from "./pages/Programs/ProgramTestinomial";
+import ProgramRecruiters from "./pages/Programs/ProgramRecruiters";
+import ProgramInfrastructure from "./pages/Programs/ProgramInfrastructure";
 import ProgramsCTA from "./pages/Programs/ProgramsCTA";
 
 import AboutHeroSection from "./pages/About/AboutHero";
@@ -63,9 +67,14 @@ function App() {
           </>
         }
         />
-        <Route path="/programs" element={<><ProgramDetailsPage /><ProgramsCTA /></>} />
-        <Route path="/programs/:programSlug" element={<><ProgramDetailsPage /><ProgramsCTA /></>} />
+        {/* programs */}
+        <Route path="/programs" element={<><ProgramDetailsPage /><ProgramFaculty data={facultyData} /><ProgramTestimonial data={placementTestimonialsData} /><ProgramRecruiters data={recruiterData} /><ProgramInfrastructure /><ProgramsCTA /></>} />
+        <Route path="/programs/:programSlug" element={<><ProgramDetailsPage /><ProgramFaculty data={facultyData} /><ProgramTestimonial data={placementTestimonialsData} /><ProgramRecruiters data={recruiterData} /><ProgramInfrastructure /><ProgramsCTA /></>} />
+        <Route path="/programfaculty" element={<ProgramFaculty data={facultyData} />} />
+        <Route path="/programTestinomial" element={<ProgramTestimonial data={placementTestimonialsData} />} />
+        <Route path="/programs/:programSlug" element={<ProgramInfrastructure />} />
         <Route path="/programscta" element={<ProgramsCTA />} />
+
 
         {/* placements */}
         <Route path="/placements" element={
