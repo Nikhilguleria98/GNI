@@ -6,10 +6,11 @@ const AboutHeroSection = () => {
       variant="about"
       image="/contact.png"
       title="About"
-      titleHighlight="Jindal's Guru Nanak"
+      titleHighlight="Jindal's Guru Nanak Institutions, Mullana"
       subtitle="Inspiring Learning, Shaping Futures"
-      description="GNI is a leading educational institution committed to providing quality education and developing students into skilled, confident and responsible professionals. We believe in creating an environment where students can learn, grow and achieve their goals."
-      secondaryDescription="Our programs help students achieve academic excellence, professional knowledge and practical experience."
+      description="Dronacharya PG College of Education, Rait, established in 2006, is a NAAC-accredited 
+      institution affiliated with Himachal Pradesh University. We provide quality education, experienced 
+      faculty, and career-focused programs to help students achieve academic and professional excellence."
     />
   );
 };

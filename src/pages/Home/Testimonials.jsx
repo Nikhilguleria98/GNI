@@ -42,26 +42,30 @@ export default function TestimonialsSection() {
       {/* heading */}
       <div className="mb-8 text-center sm:mb-10">
         <div className="group inline-block">
+
           <h2 className="text-[20px] font-bold tracking-wide text-[#f97316] sm:text-[22px] md:text-[24px] lg:text-[25px]">
             TESTIMONIALS
           </h2>
 
           <div className="mt-1.5 h-[2px] w-full origin-left scale-x-0 bg-[#f97316] transition-transform duration-700 ease-out group-hover:scale-x-100" />
+
         </div>
       </div>
 
       {/* testimonials */}
       <div className="mx-auto w-full max-w-[1100px]">
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+        <div className="grid min-w-0 grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
           {testimonials.map((testimonial, index) => {
             const isActive = activeIndex === index;
 
             return (
-              <article key={testimonial.id} onClick={() => handleCardClick(index)} className={`group cursor-pointer rounded-[16px] border border-[#ff7a00] bg-[#eef2ff] px-5 pb-5 pt-3 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(0,0,0,0.08)] sm:px-5 md:px-6 lg:px-5 ${isActive ? "shadow-[0_5px_15px_rgba(255,122,0,0.08)]" : ""}`}>
+              <article key={testimonial.id} onClick={() => handleCardClick(index)} className={`group min-w-0 cursor-pointer rounded-[16px] border border-[#ff7a00] bg-[#eef2ff] px-5 pb-5 pt-3 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(0,0,0,0.08)] sm:px-5 md:px-6 lg:px-5 ${isActive ? "shadow-[0_5px_15px_rgba(255,122,0,0.08)]" : ""}`}>
 
                 {/* profile image */}
                 <div className="mx-auto mb-3 h-[82px] w-[82px] overflow-hidden rounded-full sm:h-[88px] sm:w-[88px]">
-                  <img src={testimonial.image} alt={testimonial.name} width="100" height="100" className="h-full w-full object-cover" />
+                  <img src={testimonial.image} alt={testimonial.name} width="100" height="100" className="block h-full w-full object-cover" />
                 </div>
 
                 {/* name */}
@@ -77,13 +81,14 @@ export default function TestimonialsSection() {
                 </div>
 
                 {/* review */}
-                <p className="mx-auto mt-4 max-w-[320px] font-serif text-[14px] leading-[1.6] text-[#333] sm:text-[15px] md:text-[16px] lg:text-[17px]">
+                <p className="mx-auto mt-4 max-w-[320px] break-words font-serif text-[14px] leading-[1.6] text-[#333] sm:text-[15px] md:text-[16px] lg:text-[17px]">
                   “{testimonial.text}”
                 </p>
 
               </article>
             );
           })}
+
         </div>
       </div>
 

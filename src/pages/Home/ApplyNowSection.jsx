@@ -2,17 +2,17 @@ const ApplyNowSection = () => {
   return (
     <section className="relative w-full overflow-hidden bg-cover bg-center bg-no-repeat py-12 sm:py-14 md:py-16 lg:py-20" style={{ backgroundImage: "url('/banner.png')" }}>
 
-      {/* dark overlay */}
+      {/* overlay */}
       <div className="absolute inset-0 bg-black/55" />
 
       {/* content */}
-      <div className="relative z-10 mx-auto flex min-h-[170px] max-w-4xl flex-col items-center justify-center px-5 text-center sm:min-h-[190px] sm:px-8 md:min-h-[210px] lg:min-h-[230px] lg:px-10">
+      <div className="relative z-10 mx-auto flex min-h-[170px] w-full max-w-4xl flex-col items-center justify-center px-5 text-center sm:min-h-[190px] sm:px-8 md:min-h-[210px] lg:min-h-[230px] lg:px-10">
 
         {/* heading */}
         <h2 className="max-w-[850px] text-[30px] font-bold leading-[1.15] text-white sm:text-[38px] md:text-[42px] lg:text-[48px] xl:text-[50px]">
           Your Future with Great Teachers
           <br />
-          Meet Them on Dolan
+          Meet Them on Olan
         </h2>
 
         {/* description */}

@@ -3,19 +3,19 @@ import { FaCogs, FaSun, FaCapsules, FaArrowRight } from "react-icons/fa";
 const programs = [
   {
     title: "Engineering",
-    description: "B.E. in Engineering provides students with strong technical knowledge and practical experience.",
-    icon: <FaCogs />
+    description: "GNI Engineering provides students with extraordinary learning opportunities.",
+    icon: <FaCogs />,
   },
   {
     title: "Management",
-    description: "Management programs help students build leadership, business and professional management skills.",
-    icon: <FaSun />
+    description: "Management programs help business executives build valuable skills, to leverage new opportunities.",
+    icon: <FaSun />,
   },
   {
     title: "Pharmacy",
-    description: "Modern pharmacy teaching with strong practical knowledge and professional experience.",
-    icon: <FaCapsules />
-  }
+    description: "Modern research facilities with cutting edge technology and faculty with extensive research.",
+    icon: <FaCapsules />,
+  },
 ];
 
 const recruiters = ["/intel.png", "/hp.png", "/manpower.png", "/ranbaxy.png", "/sap.png", "/intel.png"];
@@ -45,14 +45,13 @@ const events = [
 
 const StudyAtGniSection = () => {
   return (
-    <section className="w-full bg-white">
+    <section className="w-full overflow-hidden bg-white">
 
       {/* study at gni */}
-      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-14 lg:px-10 lg:py-16">
+      <div className="mx-auto w-full max-w-7xl px-5 py-12 sm:px-8 sm:py-14 lg:px-10 lg:py-16">
 
         {/* heading */}
         <div className="text-center">
-
           <div className="group inline-block cursor-pointer">
 
             <h2 className="text-[30px] font-extrabold tracking-wide text-[#18233b] sm:text-[38px] md:text-[42px] lg:text-[48px] xl:text-[50px]">
@@ -64,40 +63,42 @@ const StudyAtGniSection = () => {
           </div>
 
           <p className="mx-auto mt-6 max-w-5xl text-[14px] leading-6 text-gray-600 sm:text-[15px] sm:leading-7 md:text-[17px] lg:text-[18px] lg:leading-7">
-            Since years back when we took it, it was a humble beginning,
-            and one thing that has kept us moving is INSPIRATION from
-            students, from their dreams and aspirations. We believe that
-            our students are the foundation of our success.
+            Sixteen years back when we took off, it was a humble beginning.
+            And one thing that has kept us moving is INSPIRATION: From life,
+            from each other and from every little milestone that we have
+            achieved. And today, after a rigorous journey, we have carved a
+            niche for ourselves by becoming the most preferred institute in
+            the region.
           </p>
-
         </div>
 
         {/* programs */}
         <div className="mt-9 grid overflow-hidden rounded-md md:grid-cols-2 lg:grid-cols-4">
 
           {/* intro card */}
-          <div className="bg-[#ff5b00] p-6 text-white sm:p-7 lg:p-6">
+          <div className="min-w-0 bg-[#ff5b00] p-6 text-white sm:p-7 lg:p-6">
 
             <h3 className="text-[15px] font-bold sm:text-[16px] lg:text-[17px]">
               Programs Offered
             </h3>
 
             <p className="mt-3 text-[13px] leading-5 sm:text-[14px] sm:leading-6 lg:text-[15px]">
-              GNI provides students with a wide range of programs designed
-              to develop professional knowledge, practical skills and
-              career opportunities for their bright future.
+              GNI Programmes are challenging and intensive: we expect a lot
+              from our graduate & post-graduate students. Our approach to
+              graduate & post-graduate study emphasises your ability to work
+              independently, while supported by a world-class academic
+              community.
             </p>
 
             <p className="mt-3 text-[13px] leading-5 sm:text-[14px] lg:text-[15px]">
-              Explore our academic programs and discover your path to
-              success.
+              Explore our academic programs and discover your path to success.
             </p>
 
           </div>
 
           {/* program cards */}
           {programs.map((program, index) => (
-            <div key={program.title} className={`flex min-h-[220px] flex-col justify-center p-6 text-white sm:p-7 lg:min-h-[225px] lg:p-6 ${index === 0 ? "bg-[#858383]" : index === 1 ? "bg-[#6d6d6d]" : "bg-[#4d4d4d]"}`}>
+            <div key={program.title} className={`flex min-h-[220px] min-w-0 flex-col justify-center p-6 text-white sm:p-7 lg:min-h-[225px] lg:p-6 ${index === 0 ? "bg-[#858383]" : index === 1 ? "bg-[#6d6d6d]" : "bg-[#4d4d4d]"}`}>
 
               {/* icon */}
               <div className="mb-5 text-[34px] font-light text-white sm:text-[38px] md:text-[40px]">
@@ -118,21 +119,20 @@ const StudyAtGniSection = () => {
           ))}
 
         </div>
-
       </div>
 
-      {/* placement recruiters */}
+      {/* placement & recruiters */}
       <div className="w-full bg-[#f5f5f5]">
 
-        <div className="mx-auto grid max-w-7xl lg:grid-cols-2">
+        <div className="mx-auto grid min-w-0 max-w-7xl lg:grid-cols-2">
 
           {/* placements */}
-          <div className="px-5 py-10 sm:px-8 sm:py-12 lg:px-10 lg:py-12">
+          <div className="min-w-0 px-5 py-10 sm:px-8 sm:py-12 lg:px-10 lg:py-12">
 
             {/* heading & stats */}
-            <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+            <div className="flex min-w-0 flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
 
-              <div>
+              <div className="min-w-0">
                 <h3 className="text-[14px] font-extrabold tracking-[0.12em] text-[#ff5b00] sm:text-[15px] md:text-[16px]">
                   PLACEMENTS
                 </h3>
@@ -155,16 +155,18 @@ const StudyAtGniSection = () => {
             {/* divider */}
             <div className="my-6 h-px w-full bg-gray-300" />
 
-            {/* placement content */}
-            <div className="flex gap-5">
+            {/* content */}
+            <div className="flex min-w-0 gap-5">
 
-              <div className="flex-1">
+              <div className="min-w-0 flex-1">
 
                 <p className="text-[14px] leading-[1.65] text-gray-600 sm:text-[15px] sm:leading-[1.7] md:text-[16px]">
-                  Guru Nanak Institutions has been a great contributor to
-                  the development of any personality. We have empowered
-                  our leadership, skill development and helped students
-                  excel and gain confidence to enter the corporate world.
+                  Guru Nanak Institutions has been a great contributor to the
+                  development of my personality. I have established my
+                  leadership, time management and team skills and have also
+                  been able to advance these skills to the whole new augment
+                  level. The infrastructure of GNI is one of the finest in the
+                  NCR region is what stands out the most.
                 </p>
 
                 <p className="mt-5 text-[14px] font-bold text-[#ff5b00] sm:text-[15px] md:text-[16px]">
@@ -182,7 +184,7 @@ const StudyAtGniSection = () => {
 
               </div>
 
-              {/* student image */}
+              {/* studet image */}
               <div className="hidden w-[100px] shrink-0 sm:block sm:w-[115px]">
                 <div className="relative h-[145px] w-full overflow-hidden">
                   <img src="/placement.png" alt="GNI student" className="absolute inset-0 h-full w-full object-cover" />
@@ -194,16 +196,16 @@ const StudyAtGniSection = () => {
           </div>
 
           {/* recruiters */}
-          <div className="bg-[#dedede] px-5 py-10 sm:px-8 sm:py-12 lg:px-10 lg:py-12">
+          <div className="min-w-0 bg-[#dedede] px-5 py-10 sm:px-8 sm:py-12 lg:px-10 lg:py-12">
 
             <h3 className="text-[14px] font-extrabold tracking-[0.12em] text-[#ff5b00] sm:text-[15px] md:text-[16px]">
               RECRUITERS
             </h3>
 
-            {/* recruiter stats */}
+            {/* stats */}
             <div className="mt-3 grid grid-cols-2 gap-5">
 
-              <div>
+              <div className="min-w-0">
                 <p className="text-[30px] font-extrabold leading-none text-[#111] sm:text-[35px] md:text-[38px]">
                   250+
                 </p>
@@ -213,7 +215,7 @@ const StudyAtGniSection = () => {
                 </p>
               </div>
 
-              <div>
+              <div className="min-w-0">
                 <p className="text-[30px] font-extrabold leading-none text-[#111] sm:text-[35px] md:text-[38px]">
                   20+
                 </p>
@@ -225,12 +227,12 @@ const StudyAtGniSection = () => {
 
             </div>
 
-            {/* recruiter logos */}
+            {/* logos */}
             <div className="mt-7 grid grid-cols-2 gap-x-2 gap-y-2 sm:gap-x-3 sm:gap-y-3">
 
               {recruiters.map((logo, index) => (
-                <div key={index} className="group flex h-[82px] w-full items-center justify-center overflow-hidden rounded-sm bg-white px-2 py-2 transition-all duration-300 hover:shadow-md sm:h-[92px] sm:px-3">
-                  <img src={logo} alt="Recruiter company" width="160" height="75" className="h-auto w-auto max-h-[55px] max-w-[145px] object-contain transition-transform duration-300 ease-out group-hover:scale-105 sm:max-h-[62px] sm:max-w-[160px]" />
+                <div key={index} className="group flex h-[82px] w-full min-w-0 items-center justify-center overflow-hidden rounded-sm bg-white px-2 py-2 transition-all duration-300 hover:shadow-md sm:h-[92px] sm:px-3">
+                  <img src={logo} alt="Recruiter company" width="160" height="75" className="h-auto w-auto max-h-[55px] max-w-full object-contain transition-transform duration-300 ease-out group-hover:scale-105 sm:max-h-[62px] sm:max-w-[160px]" />
                 </div>
               ))}
 
@@ -244,21 +246,20 @@ const StudyAtGniSection = () => {
           </div>
 
         </div>
-
       </div>
 
       {/* latest updates and events */}
-      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-14 lg:px-10 lg:py-16">
+      <div className="mx-auto w-full max-w-7xl px-5 py-12 sm:px-8 sm:py-14 lg:px-10 lg:py-16">
 
         {/* header */}
-        <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex min-w-0 flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
 
           <h2 className="text-[20px] font-extrabold tracking-wide text-[#18233b] sm:text-[22px] md:text-[24px] lg:text-[25px]">
             LATEST UPDATES{" "}
             <span className="text-[#ff5b00]">&amp; EVENTS</span>
           </h2>
 
-          <div className="flex flex-col items-start gap-2 sm:items-end">
+          <div className="flex min-w-0 flex-col items-start gap-2 sm:items-end">
 
             <p className="max-w-[310px] text-[12px] leading-5 text-gray-500 sm:text-right sm:text-[13px] md:text-[14px]">
               Stay updated with the latest college news, academic
@@ -274,10 +275,10 @@ const StudyAtGniSection = () => {
         </div>
 
         {/* events */}
-        <div className="mt-7 grid gap-4 lg:grid-cols-[1.05fr_1.5fr]">
+        <div className="mt-7 grid min-w-0 gap-4 lg:grid-cols-[1.05fr_1.5fr]">
 
           {/* featured event */}
-          <article className="group relative min-h-[300px] overflow-hidden rounded-xl sm:min-h-[340px] lg:min-h-[380px]">
+          <article className="group relative min-h-[300px] min-w-0 overflow-hidden rounded-xl sm:min-h-[340px] lg:min-h-[380px]">
 
             <img src="/latest-event.png" alt="Latest GNI event" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
 
@@ -309,10 +310,10 @@ const StudyAtGniSection = () => {
           </article>
 
           {/* event cards */}
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid min-w-0 gap-4 sm:grid-cols-2">
 
             {events.map((event, index) => (
-              <article key={index} className="rounded-xl border border-[#b8c1d4] bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-5">
+              <article key={index} className="min-w-0 rounded-xl border border-[#b8c1d4] bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-5">
 
                 <p className="text-[11px] font-medium uppercase tracking-wide text-gray-400 sm:text-[12px] md:text-[13px]">
                   {event.date}
