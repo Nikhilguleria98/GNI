@@ -1,11 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { FiCheckCircle, FiArrowRight } from "react-icons/fi";
-import {
-  programCatalog,
-  programs,
-  programData,
-  whyChooseData,
-} from "./programCatalog";
+import {programCatalog,programs,programData,whyChooseData} from "./programCatalog";
 const ProgramDetailsPage = () => {
   const { programSlug } = useParams();
   const program =

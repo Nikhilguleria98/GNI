@@ -7,7 +7,7 @@ export const programCatalog = [
     description:
       "Build a strong foundation in engineering through industry-focused learning,practical experience, and cutting-edge technology to become  a future ready profession.",
     sectionTitle: "Engineering Programs",
-    sectionDescription:
+    sectionDescription:  
       "Guru Nanak Institutions offers comprehensive B.Tech programs across leading engineering disciplines, including Computer Science, Electronics, Civil, and Mechanical Engineering.",
     btechPrograms: [
       "Computer Science & Engineering (CSE)",
