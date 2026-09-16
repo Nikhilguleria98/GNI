@@ -1,42 +1,30 @@
 import { useState } from "react";
 import { FiClock, FiMapPin, FiMail, FiPhone, FiSend, FiCheckCircle, FiUser, FiBookOpen, FiArrowRight } from "react-icons/fi";
 
+const fields = {
+    name: { label: "Full Name", icon: FiUser, placeholder: "Your name", required: true },
+    email: { label: "Email Address", icon: FiMail, placeholder: "Your email", required: true },
+    phone: { label: "Phone Number", icon: FiPhone, placeholder: "Your phone number (optional)" },
+    subject: { label: "Subject", icon: FiBookOpen, placeholder: "Please enter your subject", required: true },
+};
+
 export default function ContactFormSection() {
     const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: ""
+        name: "", email: "", phone: "", subject: "", message: "",
     });
-
     const [submitted, setSubmitted] = useState(false);
     const [activeField, setActiveField] = useState("");
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-
-        setFormData((prev) => ({
-            ...prev,
-            [name]: value,
-        }));
-
+        setFormData((p) => ({ ...p, [e.target.name]: e.target.value }));
         setSubmitted(false);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
         setSubmitted(true);
         setActiveField("success");
-
-        setFormData({
-            name: "",
-            email: "",
-            phone: "",
-            subject: "",
-            message: ""
-        });
+        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
 
         setTimeout(() => {
             setSubmitted(false);
@@ -44,505 +32,500 @@ export default function ContactFormSection() {
         }, 3000);
     };
 
-    const isActive = (field) => activeField === field;
+    const active = (name) => activeField === name;
+
+    const Field = ({ name }) => {
+        const f = fields[name];
+        const Icon = f.icon;
+
+        return (
+            <div>
+                <label htmlFor={name} className="mb-1.5 block text-[12px] font-semibold text-gray-700 sm:text-[13px] md:text-[14px]">
+                    {f.label} {f.required && <span className="text-red-500">*</span>}
+                </label>
+
+                <div className="relative">
+                    <Icon size={16} className={`absolute left-3 top-1/2 -translate-y-1/2 ${active(name) ? "text-orange-500" : "text-gray-400"}`} />
+
+                    <input id={name} name={name} type={name === "email" ? "email" : name === "phone" ? "tel" : "text"} value={formData[name]} onChange={handleChange} onFocus={() => setActiveField(name)} onBlur={() => setActiveField("")} placeholder={f.placeholder} required={f.required} className="h-10 w-full rounded-md border border-gray-200 pl-9 pr-3 text-[12px] outline-none transition placeholder:text-gray-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-100 sm:h-11 sm:text-[13px] md:text-[14px]" />
+                </div>
+            </div>
+        );
+    };
+
+    const status = activeField === "success" ? "Message successfully connected" : activeField === "name" ? "Student profile initiated" : activeField === "email" ? "Email connection active" : activeField === "phone" ? "Phone connection active" : activeField === "subject" ? "Inquiry channel activated" : activeField === "message" ? "Message ready to send" : "Your connection starts here";
 
     return (
-        <section className="bg-white px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+        <section className="gni-contact-section gni-contact-3d bg-white px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
             <div className="mx-auto max-w-6xl">
 
-                {/* contact card */}
-                <div className="grid overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm lg:grid-cols-2">
+                <div className="grid overflow-hidden rounded-[8px] border border-gray-200 bg-white shadow-sm lg:grid-cols-2">
 
-                    {/* left side */}
+                    {/* left */}
                     <div className="border-b border-gray-200 p-5 sm:p-7 lg:border-b-0 lg:border-r lg:p-8">
-
-                        {/* heading */}
                         <div className="group w-fit">
                             <h2 className="text-[24px] font-bold leading-tight text-gray-900 sm:text-[30px] md:text-[34px] lg:text-[36px]">
                                 Contact Us
                             </h2>
-
-                            <div className="mt-2 h-[3px] w-0 overflow-hidden rounded-full transition-all duration-500 ease-out group-hover:w-full">
-                                <div className="h-full w-full rounded-full bg-orange-500" />
-                            </div>
+                            <div className="mt-2 h-[3px] w-0 rounded-full bg-orange-500 transition-all duration-500 group-hover:w-full" />
                         </div>
 
+                        {/* network */}
+                        <div className="gni-contact-network relative mt-7 mb-8 h-[300px] overflow-hidden rounded-2xl border border-orange-100 bg-[#fffaf5]">
+                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(249,115,22,0.10),transparent_50%)]" />
 
-                        {/* message orbit */}
-                        <div className="relative mt-7 mb-8 h-[300px] overflow-hidden rounded-2xl border border-orange-100 bg-[#fffaf5]">
+                            <div className="absolute inset-0 opacity-[0.22]" style={{ backgroundImage: "linear-gradient(rgba(249,115,22,0.08) 1px, transparent 1px),linear-gradient(90deg,rgba(249,115,22,0.08) 1px,transparent 1px)", backgroundSize: "26px 26px" }} />
 
-                            {/* background grid */}
-                            <div className="pointer-events-none absolute inset-0 opacity-30" style={{ backgroundImage: "linear-gradient(rgba(249,115,22,0.10) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.10) 1px, transparent 1px)", backgroundSize: "25px 25px" }} />
+                            <div className="gni-network-stage">
+                                {[
+                                    ["top", "down"],
+                                    ["bottom", "up"],
+                                    ["left", "right"],
+                                    ["right", "left"],
+                                ].map(([side, direction]) => (
+                                    <div key={side} className={`gni-connection gni-connection-${side}`}>
+                                        <span className={`gni-moving-dot gni-dot-${direction}`} />
+                                    </div>
+                                ))}
 
-                            {/* background glow */}
-                            <div className="absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-200/20 blur-3xl" />
+                                <div className="gni-soft-ring gni-soft-ring-one" />
+                                <div className="gni-soft-ring gni-soft-ring-two" />
 
+                                <div className="gni-network-center">
+                                    <div className={`gni-center-wave ${activeField ? "gni-center-wave-active" : ""}`} />
 
-                            {/* floating particles */}
-                            <span className="absolute left-[12%] top-[18%] h-1.5 w-1.5 rounded-full bg-orange-400 animate-[floatOne_4s_ease-in-out_infinite]" />
-
-                            <span className="absolute right-[15%] top-[25%] h-1 w-1 rounded-full bg-orange-300 animate-[floatTwo_3s_ease-in-out_infinite]" />
-
-                            <span className="absolute left-[20%] bottom-[22%] h-1 w-1 rounded-full bg-orange-300 animate-[floatTwo_4s_ease-in-out_infinite]" />
-
-                            <span className="absolute right-[25%] bottom-[17%] h-1.5 w-1.5 rounded-full bg-orange-400 animate-[floatOne_3.5s_ease-in-out_infinite]" />
-
-
-                            {/* outer orbit */}
-                            <div className="absolute left-1/2 top-1/2 h-[225px] w-[225px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-orange-200/70">
-
-                                {/* rotating dashed ring */}
-                                <div className="absolute inset-[-8px] rounded-full border border-dashed border-orange-200/60 animate-[orbitRotate_18s_linear_infinite]" />
-
-                                {/* moving orbit dot */}
-                                <div className="absolute left-1/2 top-[-4px] h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-orange-500 shadow-[0_0_12px_rgba(249,115,22,0.7)] animate-[orbitDot_6s_linear_infinite]" />
-
-                            </div>
-
-
-                            {/* inner orbit */}
-                            <div className="absolute left-1/2 top-1/2 h-[155px] w-[155px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-orange-100">
-
-                                <div className="absolute inset-[-5px] rounded-full border border-orange-100/60 animate-[orbitRotateReverse_14s_linear_infinite]" />
-
-                            </div>
-
-
-                            {/* central gni */}
-                            <div className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2">
-
-                                {/* central glow */}
-                                <div className={`absolute inset-[-18px] rounded-full transition-all duration-700 ${activeField === "success" ? "bg-green-400/20" : activeField ? "bg-orange-400/20" : "bg-orange-300/10"}`} />
-
-                                {/* gni circle */}
-                                <div className={`relative flex h-[78px] w-[78px] items-center justify-center rounded-full border-[3px] bg-white shadow-xl transition-all duration-700 ${activeField === "success" ? "border-green-500" : activeField ? "border-orange-500" : "border-orange-200"}`}>
-
-                                    <div className={`flex h-[58px] w-[58px] items-center justify-center rounded-full text-white transition-all duration-500 ${activeField === "success" ? "bg-green-500" : "bg-orange-500"}`}>
-
+                                    <div className={`gni-center-circle ${activeField === "success" ? "gni-center-success" : ""}`}>
                                         {activeField === "success" ? (
-                                            <FiCheckCircle size={26} className="animate-[successScale_0.6s_ease-out]" />
+                                            <FiCheckCircle size={28} className="gni-success-icon" />
                                         ) : (
                                             <div className="text-center">
-                                                <p className="text-[14px] font-bold tracking-wide">
-                                                    GNI
-                                                </p>
-
-                                                <p className="text-[6px] font-medium tracking-[2px] text-white/80">
+                                                <div className="text-[17px] font-bold leading-none">GNI</div>
+                                                <div className="mt-1 text-[6px] font-semibold tracking-[2px] text-white/80">
                                                     CONNECT
-                                                </p>
+                                                </div>
                                             </div>
                                         )}
-
                                     </div>
-
                                 </div>
 
+                                <Node position="top" icon={<FiBookOpen size={18} />} text="Inquiry" active={active("subject") || active("message")} />
+
+                                <Node position="left" icon={<FiUser size={18} />} text="Student" active={active("name")} />
+
+                                <Node position="right" icon={active("phone") ? <FiPhone size={18} /> : <FiMail size={18} />} text="Connect" active={active("email") || active("phone")} />
+
+                                <Node position="bottom" icon={<FiSend size={18} />} text="Send" success={activeField === "success"} />
                             </div>
 
-
-                            {/* top node - inquiry */}
-                            <div className={`absolute left-1/2 top-[8px] z-10 -translate-x-1/2 transition-all duration-500 ${isActive("subject") || isActive("message") ? "scale-110" : "scale-100"}`}>
-
-                                <div className={`flex h-10 w-10 items-center justify-center rounded-full border bg-white shadow-md transition-all duration-500 ${isActive("subject") || isActive("message") ? "border-orange-500 bg-orange-500 text-white shadow-orange-200" : "border-gray-200 text-gray-400"}`}>
-                                    <FiBookOpen size={17} />
+                            <div className="gni-network-status">
+                                <div className="gni-status-inner">
+                                    <div className="flex min-w-0 flex-1 items-center gap-2">
+                                        <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${activeField === "success" ? "bg-green-500" : activeField ? "animate-pulse bg-orange-500" : "bg-orange-300"}`} />
+                                        <span className="truncate text-[9px] font-medium text-gray-500 sm:text-[10px]">
+                                            {status}
+                                        </span>
+                                    </div>
+                                    <FiArrowRight size={13} className="ml-2 text-orange-400" />
                                 </div>
-
-                                <p className="mt-1 text-center text-[8px] font-semibold uppercase tracking-wide text-gray-400">
-                                    Inquiry
-                                </p>
-
                             </div>
-
-
-                            {/* left node - student */}
-                            <div className={`absolute left-[8%] top-1/2 z-10 -translate-y-1/2 transition-all duration-500 ${isActive("name") ? "scale-110" : "scale-100"}`}>
-
-                                <div className={`flex h-10 w-10 items-center justify-center rounded-full border bg-white shadow-md transition-all duration-500 ${isActive("name") ? "border-orange-500 bg-orange-500 text-white shadow-orange-200" : "border-gray-200 text-gray-400"}`}>
-                                    <FiUser size={17} />
-                                </div>
-
-                                <p className="mt-1 text-center text-[8px] font-semibold uppercase tracking-wide text-gray-400">
-                                    Student
-                                </p>
-
-                            </div>
-
-                            {/* right node - connect */}
-                            <div className={`absolute right-[8%] top-1/2 z-10 -translate-y-1/2 transition-all duration-500 ${isActive("email") || isActive("phone") ? "scale-110" : "scale-100"}`}>
-
-                                <div className={`flex h-10 w-10 items-center justify-center rounded-full border bg-white shadow-md transition-all duration-500 ${isActive("email") || isActive("phone") ? "border-orange-500 bg-orange-500 text-white shadow-orange-200" : "border-gray-200 text-gray-400"}`}>
-
-                                    {isActive("phone") ? (
-                                        <FiPhone size={17} />
-                                    ) : (
-                                        <FiMail size={17} />
-                                    )}
-
-                                </div>
-
-                                <p className="mt-1 text-center text-[8px] font-semibold uppercase tracking-wide text-gray-400">
-                                    Connect
-                                </p>
-
-                            </div>
-
-
-                            {/* bottom node - send */}
-                            <div className={`absolute bottom-[7px] left-1/2 z-10 -translate-x-1/2 transition-all duration-500 ${activeField === "success" ? "scale-110" : "scale-100"}`}>
-
-                                <div className={`flex h-10 w-10 items-center justify-center rounded-full border bg-white shadow-md transition-all duration-500 ${activeField === "success" ? "border-green-500 bg-green-500 text-white shadow-green-200" : "border-gray-200 text-gray-400"}`}>
-                                    <FiSend size={17} />
-                                </div>
-
-                                <p className="mt-1 text-center text-[8px] font-semibold uppercase tracking-wide text-gray-400">
-                                    Send
-                                </p>
-
-                            </div>
-
-
-                            {/* status bar */}
-                            <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between rounded-full border border-orange-100 bg-white/90 px-3 py-1.5 shadow-sm backdrop-blur-sm">
-
-                                <div className="flex items-center gap-2">
-
-                                    <span className={`h-1.5 w-1.5 rounded-full ${activeField === "success" ? "bg-green-500" : activeField ? "bg-orange-500 animate-pulse" : "bg-gray-300"}`} />
-
-                                    <span className="text-[9px] font-medium text-gray-500 sm:text-[10px]">
-
-                                        {activeField === "success" ? "Message successfully connected" : activeField === "name" ? "Student profile initiated" : activeField === "email" ? "Communication channel active" : activeField === "phone" ? "Direct connection active" : activeField === "subject" ? "Inquiry channel activated" : activeField === "message" ? "Message ready to travel" : "Your connection starts here"}
-
-                                    </span>
-
-                                </div>
-
-                                <FiArrowRight size={13} className="hidden text-orange-400 sm:block" />
-
-                            </div>
-
                         </div>
 
+                        <Info icon={<FiMapPin size={18} />} title="Guru Nanak Institutions">
+                            Hema Majra Road, Mullana (Ambala)
+                        </Info>
 
-                        {/* address */}
-                        <div className="mt-5 flex items-start gap-3">
-
-                            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-orange-50 text-orange-600 transition-transform duration-300 hover:scale-110 sm:h-10 sm:w-10">
-                                <FiMapPin size={18} />
-                            </div>
-
-                            <div>
-
-                                <p className="text-[14px] font-semibold leading-tight text-gray-900 sm:text-[15px] md:text-[16px]">
-                                    Guru Nanak Institutions
-                                </p>
-
-                                <p className="mt-1 text-[12px] leading-5 text-gray-500 sm:text-[13px] sm:leading-6 md:text-[14px]">
-                                    Hema Majra Road, Mullana (Ambala)
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        {/* map */}
-                        <div className="mt-6 overflow-hidden rounded-md border border-gray-200 transition-shadow duration-500 hover:shadow-md">
-
+                        <div className="mt-6 overflow-hidden rounded-md border border-gray-200 hover:shadow-md">
                             <iframe title="Jindal's Guru Nanak Institutions Location" src="https://www.google.com/maps?q=Jindal%27s%20Guru%20Nanak%20Institutions%2C%20Mullana%2C%20Ambala%2C%20Haryana&output=embed" className="h-[230px] w-full border-0 sm:h-[270px] lg:h-[285px]" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
-
                         </div>
 
-
-                        {/* office hours */}
-                        <div className="mt-5 flex items-start gap-3">
-
-                            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-orange-50 text-orange-600 transition-transform duration-300 hover:scale-110 sm:h-10 sm:w-10">
-                                <FiClock size={18} />
-                            </div>
-
-                            <div>
-
-                                <p className="text-[14px] font-semibold leading-tight text-gray-900 sm:text-[15px] md:text-[16px]">
-                                    Office Hours
-                                </p>
-
-                                <p className="mt-1 text-[12px] leading-5 text-gray-500 sm:text-[13px] sm:leading-6 md:text-[14px]">
-                                    Monday to Saturday: 9:00 AM - 5:00 PM IST
-                                </p>
-
-                            </div>
-
-                        </div>
-
+                        <Info icon={<FiClock size={18} />} title="Office Hours">
+                            Monday to Saturday: 9:00 AM - 5:00 PM IST
+                        </Info>
                     </div>
 
-
-                    {/* right side - form */}
+                    {/* right */}
                     <div className="p-5 sm:p-7 lg:p-8">
-
-                        {/* heading */}
                         <div className="group w-fit">
-
                             <h2 className="text-[24px] font-bold leading-tight text-gray-900 sm:text-[30px] md:text-[34px] lg:text-[36px]">
                                 Send Us a Message
                             </h2>
-
-                            <div className="mt-2 h-[3px] w-0 overflow-hidden rounded-full transition-all duration-500 ease-out group-hover:w-full">
-                                <div className="h-full w-full rounded-full bg-orange-500" />
-                            </div>
-
+                            <div className="mt-2 h-[3px] w-0 rounded-full bg-orange-500 transition-all duration-500 group-hover:w-full" />
                         </div>
 
-
-                        {/* success message */}
                         {submitted && (
                             <div className="mt-5 flex animate-[successReveal_0.5s_ease-out] gap-3 rounded-md border border-green-200 bg-green-50 p-3">
-
-                                <FiCheckCircle size={19} className="mt-0.5 shrink-0 text-green-600" />
-
+                                <FiCheckCircle size={19} className="mt-0.5 text-green-600" />
                                 <div>
-
                                     <p className="text-[13px] font-semibold text-green-700 sm:text-[14px] md:text-[15px]">
                                         Message sent successfully!
                                     </p>
-
                                     <p className="mt-1 text-[12px] text-green-600 sm:text-[13px] md:text-[14px]">
                                         Thank you for contacting us. We will get back to you shortly.
                                     </p>
-
                                 </div>
-
                             </div>
                         )}
 
-
                         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-
-                            {/* name & email */}
                             <div className="grid gap-4 sm:grid-cols-2">
-
-                                <div>
-
-                                    <label htmlFor="name" className="mb-1.5 block text-[12px] font-semibold text-gray-700 sm:text-[13px] md:text-[14px]">
-                                        Full Name <span className="text-red-500">*</span>
-                                    </label>
-
-                                    <div className="relative">
-
-                                        <FiUser size={16} className={`absolute left-3 top-1/2 -translate-y-1/2 transition-colors duration-300 ${isActive("name") ? "text-orange-500" : "text-gray-400"}`} />
-
-                                        <input id="name" name="name" type="text" value={formData.name} onChange={handleChange} onFocus={() => setActiveField("name")} onBlur={() => setActiveField("")} placeholder="Your name" required className="h-10 w-full rounded-md border border-gray-200 pl-9 pr-3 text-[12px] outline-none transition placeholder:text-gray-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-100 sm:h-11 sm:text-[13px] md:text-[14px]" />
-
-                                    </div>
-
-                                </div>
-
-                                <div>
-
-                                    <label htmlFor="email" className="mb-1.5 block text-[12px] font-semibold text-gray-700 sm:text-[13px] md:text-[14px]">
-                                        Email Address <span className="text-red-500">*</span>
-                                    </label>
-
-                                    <div className="relative">
-
-                                        <FiMail size={16} className={`absolute left-3 top-1/2 -translate-y-1/2 transition-colors duration-300 ${isActive("email") ? "text-orange-500" : "text-gray-400"}`} />
-
-                                        <input id="email" name="email" type="email" value={formData.email} onChange={handleChange} onFocus={() => setActiveField("email")} onBlur={() => setActiveField("")} placeholder="Your email" required className="h-10 w-full rounded-md border border-gray-200 pl-9 pr-3 text-[12px] outline-none transition placeholder:text-gray-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-100 sm:h-11 sm:text-[13px] md:text-[14px]" />
-
-                                    </div>
-
-                                </div>
-
+                                <Field name="name" />
+                                <Field name="email" />
                             </div>
 
+                            <Field name="phone" />
+                            <Field name="subject" />
 
-                            {/* phone */}
                             <div>
-
-                                <label htmlFor="phone" className="mb-1.5 block text-[12px] font-semibold text-gray-700 sm:text-[13px] md:text-[14px]">
-                                    Phone Number
-                                </label>
-
-                                <div className="relative">
-
-                                    <FiPhone size={16} className={`absolute left-3 top-1/2 -translate-y-1/2 transition-colors duration-300 ${isActive("phone") ? "text-orange-500" : "text-gray-400"}`} />
-
-                                    <input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} onFocus={() => setActiveField("phone")} onBlur={() => setActiveField("")} placeholder="Your phone number (optional)" className="h-10 w-full rounded-md border border-gray-200 pl-9 pr-3 text-[12px] outline-none transition placeholder:text-gray-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-100 sm:h-11 sm:text-[13px] md:text-[14px]" />
-
-                                </div>
-
-                            </div>
-
-
-                            {/* subject */}
-                            <div>
-
-                                <label htmlFor="subject" className="mb-1.5 block text-[12px] font-semibold text-gray-700 sm:text-[13px] md:text-[14px]">
-                                    Subject <span className="text-red-500">*</span>
-                                </label>
-
-                                <input id="subject" name="subject" type="text" value={formData.subject} onChange={handleChange} onFocus={() => setActiveField("subject")} onBlur={() => setActiveField("")} placeholder="Please enter your subject" required className="h-10 w-full rounded-md border border-gray-200 px-3 text-[12px] outline-none transition placeholder:text-gray-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-100 sm:h-11 sm:text-[13px] md:text-[14px]" />
-
-                            </div>
-
-
-                            {/* message */}
-                            <div>
-
                                 <label htmlFor="message" className="mb-1.5 block text-[12px] font-semibold text-gray-700 sm:text-[13px] md:text-[14px]">
                                     Message <span className="text-red-500">*</span>
                                 </label>
 
                                 <textarea id="message" name="message" value={formData.message} onChange={handleChange} onFocus={() => setActiveField("message")} onBlur={() => setActiveField("")} placeholder="Tell us about your inquiry - B.Tech programs, engineering colleges, admissions, etc." required minLength={10} maxLength={500} rows={5} className="w-full resize-none rounded-md border border-gray-200 px-3 py-2.5 text-[12px] leading-5 outline-none transition placeholder:text-gray-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-100 sm:text-[13px] sm:leading-6 md:text-[14px]" />
 
-                                <div className="mt-1 text-right">
-
-                                    <span className="text-[10px] text-gray-400 sm:text-[11px] md:text-[12px]">
-                                        {formData.message.length}/500 characters
-                                    </span>
-
-                                </div>
-
+                                <p className="mt-1 text-right text-[10px] text-gray-400 sm:text-[11px] md:text-[12px]">
+                                    {formData.message.length}/500 characters
+                                </p>
                             </div>
 
-
-                            {/* submit button */}
                             <button type="submit" className="group inline-flex items-center gap-2 rounded-md bg-orange-600 px-6 py-3 text-[12px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-orange-700 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-orange-300 sm:px-7 sm:py-3.5 sm:text-[13px] md:text-[14px]">
-
-                                <FiSend size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-
+                                <FiSend size={16} className="transition-transform group-hover:translate-x-1" />
                                 Send Message
-
-                                <FiArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
-
+                                <FiArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
                             </button>
-
                         </form>
-
                     </div>
-
                 </div>
-
             </div>
 
+            <style>{`
+        .gni-contact-3d {
+          transition: transform .4s ease, box-shadow .4s ease;
+          transform-style: preserve-3d;
+        }
+        .gni-contact-3d:hover {
+          transform: perspective(1200px) rotateX(1deg) rotateY(-1deg) translateY(-5px);
+          box-shadow: 0 25px 50px rgba(0,0,0,.12);
+        }
 
-            {/* animation css */}
-            <style>
-                {`
-                    // outer orbit
+        .gni-network-stage {
+          position:absolute;
+          inset:12px 18px 52px;
+        }
 
-                    @keyframes orbitRotate {
-                        from {
-                            transform: rotate(0deg);
-                        }
+        .gni-network-center {
+          position:absolute;
+          left:50%;
+          top:50%;
+          width:76px;
+          height:76px;
+          transform:translate(-50%,-50%);
+          z-index:30;
+        }
 
-                        to {
-                            transform: rotate(360deg);
-                        }
-                    }
+        .gni-center-circle {
+          position:absolute;
+          inset:4px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          border:3px solid white;
+          border-radius:50%;
+          background:#f97316;
+          color:white;
+          box-shadow:0 8px 24px rgba(249,115,22,.25);
+          transition:.35s;
+        }
 
-                    // inner orbit
+        .gni-center-success {
+          background:#22c55e;
+          box-shadow:0 8px 24px rgba(34,197,94,.25);
+        }
 
-                    @keyframes orbitRotateReverse {
-                        from {
-                            transform: rotate(360deg);
-                        }
+        .gni-center-wave {
+          position:absolute;
+          inset:0;
+          border:1px solid rgba(249,115,22,.25);
+          border-radius:50%;
+          animation:gniWave 2.8s ease-out infinite;
+        }
 
-                        to {
-                            transform: rotate(0deg);
-                        }
-                    }
+        .gni-center-wave-active { animation-duration:1.4s; }
 
+        .gni-soft-ring {
+          position:absolute;
+          left:50%;
+          top:50%;
+          border:1px solid rgba(249,115,22,.09);
+          border-radius:50%;
+          transform:translate(-50%,-50%);
+        }
 
-                    // moving orbit dot
-                    @keyframes orbitDot {
-                        from {
-                            transform: rotate(0deg) translateX(112px) rotate(0deg);
-                        }
+        .gni-soft-ring-one {
+          width:120px;
+          height:120px;
+          animation:gniRing 3.5s ease-in-out infinite;
+        }
 
-                        to {
-                            transform: rotate(360deg) translateX(112px) rotate(-360deg);
-                        }
-                    }
+        .gni-soft-ring-two {
+          width:175px;
+          height:175px;
+          animation:gniRing 3.5s ease-in-out 1.2s infinite;
+        }
 
+        .gni-connection {
+          position:absolute;
+          z-index:10;
+          background:rgba(249,115,22,.18);
+          overflow:hidden;
+        }
 
-                    // floating particle 1
-                    @keyframes floatOne {
-                        0%,
-                        100% {
-                            transform: translate(0, 0);
-                            opacity: 0.4;
-                        }
+        .gni-connection-top,
+        .gni-connection-bottom {
+          left:50%;
+          width:1px;
+          height:calc(50% - 42px);
+          transform:translateX(-50%);
+        }
 
-                        50% {
-                            transform: translate(8px, -8px);
-                            opacity: 1;
-                        }
-                    }
+        .gni-connection-top { top:42px; }
+        .gni-connection-bottom { top:50%; }
 
+        .gni-connection-left,
+        .gni-connection-right {
+          top:50%;
+          width:calc(50% - 42px);
+          height:1px;
+          transform:translateY(-50%);
+        }
 
-                    // floating particle 2
-                    @keyframes floatTwo {
-                        0%,
-                        100% {
-                            transform: translate(0, 0);
-                            opacity: 0.3;
-                        }
+        .gni-connection-left { left:42px; }
+        .gni-connection-right { left:50%; }
 
-                        50% {
-                            transform: translate(-7px, 8px);
-                            opacity: 1;
-                        }
-                    }
+        .gni-moving-dot {
+          position:absolute;
+          width:5px;
+          height:5px;
+          border-radius:50%;
+          background:#f97316;
+          box-shadow:0 0 8px rgba(249,115,22,.7);
+        }
 
+        .gni-dot-down {
+          left:-2px;
+          top:-6px;
+          animation:gniDown 2s linear infinite;
+        }
+        .gni-dot-up {
+          left:-2px;
+          bottom:-6px;
+          animation:gniUp 2s linear infinite;
+        }
+        .gni-dot-right {
+          left:-6px;
+          top:-2px;
+          animation:gniRight 2s linear infinite;
+        }
+        .gni-dot-left {
+          right:-6px;
+          top:-2px;
+          animation:gniLeft 2s linear infinite;
+        }
 
-                    // success icon
-                    @keyframes successScale {
-                        0% {
-                            transform: scale(0);
-                            opacity: 0;
-                        }
+        .gni-network-node {
+          position:absolute;
+          width:64px;
+          z-index:40;
+          text-align:center;
+          color:#94a3b8;
+        }
 
-                        70% {
-                            transform: scale(1.2);
-                            opacity: 1;
-                        }
+        .gni-network-node span {
+          display:block;
+          margin-top:5px;
+          font-size:8px;
+          font-weight:700;
+          letter-spacing:.06em;
+          text-transform:uppercase;
+        }
 
-                        100% {
-                            transform: scale(1);
-                            opacity: 1;
-                        }
-                    }
+        .gni-node-circle {
+          width:44px;
+          height:44px;
+          margin:auto;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          border:1px solid #e5e7eb;
+          border-radius:50%;
+          background:white;
+          color:#94a3b8;
+          box-shadow:0 5px 15px rgba(0,0,0,.07);
+          transition:.3s;
+        }
 
+        .gni-node-top {
+          left:50%;
+          top:0;
+          transform:translateX(-50%);
+        }
+        .gni-node-left {
+          left:0;
+          top:50%;
+          transform:translateY(-50%);
+        }
+        .gni-node-right {
+          right:0;
+          top:50%;
+          transform:translateY(-50%);
+        }
+        .gni-node-bottom {
+          left:50%;
+          bottom:0;
+          transform:translateX(-50%);
+        }
 
-                    // success message
-                    @keyframes successReveal {
-                        from {
-                            opacity: 0;
-                            transform: translateY(-8px);
-                        }
+        .gni-node-active { color:#ea580c; }
+        .gni-node-active .gni-node-circle {
+          background:#f97316;
+          color:white;
+          border-color:#f97316;
+          box-shadow:0 7px 20px rgba(249,115,22,.25);
+        }
 
-                        to {
-                            opacity: 1;
-                            transform: translateY(0);
-                        }
-                    }
+        .gni-node-success { color:#16a34a; }
+        .gni-node-success .gni-node-circle {
+          background:#22c55e;
+          color:white;
+          border-color:#22c55e;
+        }
 
+        .gni-network-status {
+          position:absolute;
+          left:12px;
+          right:12px;
+          bottom:10px;
+          z-index:100;
+        }
 
-                    // reduced motion
-                    @media (prefers-reduced-motion: reduce) {
-                        *,
-                        *::before,
-                        *::after {
-                            animation-duration: 0.01ms !important;
-                            animation-iteration-count: 1 !important;
-                            transition-duration: 0.01ms !important;
-                        }
-                    }
+        .gni-status-inner {
+          min-height:28px;
+          display:flex;
+          align-items:center;
+          box-sizing:border-box;
+          border:1px solid #ffedd5;
+          border-radius:9999px;
+          background:rgba(255,255,255,.97);
+          padding:6px 10px;
+          box-shadow:0 2px 8px rgba(0,0,0,.05);
+        }
 
-                `}
-            </style>
+        @keyframes gniWave {
+          0% { opacity:.7; transform:scale(.75); }
+          70%,100% { opacity:0; transform:scale(1.35); }
+        }
 
+        @keyframes gniRing {
+          0%,100% { opacity:.25; transform:translate(-50%,-50%) scale(.96); }
+          50% { opacity:.65; transform:translate(-50%,-50%) scale(1); }
+        }
+
+        @keyframes gniDown {
+          0% { top:-6px; opacity:0; }
+          15%,85% { opacity:1; }
+          100% { top:100%; opacity:0; }
+        }
+
+        @keyframes gniUp {
+          0% { bottom:-6px; opacity:0; }
+          15%,85% { opacity:1; }
+          100% { bottom:100%; opacity:0; }
+        }
+
+        @keyframes gniRight {
+          0% { left:-6px; opacity:0; }
+          15%,85% { opacity:1; }
+          100% { left:100%; opacity:0; }
+        }
+
+        @keyframes gniLeft {
+          0% { right:-6px; opacity:0; }
+          15%,85% { opacity:1; }
+          100% { right:100%; opacity:0; }
+        }
+
+        @keyframes successReveal {
+          from { opacity:0; transform:translateY(-8px); }
+          to { opacity:1; transform:translateY(0); }
+        }
+
+        .gni-success-icon {
+          animation:gniSuccess .55s ease-out;
+        }
+
+        @keyframes gniSuccess {
+          0% { opacity:0; transform:scale(.5); }
+          70% { opacity:1; transform:scale(1.15); }
+          100% { opacity:1; transform:scale(1); }
+        }
+
+        @media(max-width:640px) {
+          .gni-contact-network { height:285px; }
+          .gni-network-stage { inset:10px 12px 48px; }
+          .gni-network-node { width:58px; }
+          .gni-node-circle { width:40px; height:40px; }
+          .gni-network-center { width:70px; height:70px; }
+          .gni-center-circle { width:62px; height:62px; }
+          .gni-soft-ring-one { width:105px; height:105px; }
+          .gni-soft-ring-two { width:155px; height:155px; }
+          .gni-connection-top { top:38px; height:calc(50% - 38px); }
+          .gni-connection-bottom { height:calc(50% - 38px); }
+          .gni-connection-left { left:38px; width:calc(50% - 38px); }
+          .gni-connection-right { width:calc(50% - 38px); }
+          .gni-network-status { left:10px; right:10px; bottom:9px; }
+          .gni-status-inner { min-height:26px; }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+          .gni-center-wave,
+          .gni-soft-ring,
+          .gni-moving-dot,
+          .gni-success-icon,
+          .gni-contact-3d {
+            animation:none !important;
+            transition:none !important;
+          }
+          .gni-contact-3d:hover {
+            transform:none !important;
+          }
+        }
+      `}</style>
         </section>
+    );
+}
+
+function Node({ position, icon, text, active, success }) {
+    return (
+        <div className={`gni-network-node gni-node-${position} ${active ? "gni-node-active" : success ? "gni-node-success" : ""}`}>
+            <div className="gni-node-circle">{icon}</div>
+            <span>{text}</span>
+        </div>
+    );
+}
+
+function Info({ icon, title, children }) {
+    return (
+        <div className="mt-5 flex items-start gap-3">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-orange-50 text-orange-600 sm:h-10 sm:w-10">
+                {icon}
+            </div>
+            <div>
+                <p className="text-[14px] font-semibold leading-tight text-gray-900 sm:text-[15px] md:text-[16px]">
+                    {title}
+                </p>
+                <p className="mt-1 text-[12px] leading-5 text-gray-500 sm:text-[13px] sm:leading-6 md:text-[14px]">
+                    {children}
+                </p>
+            </div>
+        </div>
     );
 }

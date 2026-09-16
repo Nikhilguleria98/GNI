@@ -2,10 +2,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import GniScrollEffect from "./components/effects/GniScrollEffect";
 
 import Hero from "./pages/Home/Hero";
 import WhyChooseUsSection from "./pages/Home/WhyChooseUs";
-import StudyAtGniSection from "./pages/Home/StudyAtGNI";
+import StudyAtGniSection from "./pages/Home/StudyAtGni";
 import TestimonialsSection from "./pages/Home/Testimonials";
 import ApplyNowSection from "./pages/Home/ApplyNowSection";
 
@@ -37,76 +38,129 @@ import ContactFormSection from "./pages/Contact/Contact";
 import AdmissionHelpline from "./pages/Contact/AdmissionHelpline";
 import DepartmentContacts from "./pages/Contact/DepartmentContacts";
 
-import { placementData, facultyData, recruiterData, placementTestimonialsData } from "./data/placementData";
+import {
+  placementData,
+  facultyData,
+  recruiterData,
+  placementTestimonialsData,
+} from "./data/placementData";
 
 function App() {
   return (
     <BrowserRouter>
+      <GniScrollEffect />
+
       <Navbar />
 
       <Routes>
-        {/* home */}
-        <Route path="/" element={
-          <>
-            <Hero />
-            <WhyChooseUsSection />
-            <StudyAtGniSection />
-            <TestimonialsSection />
-            <ApplyNowSection />
-          </>
-        }
+        <Route
+          path="/"
+          element={
+            <>
+              <Hero />
+              <WhyChooseUsSection />
+              <StudyAtGniSection />
+              <TestimonialsSection />
+              <ApplyNowSection />
+            </>
+          }
         />
 
-        {/* about */}
-        <Route path="/about" element={
-          <>
-            <AboutHeroSection />
-            <AboutWelcomeSection />
-            <VisionMissionSection />
-            <ManagementSection />
-          </>
-        }
-        />
-        {/* programs */}
-        <Route path="/programs" element={<><ProgramDetailsPage /><ProgramFaculty data={facultyData} /><ProgramTestimonial data={placementTestimonialsData} /><ProgramRecruiters data={recruiterData} /><ProgramInfrastructure /><ProgramsCTA /></>} />
-        <Route path="/programs/:programSlug" element={<><ProgramDetailsPage /><ProgramFaculty data={facultyData} /><ProgramTestimonial data={placementTestimonialsData} /><ProgramRecruiters data={recruiterData} /><ProgramInfrastructure /><ProgramsCTA /></>} />
-        <Route path="/programfaculty" element={<ProgramFaculty data={facultyData} />} />
-        <Route path="/programTestinomial" element={<ProgramTestimonial data={placementTestimonialsData} />} />
-        <Route path="/programs/:programSlug" element={<ProgramInfrastructure />} />
-        <Route path="/programscta" element={<ProgramsCTA />} />
-
-
-        {/* placements */}
-        <Route path="/placements" element={
-          <>
-            <PlacementHero data={placementData} />
-            <PlacementOverview />
-            <PlacementFaculty data={facultyData} />
-            <PlacementTestimonials data={placementTestimonialsData} />
-            <PlacementRecruiters data={recruiterData} />
-            <PlacementCTA />
-          </>
-        }
+        <Route
+          path="/programs"
+          element={<ProgramsPage />}
         />
 
-        {/* campus-life */}
-        <Route path="/campus-life" element={
-          <>
-            <CampusHero />
-            <CampusGallery />
-          </>
-        }
+        <Route
+          path="/programs/:program"
+          element={<ProgramDetailsPage />}
         />
 
-        {/* contact */}
-        <Route path="/contact" element={
-          <>
-            <ContactHero />
-            <ContactFormSection />
-            <AdmissionHelpline />
-            <DepartmentContacts />
-          </>
-        }
+        <Route
+          path="/programs/:program/faculty"
+          element={
+            <ProgramFaculty data={facultyData} />
+          }
+        />
+
+        <Route
+          path="/programs/:program/testimonials"
+          element={
+            <ProgramTestimonial />
+          }
+        />
+
+        <Route
+          path="/programs/:program/recruiters"
+          element={
+            <ProgramRecruiters
+              data={recruiterData}
+            />
+          }
+        />
+
+        <Route
+          path="/programs/:program/infrastructure"
+          element={
+            <ProgramInfrastructure />
+          }
+        />
+
+        <Route
+          path="/programs/:program/apply"
+          element={<ProgramsCTA />}
+        />
+
+        <Route
+          path="/about"
+          element={
+            <>
+              <AboutHeroSection />
+              <AboutWelcomeSection />
+              <VisionMissionSection />
+              <ManagementSection />
+            </>
+          }
+        />
+
+        <Route
+          path="/placements"
+          element={
+            <>
+              <PlacementHero data={placementData} />
+              <PlacementOverview />
+              <PlacementFaculty data={facultyData} />
+              <PlacementRecruiters
+                data={recruiterData}
+              />
+              <PlacementTestimonials
+                data={placementTestimonialsData}
+              />
+              <PlacementCTA />
+            </>
+          }
+        />
+
+        <Route
+          path="/campus-life"
+          element={
+            <>
+              <CampusHero />
+              <CampusGallery />
+            </>
+          }
+        />
+
+        <Route
+          path="/contact"
+          element={
+            <>
+              <ContactHero />
+              <ContactFormSection />
+              <AdmissionHelpline />
+              <DepartmentContacts />
+            </>
+          }
         />
       </Routes>
 
