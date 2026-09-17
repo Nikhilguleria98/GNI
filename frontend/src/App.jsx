@@ -1,11 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-<<<<<<< Updated upstream
 import GniScrollEffect from "./components/effects/GniScrollEffect";
-
-=======
->>>>>>> Stashed changes
 import Hero from "./pages/Home/Hero";
 import WhyChooseUsSection from "./pages/Home/WhyChooseUs";
 import StudyAtGniSection from "./pages/Home/StudyAtGni";
