@@ -1,38 +1,60 @@
 import { FiArrowRight } from "react-icons/fi";
-import { Link, useParams } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 export default function ProgramsCTA() {
- 
   return (
-    <>
-    
-      <section className="bg-orange-600">
-        <div className="mx-auto flex max-w-7xl flex-col gap-7 px-5 py-10 sm:px-8 sm:py-12 md:flex-row md:items-center md:justify-between md:gap-10 lg:px-12 lg:py-14">
-          <div className="text-white">
-            <p className="text-[14px] font-bold uppercase tracking-[0.18em] text-orange-100 sm:text-[15px] md:text-[17px] lg:text-[18px]">
-              Admissions Open for 2026 Session
-            </p>
+    <section className="bg-orange-600">
+      <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-10 sm:px-6 sm:py-12 lg:flex-row lg:items-center lg:justify-between lg:px-12 lg:py-16">
 
-            <h2 className="mt-2 max-w-2xl text-[30px] font-extrabold leading-[1.15] sm:text-[38px] md:text-[42px] lg:text-[48px] xl:text-[50px]">
-              Are you ready to take the next step toward your future career?
-            </h2>
+        {/* Content */}
+        <div className="text-white">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-100 sm:text-sm md:text-base">
+            Admissions Open for 2026 Session
+          </p>
 
-            <p className="mt-4 max-w-2xl text-[14px] leading-6 text-orange-100 sm:text-[15px] sm:leading-7 md:text-[17px] md:leading-7 lg:text-[18px] lg:leading-7">
-              Start your journey with GNI and unlock endless opportunities to
-              learn, grow, and achieve your dreams.
-            </p>
-          </div>
+          <h2 className="mt-3 max-w-3xl text-3xl font-extrabold leading-tight sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl">
+            Are you ready to take the next step toward your future career?
+          </h2>
 
+          <p className="mt-4 max-w-2xl text-sm leading-6 text-orange-100 sm:text-base sm:leading-7 md:text-lg">
+            Start your journey with GNI and unlock endless opportunities to
+            learn, grow, and achieve your dreams.
+          </p>
+        </div>
+
+        {/* Button */}
+        <div className="flex justify-start lg:justify-end">
           <Link
             to="/apply-now"
-            className="inline-flex w-fit shrink-0 items-center gap-2 rounded-full border border-white/30 bg-black px-6 py-3 text-[14px] font-bold text-white transition hover:bg-gray-900 sm:px-7 sm:py-3.5 sm:text-[15px] md:text-[16px]"
+            className="
+              inline-flex
+              items-center
+              gap-2
+              rounded-full
+              border
+              border-white/30
+              bg-black
+              px-6
+              py-3
+              text-sm
+              font-bold
+              text-white
+              transition-all
+              duration-300
+              hover:bg-gray-900
+              hover:scale-105
+              sm:px-7
+              sm:py-3.5
+              sm:text-base
+              whitespace-nowrap
+            "
           >
             Apply Now
-            <FiArrowRight className="text-[15px] sm:text-[16px]" />
+            <FiArrowRight className="text-base" />
           </Link>
         </div>
-      </section>
-    </>
+
+      </div>
+    </section>
   );
 }
