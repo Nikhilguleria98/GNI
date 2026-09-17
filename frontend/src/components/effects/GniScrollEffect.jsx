@@ -334,41 +334,40 @@ const GniScrollEffect = () => {
          ========================================================= */
 
       @media (max-width: 768px) {
+        html,
+        body {
+          overflow-x: hidden;
+          max-width: 100%;
+        }
+
         .gni-scroll-section {
           perspective: none;
-
-          transform:
-            translate3d(0, 22px, 0)
-            scale(0.997);
+          transform: translateY(20px);
+          overflow: hidden;
+          max-width: 100%;
         }
 
         .gni-scroll-card {
-          transform:
-            translateZ(0);
-
+          transform: none !important;
+          max-width: 100%;
           transition:
-            transform 0.3s ease,
             box-shadow 0.3s ease;
         }
 
         .gni-scroll-card:hover {
-          transform:
-            translateY(-2px);
+          transform: none !important;
         }
 
         .gni-scroll-card > * {
-          transform:
-            none;
+          transform: none !important;
         }
 
         .gni-scroll-card img {
-          transform:
-            none;
+          transform: none !important;
         }
 
         .gni-scroll-card:hover img {
-          transform:
-            scale(1.02);
+          transform: scale(1.02);
         }
       }
 
@@ -415,20 +414,15 @@ const GniScrollEffect = () => {
        SCROLL PROGRESS
        ========================================================= */
 
-    const progress =
-      document.createElement("div");
-
-    progress.className =
-      "gni-scroll-progress";
-
+    const progress = document.createElement("div");
+    progress.className = "gni-scroll-progress";
     document.body.appendChild(progress);
 
     let progressFrame = null;
 
     const updateProgress = () => {
       const scrollTop =
-        window.scrollY ||
-        window.pageYOffset;
+        window.scrollY || window.pageYOffset;
 
       const documentHeight =
         document.documentElement.scrollHeight -
@@ -451,9 +445,7 @@ const GniScrollEffect = () => {
     const handleScroll = () => {
       if (!progressFrame) {
         progressFrame =
-          requestAnimationFrame(
-            updateProgress
-          );
+          requestAnimationFrame(updateProgress);
       }
     };
 
@@ -487,8 +479,7 @@ const GniScrollEffect = () => {
        ========================================================= */
 
     const prepareElements = () => {
-      const sections =
-        getSections();
+      const sections = getSections();
 
       sections.forEach((section) => {
         section.classList.add(
@@ -535,15 +526,13 @@ const GniScrollEffect = () => {
       return sections;
     };
 
-    let sections =
-      prepareElements();
+    let sections = prepareElements();
 
     /* =========================================================
        MOUSE 3D TILT
        ========================================================= */
 
-    const cardHandlers =
-      new Map();
+    const cardHandlers = new Map();
 
     const setupCardTilt = () => {
       if (
@@ -569,12 +558,10 @@ const GniScrollEffect = () => {
             card.getBoundingClientRect();
 
           const x =
-            event.clientX -
-            rect.left;
+            event.clientX - rect.left;
 
           const y =
-            event.clientY -
-            rect.top;
+            event.clientY - rect.top;
 
           const centerX =
             rect.width / 2;
@@ -593,12 +580,10 @@ const GniScrollEffect = () => {
             3.2;
 
           const lightX =
-            (x / rect.width) *
-            100;
+            (x / rect.width) * 100;
 
           const lightY =
-            (y / rect.height) *
-            100;
+            (y / rect.height) * 100;
 
           card.style.setProperty(
             "--gni-rx",
@@ -828,3 +813,4 @@ const GniScrollEffect = () => {
 };
 
 export default GniScrollEffect;
+

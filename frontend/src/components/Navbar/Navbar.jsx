@@ -1,113 +1,144 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import { FiMenu, FiX, FiArrowRight, FiPhone } from "react-icons/fi";
 import ApplyNowForm from "../ApplyNowForm/ApplyNowForm";
 import ProgramsSlider from "../../pages/ProgramsSlider/ProgramsSlider";
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isApplyOpen, setIsApplyOpen] = useState(false);
-  const [isProgramsOpen, setIsProgramsOpen] = useState(false);
 
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About GNI", href: "/about" },
-    { name: "Programs", href: null },
-    { name: "Placements", href: "/placements" },
-    { name: "Campus Life", href: "/campus-life" },
-    { name: "Contact Us", href: "/contact" }
+const Navbar = () => {
+  const [open, setOpen] = useState(false);
+  const [apply, setApply] = useState(false);
+  const [programs, setPrograms] = useState(false);
+  const [scroll, setScroll] = useState(false);
+
+  const links = [
+    ["Home", "/"],
+    ["About GNI", "/about"],
+    ["Programs", null],
+    ["Placements", "/placements"],
+    ["Campus Life", "/campus-life"],
+    ["Contact Us", "/contact"],
   ];
+
+  useEffect(() => {
+    const scrollHandler = () => setScroll(window.scrollY > 15);
+    const keyHandler = (e) => e.key === "Escape" && setOpen(false);
+
+    window.addEventListener("scroll", scrollHandler);
+    window.addEventListener("keydown", keyHandler);
+
+    document.body.style.overflow = open ? "hidden" : "";
+    document.body.style.overflowX = open ? "hidden" : "";
+
+    return () => {
+      window.removeEventListener("scroll", scrollHandler);
+      window.removeEventListener("keydown", keyHandler);
+      document.body.style.overflow = "";
+      document.body.style.overflowX = "";
+    };
+  }, [open]);
+
+  const closeMenu = () => setOpen(false);
+
+  const openApply = () => {
+    setOpen(false);
+    setPrograms(false);
+    setApply(true);
+  };
+
+  const openPrograms = () => {
+    setOpen(false);
+    setPrograms(true);
+  };
+
+  const linkStyle = ({ isActive }) => `group relative py-3 text-sm font-medium transition-all duration-300 xl:text-[15px] ${isActive ? "text-[#f85b0b]" : "text-[#171717] hover:text-[#f85b0b]"}`;
 
   return (
     <>
-      {/* navbar */}
-      <nav className="fixed left-0 top-0 z-50 w-full border-b border-black/[0.06] bg-white/70 shadow-[0_4px_25px_rgba(0,0,0,0.05)] backdrop-blur-xl">
+      <nav className={`fixed top-0 z-50 w-full transition-all duration-500 ${scroll ? "bg-white/95 shadow-lg backdrop-blur-2xl" : "bg-white/75 backdrop-blur-xl"}`}>
+        <div className={`flex items-center px-4 sm:px-6 lg:px-10 xl:px-12 ${scroll ? "h-[66px] lg:h-[74px]" : "h-[74px] lg:h-[84px]"}`}>
 
-        <div className="mx-auto flex h-[70px] w-full items-center px-4 sm:h-[76px] sm:px-6 md:px-8 lg:h-[82px] lg:px-10 xl:h-[86px] xl:px-12">
+          {/* Logo */}
+          <NavLink to="/" end onClick={closeMenu} className="group">
+            <img src="/logo.png" alt="Guru Nanak Institutions" className="h-16 w-16 object-contain transition duration-300 group-hover:scale-105 sm:h-[68px] sm:w-[68px] lg:h-[70px] lg:w-[70px]" />
+          </NavLink>
 
-          {/* logo */}
-          <div className="shrink-0">
-            <a href="/" aria-label="Guru Nanak Institutions">
-              <img src="/logo.png" alt="Guru Nanak Institutions" width="90" height="90" className="h-[52px] w-[52px] object-contain sm:h-[56px] sm:w-[56px] md:h-[60px] md:w-[60px] lg:h-[64px] lg:w-[64px] xl:h-[68px] xl:w-[68px]" />
-            </a>
-          </div>
-
-          {/* desktop navbar */}
+          {/* Desktop */}
           <div className="ml-auto hidden items-center lg:flex">
-
-            {/* navigation */}
-            <div className="flex items-center gap-6 xl:gap-8 2xl:gap-10">
-
-              {navLinks.map((link) =>
-                link.name === "Programs" ? (
-                  <button key={link.name} type="button" onClick={() => setIsProgramsOpen(true)} className="relative whitespace-nowrap py-2 text-left text-[14px] font-medium text-[#171717] transition-colors duration-300 hover:text-[#f85b0b] xl:text-[15px] 2xl:text-[16px] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:rounded-full after:bg-[#f85b0b] after:transition-all after:duration-300 hover:after:w-full">
-                    {link.name}
-                  </button>
+            <div className="flex items-center gap-6 xl:gap-8">
+              {links.map(([name, href]) =>
+                href ? (
+                  <NavLink key={name} to={href} end={href === "/"} className={linkStyle}>
+                    {name}
+                    <span className="absolute -bottom-1 left-1/2 h-[2px] w-0 -translate-x-1/2 rounded-full bg-[#f85b0b] transition-all duration-300 group-hover:w-full" />
+                  </NavLink>
                 ) : (
-                  <a key={link.name} href={link.href} className="relative whitespace-nowrap py-2 text-[14px] font-medium text-[#171717] transition-colors duration-300 hover:text-[#f85b0b] xl:text-[15px] 2xl:text-[16px] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:rounded-full after:bg-[#f85b0b] after:transition-all after:duration-300 hover:after:w-full">
-                    {link.name}
-                  </a>
+                  <button key={name} onClick={openPrograms} className={`group relative py-3 text-sm font-medium transition xl:text-[15px] ${programs ? "text-[#f85b0b]" : "text-[#171717] hover:text-[#f85b0b]"}`}>
+                    {name}
+                    <span className="absolute -bottom-1 left-1/2 h-[2px] w-0 -translate-x-1/2 rounded-full bg-[#f85b0b] transition-all duration-300 group-hover:w-full" />
+                  </button>
                 )
               )}
-
             </div>
 
-            {/* desktop apply now */}
-            <button type="button" onClick={() => setIsApplyOpen(true)} className="ml-7 h-[40px] shrink-0 rounded-[4px] bg-[#f85b0b] px-5 text-[14px] font-bold text-white shadow-[0_4px_12px_rgba(248,91,11,0.18)] transition-all duration-300 hover:-translate-y-[1px] hover:bg-[#dc4e08] hover:shadow-[0_7px_18px_rgba(248,91,11,0.25)] xl:ml-8 xl:h-[43px] xl:px-6 xl:text-[15px]">
+            <button onClick={openApply} className="ml-8 rounded-md bg-[#f85b0b] px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#e65008] hover:shadow-lg active:scale-95">
+              Apply Now
+            </button>
+          </div>
+
+          {/* Mobile */}
+          <div className="ml-auto flex items-center gap-2 lg:hidden">
+            <button onClick={openApply} className="hidden rounded-md bg-[#f85b0b] px-3 py-2 text-xs font-bold text-white sm:block">
+              Apply
+            </button>
+
+            <button onClick={() => setOpen(!open)} className="relative flex h-10 w-10 items-center justify-center rounded-xl hover:bg-orange-50">
+              <FiMenu className={`absolute text-2xl transition ${open ? "scale-0 rotate-90" : ""}`} />
+
+              <FiX className={`absolute text-2xl text-[#f85b0b] transition ${open ? "" : "scale-0 -rotate-90"}`} />
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <div className={`overflow-hidden border-t bg-white/95 transition-all duration-500 lg:hidden ${open ? "max-h-[100vh] opacity-100" : "max-h-0 opacity-0"}`}>
+          <div className="space-y-1 p-4">
+            {links.map(([name, href]) =>
+              href ? (
+                <NavLink key={name} to={href} end={href === "/"} onClick={closeMenu} className={({ isActive }) => `group relative flex items-center justify-between rounded-xl px-4 py-4 transition-all duration-300 ${isActive ? "bg-orange-50 pl-7 font-semibold text-[#f85b0b] shadow-sm before:absolute before:left-0 before:top-2 before:h-[calc(100%-16px)] before:w-1 before:rounded-r-full before:bg-[#f85b0b]" : "hover:bg-orange-50 hover:pl-6"}`}>
+                  {({ isActive }) => (
+                    <>
+                      <span>{name}</span>
+
+                      <FiArrowRight className={`text-[#f85b0b] transition ${isActive ? "translate-x-0 opacity-100" : "translate-x-[-8px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100"}`} />
+                    </>
+                  )}
+                </NavLink>
+              ) : (
+                <button key={name} onClick={openPrograms} className="group flex w-full items-center justify-between rounded-xl px-4 py-4 text-left transition hover:bg-orange-50 hover:pl-6 hover:text-[#f85b0b]">
+                  {name}
+
+                  <FiArrowRight className="translate-x-[-8px] text-[#f85b0b] opacity-0 transition group-hover:translate-x-0 group-hover:opacity-100" />
+                </button>
+              )
+            )}
+
+            <button onClick={openApply} className="mt-4 w-full rounded-xl bg-[#f85b0b] py-4 font-bold text-white transition hover:bg-[#e65008] active:scale-[.98]">
               Apply Now
             </button>
 
+            <a href="tel:+911234567890" className="flex justify-center gap-2 border-t pt-5 text-sm text-gray-500 hover:text-[#f85b0b]">
+              <FiPhone className="text-[#f85b0b]" />
+              Contact GNI Admissions
+            </a>
           </div>
-
-          {/* mobile hamburger */}
-          <button type="button" onClick={() => setIsOpen(!isOpen)} className="ml-auto flex h-9 w-9 flex-col items-center justify-center gap-[5px] rounded-md lg:hidden" aria-label="Toggle navigation" aria-expanded={isOpen}>
-
-            <span className={`h-[2px] w-6 bg-black transition-all duration-300 ${isOpen ? "translate-y-[7px] rotate-45" : ""}`} />
-
-            <span className={`h-[2px] w-6 bg-black transition-all duration-300 ${isOpen ? "opacity-0" : ""}`} />
-
-            <span className={`h-[2px] w-6 bg-black transition-all duration-300 ${isOpen ? "-translate-y-[7px] -rotate-45" : ""}`} />
-
-          </button>
-
         </div>
-
-        {/* mobile menu */}
-        <div className={`overflow-hidden border-t border-black/[0.06] bg-white/80 backdrop-blur-xl transition-all duration-300 lg:hidden ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 border-transparent opacity-0"}`}>
-
-          <div className="px-4 py-4 sm:px-6">
-
-            <div className="flex flex-col">
-
-              {navLinks.map((link) =>
-                link.name === "Programs" ? (
-                  <button key={link.name} type="button" onClick={() => { setIsOpen(false); setIsProgramsOpen(true); }} className="rounded-md px-3 py-2.5 text-left text-[15px] font-medium text-[#171717] transition-colors hover:bg-orange-50 hover:text-[#f85b0b] sm:text-[16px]">
-                    Programs
-                  </button>
-                ) : (
-                  <a key={link.name} href={link.href} onClick={() => setIsOpen(false)} className="rounded-md px-3 py-2.5 text-[15px] font-medium text-[#171717] transition-colors hover:bg-orange-50 hover:text-[#f85b0b] sm:text-[16px]">
-                    {link.name}
-                  </a>
-                )
-              )}
-
-
-              {/* mobile apply now */}
-              <button type="button" onClick={() => { setIsOpen(false); setIsApplyOpen(true) }} className="mt-3 w-full rounded-[4px] bg-[#f85b0b] py-2.5 text-[15px] font-bold text-white transition-all duration-300 hover:bg-[#dc4e08]">
-                Apply Now
-              </button>
-
-            </div>
-
-          </div>
-
-        </div>
-
       </nav>
 
-      {/* navbar spacing */}
-      <div className="h-[70px] sm:h-[76px] lg:h-[82px] xl:h-[86px]" />
+      <div className={scroll ? "h-[66px] lg:h-[74px]" : "h-[74px] lg:h-[84px]"} />
 
-      {/* apply now form */}
-      <ApplyNowForm isOpen={isApplyOpen} onClose={() => setIsApplyOpen(false)} />
-      <ProgramsSlider isOpen={isProgramsOpen} onClose={() => setIsProgramsOpen(false)} />
+      <ApplyNowForm isOpen={apply} onClose={() => setApply(false)} />
+
+      <ProgramsSlider isOpen={programs} onClose={() => setPrograms(false)} />
     </>
   );
 };
