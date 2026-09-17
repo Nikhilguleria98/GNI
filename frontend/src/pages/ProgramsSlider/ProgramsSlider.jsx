@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import { IoArrowUndo } from "react-icons/io5";
 const programs = [
   { name: "B.Tech", slug: "btech" },
   { name: "M.Tech", slug: "mtech" },
@@ -45,11 +45,11 @@ const ProgramsSlider = ({ isOpen, onClose }) => {
       >
         {/* Close Button */}
         <button
-          type="button"
-          onClick={onClose}
-          className="absolute right-4 top-4 z-30 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md text-2xl"
+             type="button"
+             onClick={onClose}
+             className="absolute right-4 top-4 z-30 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md text-2xl"
         >
-          ←
+          <IoArrowUndo size={28}/>
         </button>
 
         {/* Content */}
