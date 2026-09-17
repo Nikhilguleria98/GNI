@@ -1,11 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { FiCheckCircle, FiArrowRight } from "react-icons/fi";
-import {
-  programCatalog,
-  programs,
-  programData,
-  whyChooseData,
-} from "./programCatalog";
+import { programCatalog, programs, programData, whyChooseData } from "./programCatalog";
 
 const ProgramDetailsPage = () => {
   const { program: programSlug } = useParams();
@@ -42,7 +37,7 @@ const ProgramDetailsPage = () => {
   const whyChoose =
     whyChooseData[programSlug] || whyChooseData.btech;
 
-  // Invalid URL
+  // invalid url
   if (!data) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
@@ -56,11 +51,7 @@ const ProgramDetailsPage = () => {
   return (
     <>
       <section className="relative min-h-[600px] w-full overflow-hidden sm:min-h-[650px] lg:min-h-[600px]">
-        <img
-          src={program.heroImage || "/i1.png"}
-          alt={`${program.title} Campus`}
-          className="absolute inset-0 h-full w-full object-cover object-center"
-        />
+        <img src={program.heroImage || "/i1.png"} alt={`${program.title} Campus`} className="absolute inset-0 h-full w-full object-cover object-center" />
 
         <div className="absolute inset-0 bg-gradient-to-r from-[#f35b0a]/95 via-[#f35b0a]/60 to-transparent" />
 
@@ -82,11 +73,7 @@ const ProgramDetailsPage = () => {
 
             <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-7">
               <div className="flex items-center gap-2">
-                <FiCheckCircle
-                  className="h-[18px] w-[18px] text-green-400 sm:h-5 sm:w-5"
-                  strokeWidth={2}
-                  aria-hidden="true"
-                />
+                <FiCheckCircle className="h-[18px] w-[18px] text-green-400 sm:h-5 sm:w-5" strokeWidth={2} aria-hidden="true" />
 
                 <span className="text-[13px] text-white sm:text-[14px] lg:text-[15px]">
                   UGC Recognized
@@ -94,11 +81,7 @@ const ProgramDetailsPage = () => {
               </div>
 
               <div className="flex items-center gap-2">
-                <FiCheckCircle
-                  className="h-[18px] w-[18px] text-green-400 sm:h-5 sm:w-5"
-                  strokeWidth={2}
-                  aria-hidden="true"
-                />
+                <FiCheckCircle className="h-[18px] w-[18px] text-green-400 sm:h-5 sm:w-5" strokeWidth={2} aria-hidden="true" />
 
                 <span className="text-[13px] text-white sm:text-[14px] lg:text-[15px]">
                   Approved by Govt. of Punjab
@@ -106,17 +89,10 @@ const ProgramDetailsPage = () => {
               </div>
             </div>
 
-            <button
-              type="button"
-              className="group inline-flex h-11 min-w-[170px] items-center justify-center gap-4 rounded-md bg-[#f4510b] px-6 text-[14px] font-bold text-white transition-all duration-300 hover:bg-[#df4607] hover:shadow-lg sm:h-12 sm:min-w-[180px] sm:text-[15px] md:h-14 md:min-w-[193px] md:px-7 md:text-[17px]"
-            >
+            <button type="button" className="group inline-flex h-11 min-w-[170px] items-center justify-center gap-4 rounded-md bg-[#f4510b] px-6 text-[14px] font-bold text-white transition-all duration-300 hover:bg-[#df4607] hover:shadow-lg sm:h-12 sm:min-w-[180px] sm:text-[15px] md:h-14 md:min-w-[193px] md:px-7 md:text-[17px]">
               <span>Apply Now</span>
 
-              <FiArrowRight
-                className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 sm:h-[22px] sm:w-[22px] md:h-6 md:w-6"
-                strokeWidth={2}
-                aria-hidden="true"
-              />
+              <FiArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 sm:h-[22px] sm:w-[22px] md:h-6 md:w-6" strokeWidth={2} aria-hidden="true" />
             </button>
           </div>
         </div>
@@ -124,7 +100,8 @@ const ProgramDetailsPage = () => {
 
       <section className="min-h-screen overflow-hidden bg-white text-black">
         <div className="mx-auto max-w-[1400px] px-5 py-16 sm:px-8 md:px-10 lg:px-14 lg:py-24">
-          {/* Top Label */}
+
+          {/* top label */}
           <div className="mb-12">
             <span className="inline-flex rounded-full bg-[#ff6500] px-6 py-2 text-sm font-medium text-black sm:text-base">
               About Us
@@ -146,10 +123,7 @@ const ProgramDetailsPage = () => {
               {/* Description */}
               <div className="space-y-6">
                 {descriptionParagraphs.map((paragraph, index) => (
-                  <p
-                    key={index}
-                    className="max-w-[700px] font-medium sm:text-lg sm:leading-8"
-                  >
+                  <p key={index} className="max-w-[700px] font-medium sm:text-lg sm:leading-8">
                     {paragraph}
                   </p>
                 ))}
@@ -157,10 +131,7 @@ const ProgramDetailsPage = () => {
 
               {/* CTA */}
               <div className="mt-8">
-                <Link
-                  to="/admissions"
-                  className="inline-flex items-center gap-3 rounded-lg bg-[#ff6500] px-7 py-4 text-base font-semibold text-white transition duration-300 hover:bg-[#ff7a1a] hover:shadow-lg hover:shadow-orange-500/20"
-                >
+                <Link to="/admissions" className="inline-flex items-center gap-3 rounded-lg bg-[#ff6500] px-7 py-4 text-base font-semibold text-white transition duration-300 hover:bg-[#ff7a1a] hover:shadow-lg hover:shadow-orange-500/20">
                   Register Now
                   <span className="text-xl">→</span>
                 </Link>
@@ -178,11 +149,7 @@ const ProgramDetailsPage = () => {
 
                 {/* Image */}
                 <div className="relative w-[full] overflow-hidden rounded-2xl border border-white/10 bg-gray-900">
-                  <img
-                    src={programDetails.image}
-                    alt={programDetails.name}
-                    className="aspect-[4/3] w-full object-cover"
-                  />
+                  <img src={programDetails.image} alt={programDetails.name} className="aspect-[4/3] w-full object-cover" />
                 </div>
               </div>
             </div>
@@ -213,10 +180,7 @@ const ProgramDetailsPage = () => {
 
               <ul className="space-y-4">
                 {data.leftPrograms.map((item, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-3 text-base md:text-lg"
-                  >
+                  <li key={index} className="flex items-start gap-3 text-base md:text-lg">
                     <span>→</span>
                     <span>{item}</span>
                   </li>
@@ -232,10 +196,7 @@ const ProgramDetailsPage = () => {
 
               <ul className="space-y-4">
                 {data.rightPrograms.map((item, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-3 text-base md:text-lg"
-                  >
+                  <li key={index} className="flex items-start gap-3 text-base md:text-lg">
                     <span>→</span>
                     <span>{item}</span>
                   </li>
@@ -278,10 +239,7 @@ const ProgramDetailsPage = () => {
             {/* Points */}
             <div className="space-y-5">
               {(whyChoose.points || []).map((point, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-4"
-                >
+                <div key={index} className="flex items-center gap-4">
                   <span className="text-2xl font-bold text-orange-500">
                     →
                   </span>
@@ -301,11 +259,7 @@ const ProgramDetailsPage = () => {
 
           {/* RIGHT IMAGE */}
           <div className="overflow-hidden rounded-2xl">
-            <img
-              src={whyChoose.image}
-              alt={whyChoose.title}
-              className="h-[400px] w-full object-cover md:h-[500px] lg:h-[600px]"
-            />
+            <img src={whyChoose.image} alt={whyChoose.title} className="h-[400px] w-full object-cover md:h-[500px] lg:h-[600px]" />
           </div>
         </div>
       </section>

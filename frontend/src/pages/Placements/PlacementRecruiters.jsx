@@ -33,7 +33,22 @@ const PlacementRecruiters = ({ data }) => {
   };
 
   return (
-    <section className="w-full bg-white py-10 font-sans sm:py-14 md:py-16 lg:py-20">
+    <section className="gni-recruiters-section w-full bg-white py-10 font-sans sm:py-14 md:py-16 lg:py-20">
+
+      {/* remove global card animation */}
+      <style>
+        {`
+          .gni-recruiters-section::before,
+          .gni-recruiters-section::after,
+          .gni-recruiters-section .gni-scroll-card::before,
+          .gni-recruiters-section .gni-scroll-card::after {
+            animation: none !important;
+            opacity: 0 !important;
+            display: none !important;
+          }
+        `}
+      </style>
+
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-8 md:px-10 lg:px-12">
 
         {/* heading */}
@@ -56,65 +71,55 @@ const PlacementRecruiters = ({ data }) => {
         {/* logos */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
 
-          {data.map((company, index) => (
-            <div
-              key={`${company}-${index}`}
-              className="group flex min-h-[170px] items-center justify-center gap-4 m-2 rounded-2xl border border-gray-400 bg-white px-3 py-6 transition-all duration-300 hover:bg-gray-50 sm:min-h-[150px] sm:px-4 sm:py-5 md:min-h-[155px] lg:min-h-[160px]"
-              style={{
-                transformStyle: "preserve-3d",
-                transition: "transform 0.4s ease, box-shadow 0.4s ease",
-              }}
-              onMouseMove={(e) => {
-                const card = e.currentTarget;
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const rotateX = (y / rect.height - 0.5) * -6;
-                const rotateY = (x / rect.width - 0.5) * 6;
+          {data.map((company, index) => {
+            return (
+              <div key={`${company}-${index}`} className="group flex min-h-[170px] items-center justify-center gap-4 m-2 rounded-2xl border border-gray-400 bg-white px-3 py-6 transition-all duration-300 hover:bg-gray-50 sm:min-h-[150px] sm:px-4 sm:py-5 md:min-h-[155px] lg:min-h-[160px]" style={{ transformStyle: "preserve-3d", transition: "transform 0.4s ease, box-shadow 0.4s ease" }}
+                onMouseMove={(e) => {
+                  const card = e.currentTarget;
+                  const rect = card.getBoundingClientRect();
 
-                card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-                card.style.boxShadow = "0 18px 35px rgba(0,0,0,0.12)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "perspective(900px) rotateX(0) rotateY(0) translateY(0)";
-                e.currentTarget.style.boxShadow = "none";
-              }}
-            >
-              <div className="flex w-full flex-col items-center justify-center text-center">
+                  const x = e.clientX - rect.left;
+                  const y = e.clientY - rect.top;
 
-                {/* image */}
-                <div className="mb-4 flex h-28 w-28 items-center justify-center rounded-full bg-gray-50 transition-all duration-300 group-hover:scale-110 group-hover:bg-orange-50 sm:mb-4 sm:h-24 sm:w-24 md:h-24 md:w-24 lg:h-22 lg:w-22">
-                  <img
-                    src={getCompanyImage(company)}
-                    alt={`${company} logo`}
-                    width={140}
-                    height={140}
-                    className="h-24 w-24 object-contain sm:h-20 sm:w-20 md:h-[82px] md:w-[82px] lg:h-20 lg:w-20"
-                  />
+                  const rotateX = (y / rect.height - 0.5) * -6;
+                  const rotateY = (x / rect.width - 0.5) * 6;
+
+                  card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+                  card.style.boxShadow = "0 18px 35px rgba(0,0,0,0.12)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform =
+                    "perspective(900px) rotateX(0) rotateY(0) translateY(0)";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
+              >
+                <div className="flex w-full flex-col items-center justify-center text-center">
+
+                  {/* image */}
+                  <div className="mb-4 flex h-28 w-28 items-center justify-center rounded-full bg-gray-50 transition-all duration-300 group-hover:scale-110 group-hover:bg-orange-50 sm:mb-4 sm:h-24 sm:w-24 md:h-24 md:w-24 lg:h-22 lg:w-22">
+                    <img src={getCompanyImage(company)} alt={`${company} logo`} width="140" height="140" className="h-24 w-24 object-contain sm:h-20 sm:w-20 md:h-[82px] md:w-[82px] lg:h-20 lg:w-20" />
+                  </div>
+
+                  {/* company name */}
+                  <p className="text-[14px] font-bold leading-tight tracking-tight text-gray-700 transition-colors duration-300 group-hover:text-blue-900 sm:text-[15px] md:text-[16px] lg:text-[17px]">
+                    {company}
+                  </p>
+
+                  {/* partner text */}
+                  <span className="mt-1 text-[8px] font-semibold uppercase tracking-[0.12em] text-gray-400 sm:text-[10px] sm:tracking-[0.16em] md:text-[11px] lg:text-[12px]">
+                    Industry Partner
+                  </span>
+
                 </div>
-
-                {/* company name */}
-                <p className="text-[14px] font-bold leading-tight tracking-tight text-gray-700 transition-colors duration-300 group-hover:text-blue-900 sm:text-[15px] md:text-[16px] lg:text-[17px]">
-                  {company}
-                </p>
-
-                {/* partner text */}
-                <span className="mt-1 text-[8px] font-semibold uppercase tracking-[0.12em] text-gray-400 sm:text-[10px] sm:tracking-[0.16em] md:text-[11px] lg:text-[12px]">
-                  Industry Partner
-                </span>
-
               </div>
-            </div>
-          ))}
+            );
+          })}
 
         </div>
 
         {/* button */}
         <div className="mt-6 flex justify-center sm:mt-8 md:mt-9">
-          <button
-            type="button"
-            className="inline-flex items-center justify-center rounded-md bg-orange-500 px-5 py-2.5 text-[13px] font-bold text-white shadow-sm transition-all duration-300 hover:bg-orange-600 hover:shadow-md active:scale-95 sm:px-7 sm:py-3 sm:text-[15px] md:text-[16px]"
-          >
+          <button type="button" className="inline-flex items-center justify-center rounded-md bg-orange-500 px-5 py-2.5 text-[13px] font-bold text-white shadow-sm transition-all duration-300 hover:bg-orange-600 hover:shadow-md active:scale-95 sm:px-7 sm:py-3 sm:text-[15px] md:text-[16px]">
             View All Recruiters
             <FaArrowRight className="ml-2 h-3 w-3 sm:h-3.5 sm:w-3.5" />
           </button>

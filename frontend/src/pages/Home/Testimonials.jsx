@@ -37,10 +37,10 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#eef2ff] px-4 py-10 sm:px-6 md:py-12 lg:px-8 lg:py-14">
+    <section className="relative w-full overflow-hidden bg-[#eef2ff] px-5 py-10 sm:px-8 md:py-12 lg:px-10 lg:py-14">
 
       {/* heading */}
-      <div className="mb-8 text-center sm:mb-10">
+      <div className="mx-auto mb-8 w-full max-w-7xl text-center sm:mb-10">
         <div className="group inline-block">
 
           <h2 className="text-[20px] font-bold tracking-wide text-[#f97316] sm:text-[22px] md:text-[24px] lg:text-[25px]">
@@ -53,7 +53,7 @@ export default function TestimonialsSection() {
       </div>
 
       {/* testimonials */}
-      <div className="mx-auto w-full max-w-[1100px]">
+      <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10">
 
         <div className="grid min-w-0 grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
 

@@ -16,7 +16,7 @@ const Navbar = () => {
     ["Programs", null],
     ["Placements", "/placements"],
     ["Campus Life", "/campus-life"],
-    ["Contact Us", "/contact"],
+    ["Contact Us", "/contact"]
   ];
 
   useEffect(() => {
@@ -57,12 +57,12 @@ const Navbar = () => {
       <nav className={`fixed top-0 z-50 w-full transition-all duration-500 ${scroll ? "bg-white/95 shadow-lg backdrop-blur-2xl" : "bg-white/75 backdrop-blur-xl"}`}>
         <div className={`flex items-center px-4 sm:px-6 lg:px-10 xl:px-12 ${scroll ? "h-[66px] lg:h-[74px]" : "h-[74px] lg:h-[84px]"}`}>
 
-          {/* Logo */}
+          {/* logo */}
           <NavLink to="/" end onClick={closeMenu} className="group">
             <img src="/logo.png" alt="Guru Nanak Institutions" className="h-16 w-16 object-contain transition duration-300 group-hover:scale-105 sm:h-[68px] sm:w-[68px] lg:h-[70px] lg:w-[70px]" />
           </NavLink>
 
-          {/* Desktop */}
+          {/* desktop */}
           <div className="ml-auto hidden items-center lg:flex">
             <div className="flex items-center gap-6 xl:gap-8">
               {links.map(([name, href]) =>
@@ -85,7 +85,7 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* Mobile */}
+          {/* mobile */}
           <div className="ml-auto flex items-center gap-2 lg:hidden">
             <button onClick={openApply} className="hidden rounded-md bg-[#f85b0b] px-3 py-2 text-xs font-bold text-white sm:block">
               Apply
@@ -99,7 +99,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* mobile menu */}
         <div className={`overflow-hidden border-t bg-white/95 transition-all duration-500 lg:hidden ${open ? "max-h-[100vh] opacity-100" : "max-h-0 opacity-0"}`}>
           <div className="space-y-1 p-4">
             {links.map(([name, href]) =>

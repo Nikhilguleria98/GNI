@@ -30,7 +30,7 @@ const PageHero = ({
         <div className="absolute inset-0 bg-gradient-to-r from-[#f35b0a]/95 via-[#f35b0a]/60 to-transparent" />
 
         {/* content */}
-        <div className="relative z-10 mx-auto flex min-h-[500px] max-w-[1440px] items-center px-4 py-12 sm:min-h-[580px] sm:px-8 sm:py-16 md:min-h-[620px] md:px-10 lg:min-h-[600px] lg:px-20 xl:px-[144px]">
+        <div className="relative z-10 mx-auto flex min-h-[500px] w-full max-w-7xl items-center px-4 py-12 sm:min-h-[580px] sm:px-6 sm:py-16 md:min-h-[620px] md:px-8 lg:min-h-[600px] lg:px-10">
 
           <div className="w-full max-w-[800px]">
 
@@ -82,18 +82,14 @@ const PageHero = ({
     return (
       <section className="relative min-h-[360px] w-full overflow-hidden sm:min-h-[420px] md:min-h-[480px] lg:min-h-[540px] xl:min-h-[570px]">
 
-        {/* background image */}
         <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('${image}')` }} />
 
-        {/* overlay */}
         <div className="absolute inset-0 bg-black/35" />
 
-        {/* content */}
         <div className="relative z-10 mx-auto flex min-h-[360px] w-full max-w-7xl items-center px-4 py-8 sm:min-h-[420px] sm:px-8 sm:py-12 md:min-h-[480px] md:px-10 lg:min-h-[540px] lg:px-12 xl:min-h-[570px]">
 
           <div className="group w-full max-w-[520px] bg-black/25 px-4 py-4 backdrop-blur-[1px] sm:max-w-[580px] sm:px-5 sm:py-5 md:max-w-[650px] md:px-6 md:py-6 lg:max-w-[700px] lg:px-7 lg:py-6">
 
-            {/* heading */}
             <h1 className="text-[28px] font-extrabold leading-[1.15] text-white sm:text-[36px] md:text-[42px] lg:text-[48px] xl:text-[50px]">
               {title}{" "}
               <span className="text-[#ff6b35]">
@@ -103,17 +99,14 @@ const PageHero = ({
 
             <div className="mt-3 h-[2px] w-full origin-left scale-x-0 rounded-full bg-[#ff6b35] transition-transform duration-700 ease-out group-hover:scale-x-100 sm:mt-4" />
 
-            {/* subtitle */}
             <h2 className="mt-3 text-[13px] font-bold leading-snug text-[#ff6b35] sm:mt-4 sm:text-[15px] md:text-[17px] lg:text-[18px]">
               {subtitle}
             </h2>
 
-            {/* description */}
             <p className="mt-3 max-w-[620px] text-[13px] leading-6 text-white sm:mt-4 sm:text-[15px] sm:leading-7 md:text-[17px] md:leading-7 lg:text-[18px] lg:leading-7">
               {description}
             </p>
 
-            {/* bottom text */}
             <p className="mt-2 text-[11px] leading-5 text-white/90 sm:text-[13px] sm:leading-6 md:text-[14px] lg:text-[15px] lg:leading-6">
               {secondaryDescription}
             </p>
@@ -129,62 +122,49 @@ const PageHero = ({
     return (
       <section className="relative min-h-[400px] w-full overflow-hidden sm:min-h-[500px] lg:min-h-[570px]">
 
-        {/* background image */}
         <img src={image} alt={alt} className="absolute inset-0 h-full w-full object-cover object-center" />
 
-        {/* overlay */}
         <div className="absolute inset-0 bg-black/25" />
 
-        {/* gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-orange-700/95 via-orange-600/70 to-transparent" />
 
-        {/* content */}
         <div className="relative z-10 mx-auto flex min-h-[400px] w-full max-w-7xl items-center px-4 py-12 sm:min-h-[500px] sm:px-8 sm:py-20 lg:min-h-[570px] lg:px-12">
 
           <div className="w-full max-w-3xl text-white">
 
-            {/* admission badge */}
             <span className="inline-flex max-w-full rounded-md bg-red-600 px-3 py-2 text-[12px] font-semibold leading-5 tracking-wide shadow-sm sm:px-4 sm:text-[15px] md:text-[16px]">
               {badge}
             </span>
 
-            {/* heading */}
             <h1 className="mt-4 max-w-3xl text-[28px] font-extrabold leading-[1.15] tracking-tight sm:mt-6 sm:text-[36px] md:text-[42px] lg:text-[48px] xl:text-[50px]">
               {title}
             </h1>
 
-            {/* description */}
             <p className="mt-4 w-full max-w-2xl text-[13px] leading-6 text-white/90 sm:mt-5 sm:text-[15px] sm:leading-7 md:text-[17px] md:leading-7 lg:text-[18px] lg:leading-7">
               {description}
             </p>
 
-            {/* campus highlights */}
             <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3 text-[12px] font-medium text-white sm:mt-6 sm:text-[15px] md:text-[17px]">
 
               <div className="flex min-w-0 items-center gap-1.5">
                 <FiCheckCircle className="shrink-0 text-emerald-300" size={16} aria-hidden="true" />
-
                 <span>{features[0]}</span>
               </div>
 
               <div className="flex min-w-0 items-center gap-1.5">
                 <FiUsers className="shrink-0 text-emerald-300" size={16} aria-hidden="true" />
-
                 <span>{features[1]}</span>
               </div>
 
               <div className="flex min-w-0 items-center gap-1.5">
                 <FiCalendar className="shrink-0 text-emerald-300" size={16} aria-hidden="true" />
-
                 <span>{features[2]}</span>
               </div>
 
             </div>
 
-            {/* explore button */}
             <button type="button" onClick={onButtonClick} className="mt-6 inline-flex items-center gap-2 rounded-md bg-orange-600 px-5 py-3 text-[13px] font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2 focus:ring-offset-orange-900 sm:mt-7 sm:px-7 sm:py-3.5 sm:text-[15px] md:text-[16px]">
               {buttonText}
-
               <FiArrowRight size={16} aria-hidden="true" />
             </button>
 
@@ -199,18 +179,14 @@ const PageHero = ({
     return (
       <section className="relative min-h-[330px] w-full overflow-hidden sm:min-h-[390px] lg:min-h-[430px]">
 
-        {/* background image */}
         <img src={image} alt={alt} className="absolute inset-0 h-full w-full object-cover object-center" />
 
-        {/* overlay */}
         <div className="absolute inset-0 bg-black/55" />
 
-        {/* content */}
         <div className="relative z-10 mx-auto flex min-h-[330px] w-full max-w-7xl items-center px-4 py-10 sm:min-h-[390px] sm:px-8 sm:py-16 lg:min-h-[430px] lg:px-12">
 
           <div className="w-full max-w-xl text-white">
 
-            {/* heading */}
             <div className="group w-fit max-w-full">
 
               <h1 className="text-[28px] font-bold leading-[1.15] sm:text-[36px] md:text-[42px] lg:text-[48px] xl:text-[50px]">
@@ -228,7 +204,6 @@ const PageHero = ({
 
             </div>
 
-            {/* description */}
             <p className="mt-4 w-full max-w-lg text-[13px] leading-6 text-white/90 sm:mt-5 sm:text-[15px] sm:leading-7 md:text-[17px] md:leading-7 lg:text-[18px] lg:leading-7">
               {description}
             </p>
@@ -237,7 +212,6 @@ const PageHero = ({
               {secondaryDescription}
             </p>
 
-            {/* contact information */}
             <div className="mt-5 space-y-2 sm:mt-6">
 
               <div className="flex min-w-0 items-center gap-2">
@@ -269,33 +243,26 @@ const PageHero = ({
     return (
       <section className="relative min-h-[480px] w-full overflow-hidden sm:min-h-[580px] md:min-h-[600px] lg:min-h-[620px]">
 
-        {/* background image */}
         <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url("${image}")` }} />
 
-        {/* overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-orange-600/90 via-orange-500/65 to-black/20" />
 
-        {/* content */}
         <div className="relative z-10 mx-auto flex min-h-[480px] w-full max-w-7xl items-center px-4 py-12 sm:min-h-[580px] sm:px-8 sm:py-16 md:min-h-[600px] md:px-10 lg:min-h-[620px] lg:px-12">
 
           <div className="w-full max-w-2xl text-white">
 
-            {/* badge */}
             <span className="mb-4 inline-block max-w-full rounded-sm bg-white/15 px-3 py-1.5 text-[12px] font-semibold uppercase leading-5 tracking-wide backdrop-blur-sm sm:mb-5 sm:text-[15px] md:text-[17px] lg:text-[18px]">
               {badge}
             </span>
 
-            {/* title */}
             <h1 className="text-[28px] font-bold leading-[1.15] sm:text-[36px] md:text-[42px] lg:text-[48px] xl:text-[50px]">
               {title}
             </h1>
 
-            {/* description */}
             <p className="mt-4 w-full max-w-xl text-[13px] leading-6 text-white/95 sm:mt-5 sm:text-[15px] sm:leading-7 md:text-[17px] md:leading-7 lg:text-[18px] lg:leading-7">
               {description}
             </p>
 
-            {/* bottom info */}
             <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3 text-[11px] font-medium sm:mt-7 sm:gap-x-6 sm:text-[13px] md:text-[14px]">
 
               <div className="flex min-w-0 items-center gap-2">
@@ -316,10 +283,8 @@ const PageHero = ({
 
             </div>
 
-            {/* button */}
             <button type="button" onClick={onButtonClick} className="mt-7 inline-flex items-center rounded-md bg-orange-500 px-5 py-3 text-[13px] font-semibold text-white shadow-lg transition-all duration-300 hover:bg-orange-600 hover:shadow-xl active:scale-95 sm:px-7 sm:py-3.5 sm:text-[15px] md:text-[16px]">
               {buttonText}
-
               <FaArrowRight className="ml-2 h-3 w-3" />
             </button>
 
