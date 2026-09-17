@@ -23,7 +23,7 @@ const ProgramFaculty = ({ data }) => {
           positionRef.current = 0;
         }
 
-        slider.style.transform = `translate3d(-${positionRef.current}px, 0, 0)`;
+        slider.style.transform = `translate3d(-${positionRef.current}px,0,0)`;
       }
 
       animationRef.current = requestAnimationFrame(animate);
@@ -41,68 +41,83 @@ const ProgramFaculty = ({ data }) => {
   const sliderData = [...data, ...data];
 
   return (
-    <section className="w-full overflow-hidden bg-white py-12 sm:py-14 md:py-16 lg:py-20">
-      <div className="mx-auto max-w-7xl  sm:px-8 md:px-10 lg:px-12">
+    <section className="w-full overflow-hidden bg-white py-10 sm:py-14 md:py-16 lg:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12">
 
-        {/* section heading */}
-        <div className="text-center sm:mb-10 md:mb-12">
+        {/* Heading */}
+        <div className="mb-10 text-center">
+          <h2 className="text-2xl font-bold text-[#ff5b00] sm:text-3xl md:text-4xl lg:text-5xl">
+            Distinguished Faculty at Jindal's Guru Nanak Institutions, Mullana
+          </h2>
 
-          <p className=" text-4xl font-bold  text-[#ff5b00] sm:text-[2xl] md:text-[2xl] ">
-            Distinguished Faculty at Jindal's Guru Nanak Institutions , Mullana
-          </p>
-
-          
-
-          <p className="mt-3 text-xl px-10 ml-10 mb-8 leading-6 text-gray-500 sm:text-[15px] sm:leading-7 md:text-[17px] md:leading-7 lg:text-[18px] lg:leading-7">
-            Our experienced faculty combines academic excellence, research expertise, and industry knowledge to provide students with advanced technical education and personalized mentorship.
+          <p className="mx-auto mt-4 max-w-4xl text-sm leading-6 text-gray-500 sm:text-base sm:leading-7 md:text-lg">
+            Our experienced faculty combines academic excellence, research
+            expertise, and industry knowledge to provide students with
+            advanced technical education and personalized mentorship.
           </p>
         </div>
 
-        {/* infinite slider */}
-        <div className="relative overflow-hidden" onMouseEnter={() => { isPausedRef.current = true; }} onMouseLeave={() => { isPausedRef.current = false; }}>
-
-          <div ref={sliderRef} className="flex w-max will-change-transform">
-
+        {/* Slider */}
+        <div
+          className="relative overflow-hidden"
+          onMouseEnter={() => {
+            isPausedRef.current = true;
+          }}
+          onMouseLeave={() => {
+            isPausedRef.current = false;
+          }}
+        >
+          <div
+            ref={sliderRef}
+            className="flex w-max will-change-transform"
+          >
             {sliderData.map((faculty, index) => (
-              <div key={`${faculty.name}-${index}`} className="w-[75vw] shrink-0 px-2 sm:w-[45vw] md:w-[30vw] lg:w-[20vw]">
+              <div
+                key={`${faculty.name}-${index}`}
+                className="
+                  shrink-0
+                  px-2
 
-                <div className="group overflow-hidden rounded-sm border border-gray-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md">
+                  w-[85vw]
+                  sm:w-[48vw]
+                  md:w-[35vw]
+                  lg:w-[24vw]
+                  xl:w-[20vw]
+                "
+              >
+                <div className="group overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
 
-                  {/* image */}
-                  <div className="relative flex h-44 items-end justify-center overflow-hidden bg-gray-200 sm:h-52 md:h-54 lg:h-56">
+                  {/* Faculty Image Placeholder */}
+                  <div className="flex h-48 items-end justify-center overflow-hidden bg-gray-200 sm:h-56 md:h-60 lg:h-64">
 
-                    {/* icon */}
                     <div className="flex flex-col items-center">
-
-                      {/* head */}
                       <div className="h-14 w-14 rounded-full bg-gray-500 sm:h-16 sm:w-16" />
 
-                      {/* body */}
                       <div className="mt-2 h-24 w-32 rounded-t-[55px] bg-gray-500 sm:h-28 sm:w-36" />
-
                     </div>
+
                   </div>
 
-                  {/* details */}
-                  <div className="border-t border-gray-100 px-3 py-3 text-center sm:px-4 sm:py-4">
+                  {/* Details */}
+                  <div className="border-t border-gray-100 px-4 py-4 text-center">
 
-                    <h3 className="truncate text-[14px] font-bold leading-tight text-gray-800 sm:text-[15px] md:text-[17px] lg:text-[18px]">
+                    <h3 className="line-clamp-2 min-h-[48px] text-sm font-bold text-gray-800 sm:text-base md:text-lg">
                       {faculty.name}
                     </h3>
 
-                    <p className="mt-1 text-[12px] leading-6 text-gray-500 sm:text-[13px] sm:leading-7 md:text-[15px] md:leading-7">
+                    <p className="mt-2 text-xs text-gray-500 sm:text-sm md:text-base">
                       {faculty.role}
                     </p>
 
-                    <p className="mt-1 truncate text-[10px] leading-5 text-gray-400 sm:text-[11px] md:text-[13px]">
+                    <p className="mt-1 truncate text-xs text-gray-400 sm:text-sm">
                       {faculty.department}
                     </p>
 
                   </div>
+
                 </div>
               </div>
             ))}
-
           </div>
         </div>
 

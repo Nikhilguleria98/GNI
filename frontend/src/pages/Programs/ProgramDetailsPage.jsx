@@ -55,31 +55,32 @@ const ProgramDetailsPage = () => {
 
   return (
     <>
-      <section className="relative min-h-[600px] w-full overflow-hidden sm:min-h-[650px] lg:min-h-[600px]">
-        <img
-          src={program.heroImage || "/i1.png"}
-          alt={`${program.title} Campus`}
-          className="absolute inset-0 h-full w-full object-cover object-center"
-        />
+      <section className="relative min-h-[500px] w-full overflow-hidden sm:min-h-[600px] lg:min-h-[700px]">
+  <img
+    src={program.heroImage || "/i1.png"}
+    alt={`${program.title} Campus`}
+    className="absolute inset-0 h-full w-full object-cover"
+  />
 
-        <div className="absolute inset-0 bg-gradient-to-r from-[#f35b0a]/95 via-[#f35b0a]/60 to-transparent" />
+  <div className="absolute inset-0 bg-gradient-to-r from-[#f35b0a]/95 via-[#f35b0a]/60 to-transparent" />
 
-        <div className="relative z-10 mx-auto flex min-h-[600px] max-w-[1440px] items-center px-6 py-16 sm:min-h-[650px] sm:px-10 lg:min-h-[600px] lg:px-20 xl:px-[144px]">
-          <div className="w-full max-w-[800px]">
-            <div className="mb-6 inline-flex items-center rounded-md bg-[#df2929] px-4 py-2.5 sm:mb-7 sm:px-5 sm:py-3">
-              <span className="text-[12px] font-bold text-white sm:text-[13px] lg:text-[14px]">
-                Admissions Open for 2026-2027
-              </span>
-            </div>
+  <div className="relative z-10 mx-auto flex min-h-[500px] max-w-7xl items-center px-4 py-12 sm:min-h-[600px] sm:px-8 lg:min-h-[700px] lg:px-12">
+    <div className="w-full max-w-3xl">
+      <div className="mb-5 inline-flex items-center rounded-md bg-[#df2929] px-3 py-2 sm:px-5 sm:py-3">
+        <span className="text-xs font-bold text-white sm:text-sm">
+          Admissions Open for 2026-2027
+        </span>
+      </div>
 
-            <h1 className="mb-5 max-w-[800px] text-[30px] font-bold leading-[1.15] tracking-tight text-white sm:text-[38px] md:text-[42px] lg:text-[48px] xl:text-[50px]">
-              {program.title}
-            </h1>
+      <h1 className="mb-5 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+        {program.title}
+      </h1>
 
-            <p className="mb-8 max-w-[610px] text-[14px] font-normal leading-6 text-white sm:text-[15px] sm:leading-7 md:text-[17px] lg:text-[18px] lg:leading-7">
-              {program.description}
-            </p>
+      <p className="mb-8 text-sm leading-6 text-white sm:text-base sm:leading-7 md:text-lg">
+        {program.description}
+      </p>
 
+<<<<<<< HEAD
             <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-7">
               <div className="flex items-center gap-2">
                 <FiCheckCircle
@@ -187,9 +188,18 @@ const ProgramDetailsPage = () => {
               </div>
             </div>
           </div>
+=======
+      <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:gap-6">
+        <div className="flex items-center gap-2">
+          <FiCheckCircle className="h-5 w-5 text-green-400" />
+          <span className="text-sm text-white">
+            UGC Recognized
+          </span>
+>>>>>>> c28649ce7674e8c455b81025a82cad332cea31ce
         </div>
       </section>
 
+<<<<<<< HEAD
       <section>
         <div className="min-h-screen px-5 py-12">
           {/* Heading */}
@@ -309,6 +319,23 @@ const ProgramDetailsPage = () => {
           </div>
         </div>
       </section>
+=======
+        <div className="flex items-center gap-2">
+          <FiCheckCircle className="h-5 w-5 text-green-400" />
+          <span className="text-sm text-white">
+            Approved by Govt. of Punjab
+          </span>
+        </div>
+      </div>
+
+      <button className="group inline-flex items-center gap-3 rounded-md bg-[#f4510b] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#df4607] sm:text-base">
+        Apply Now
+        <FiArrowRight className="transition group-hover:translate-x-1" />
+      </button>
+    </div>
+  </div>
+</section>
+>>>>>>> c28649ce7674e8c455b81025a82cad332cea31ce
     </>
   );
 };

@@ -1,18 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import GniScrollEffect from "./components/effects/GniScrollEffect";
-
 import Hero from "./pages/Home/Hero";
 import WhyChooseUsSection from "./pages/Home/WhyChooseUs";
 import StudyAtGniSection from "./pages/Home/StudyAtGni";
 import TestimonialsSection from "./pages/Home/Testimonials";
 import ApplyNowSection from "./pages/Home/ApplyNowSection";
-
 import ProgramsPage from "./pages/Programs/ProgramsPage";
 import ProgramDetailsPage from "./pages/Programs/ProgramDetailsPage";
-import ProgramFaculty from "./pages/Programs/ProgramFaculty";
+import ProgramFaculty from "./pages/Programs/ProgramFaculty";                         
 import ProgramTestimonial from "./pages/Programs/ProgramTestinomial";
 import ProgramRecruiters from "./pages/Programs/ProgramRecruiters";
 import ProgramInfrastructure from "./pages/Programs/ProgramInfrastructure";
