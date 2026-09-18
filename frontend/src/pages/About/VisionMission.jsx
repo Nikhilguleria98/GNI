@@ -4,47 +4,39 @@ import { FaBullseye, FaLightbulb } from "react-icons/fa";
 const philosophyPoints = [
   {
     title: "Academic Excellence",
-    description:
-      "Deliver quality education through innovative teaching methods, industry-oriented curriculum, and continuous academic improvement.",
+    description: "Deliver quality education through innovative teaching methods, industry-oriented curriculum, and continuous academic improvement.",
   },
   {
     title: "Student Empowerment",
-    description:
-      "Equip students with technical expertise, leadership qualities, and critical thinking skills to excel in their chosen careers.",
+    description: "Equip students with technical expertise, leadership qualities, and critical thinking skills to excel in their chosen careers.",
   },
   {
     title: "Industry & Innovation",
-    description:
-      "Promote research, entrepreneurship, innovation, and strong industry collaborations to prepare students for global opportunities.",
+    description: "Promote research, entrepreneurship, innovation, and strong industry collaborations to prepare students for global opportunities.",
   },
   {
     title: "Ethical & Social Responsibility",
-    description:
-      "Develop socially responsible professionals who uphold integrity, embrace diversity, and contribute positively to society and sustainable development.",
+    description: "Develop socially responsible professionals who uphold integrity, embrace diversity, and contribute positively to society and sustainable development.",
   },
 ];
 
 const missionPoints = [
   {
     title: "Excellence in Education",
-    description:
-      "To be recognized as a premier institution delivering world-class education, innovation, and academic excellence.",
+    description: "To be recognized as a premier institution delivering world-class education, innovation, and academic excellence.",
   },
   {
     title: "Future-Ready Leaders",
-    description:
-      "To nurture creative thinkers, skilled professionals, and ethical leaders equipped to drive technological and societal transformation.",
+    description: "To nurture creative thinkers, skilled professionals, and ethical leaders equipped to drive technological and societal transformation.",
   },
   {
     title: "Global Competence",
-    description:
-      "To create graduates with global perspectives, research capabilities, and industry-ready skills that meet international standards.",
+    description: "To create graduates with global perspectives, research capabilities, and industry-ready skills that meet international standards.",
   },
   {
     title: "Sustainable Growth",
-    description:
-      "To foster a culture of continuous learning and innovation that benefits students, industries, and society.",
-  },
+    description: "To foster a culture of continuous learning and innovation that benefits students, industries, and society.",
+  }
 ];
 
 const VisionMissionSection = () => {
@@ -92,11 +84,7 @@ const VisionMissionSection = () => {
           {/* points */}
           <div className="relative">
             <div className="absolute bottom-2 left-[9px] top-2 w-[2px] bg-[#ffb38d] sm:left-[10px]">
-              <div
-                className="absolute left-0 top-0 w-full rounded-full bg-[#ff5b00] transition-all duration-500 ease-out"
-                style={{
-                  height: `${(activePhilosophy / (philosophyPoints.length - 1)) * 100}%`,
-                }}
+              <div className="absolute left-0 top-0 w-full rounded-full bg-[#ff5b00] transition-all duration-500 ease-out" style={{height: `${(activePhilosophy / (philosophyPoints.length - 1)) * 100}%`}}
               />
             </div>
 

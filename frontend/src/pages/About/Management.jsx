@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FiArrowLeft, FiArrowRight, FiFacebook, FiLinkedin, FiMail, FiUser } from "react-icons/fi";
 
-const ManagementSection = () => {
+const Management = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [imageErrors, setImageErrors] = useState({});
 
@@ -247,4 +247,4 @@ const ManagementSection = () => {
   );
 };
 
-export default ManagementSection;
+export default Management;

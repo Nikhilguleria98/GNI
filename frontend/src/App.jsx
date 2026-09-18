@@ -9,7 +9,7 @@ import TestimonialsSection from "./pages/Home/Testimonials";
 import ApplyNowSection from "./pages/Home/ApplyNowSection";
 import ProgramsPage from "./pages/Programs/ProgramsPage";
 import ProgramDetailsPage from "./pages/Programs/ProgramDetailsPage";
-import ProgramFaculty from "./pages/Programs/ProgramFaculty";
+import ProgramFaculty from "./pages/Programs/ProgramFaculty";                         
 import ProgramTestimonial from "./pages/Programs/ProgramTestinomial";
 import ProgramRecruiters from "./pages/Programs/ProgramRecruiters";
 import ProgramInfrastructure from "./pages/Programs/ProgramInfrastructure";
@@ -18,7 +18,7 @@ import ProgramsCTA from "./pages/Programs/ProgramsCTA";
 import AboutHeroSection from "./pages/About/AboutHero";
 import AboutWelcomeSection from "./pages/About/AboutWelcome";
 import VisionMissionSection from "./pages/About/VisionMission";
-import ManagementSection from "./pages/About/Management";
+import Management from "./pages/About/Management";
 
 import PlacementHero from "./pages/Placements/PlacementHero";
 import PlacementOverview from "./pages/Placements/PlacementOverview";
@@ -35,102 +35,99 @@ import ContactFormSection from "./pages/Contact/Contact";
 import AdmissionHelpline from "./pages/Contact/AdmissionHelpline";
 import DepartmentContacts from "./pages/Contact/DepartmentContacts";
 
-import {
-  placementData,
-  facultyData,
-  recruiterData,
-  placementTestimonialsData,
-} from "./data/placementData";
+import {placementData,facultyData,recruiterData,placementTestimonialsData} from "./data/placementData";
+import ScrollToTop from "./components/ScrollTop/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+    <ScrollToTop />
       <GniScrollEffect />
 
       <Navbar />
 
       <Routes>
         <Route path="/" element={
-          <>
-            <Hero />
-            <WhyChooseUsSection />
-            <StudyAtGniSection />
-            <TestimonialsSection />
-            <ApplyNowSection />
-          </>
-        }
+            <>
+              <Hero />
+              <WhyChooseUsSection />
+              <StudyAtGniSection />
+              <TestimonialsSection />
+              <ApplyNowSection />
+            </>
+          }
         />
 
         <Route path="/programs" element={<ProgramsPage />} />
 
-        <Route path="/programs/:program" element={<ProgramDetailsPage />} />
+        <Route path="/programs/:program" element={ <ProgramDetailsPage />} />
 
-        <Route path="/programs/:program/faculty" element={<ProgramFaculty data={facultyData} />
-        }
+        <Route path="/programs/:program/faculty" element={ <ProgramFaculty data={facultyData} />
+          }
         />
 
         <Route path="/programs/:program/testimonials" element={
-          <ProgramTestimonial />
-        }
+            <ProgramTestimonial />
+          }
         />
 
         <Route path="/programs/:program/recruiters" element={
-          <ProgramRecruiters
-            data={recruiterData}
-          />
-        }
+            <ProgramRecruiters
+              data={recruiterData}
+            />
+          }
         />
 
         <Route path="/programs/:program/infrastructure" element={
-          <ProgramInfrastructure />
-        }
+            <ProgramInfrastructure />
+          }
         />
 
         <Route path="/programs/:program/apply" element={<ProgramsCTA />}
         />
 
         <Route path="/about" element={
-          <>
-            <AboutHeroSection />
-            <AboutWelcomeSection />
-            <VisionMissionSection />
-            <ManagementSection />
-          </>
-        }
+            <>
+              <AboutHeroSection />
+              <AboutWelcomeSection />
+              <VisionMissionSection />
+              <Management />
+            </>
+          }
         />
 
         <Route path="/placements" element={
-          <>
-            <PlacementHero data={placementData} />
-            <PlacementOverview />
-            <PlacementFaculty data={facultyData} />
-            <PlacementRecruiters
-              data={recruiterData}
-            />
-            <PlacementTestimonials
-              data={placementTestimonialsData}
-            />
-            <PlacementCTA />
-          </>
-        }
+            <>
+              <PlacementHero data={placementData} />
+              <PlacementOverview />
+              <PlacementFaculty data={facultyData} />
+              <PlacementRecruiters
+                data={recruiterData}
+              />
+              <PlacementTestimonials
+                data={placementTestimonialsData}
+              />
+              <PlacementCTA />
+            </>
+          }
         />
 
         <Route path="/campus-life" element={
-          <>
-            <CampusHero />
-            <CampusGallery />
-          </>
-        }
+            <>
+              <CampusHero />
+              <CampusGallery />
+            </>
+          }
         />
 
         <Route path="/contact" element={
-          <>
-            <ContactHero />
-            <ContactFormSection />
-            <AdmissionHelpline />
-            <DepartmentContacts />
-          </>
-        }
+            <>
+              <ContactHero />
+              <ContactFormSection />
+              <AdmissionHelpline />
+              <DepartmentContacts />
+            </>
+          }
         />
       </Routes>
 
