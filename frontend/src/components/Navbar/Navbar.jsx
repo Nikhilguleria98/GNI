@@ -50,12 +50,7 @@ const Navbar = () => {
     setPrograms(true);
   };
 
-  const linkStyle = ({ isActive }) =>
-    `group relative py-3 text-sm font-medium transition-all duration-300 xl:text-[15px] ${
-      isActive
-        ? "text-[#f85b0b]"
-        : "text-[#171717] hover:text-[#f85b0b]"
-    }`;
+  const linkStyle = ({ isActive }) => `group relative py-3 text-sm font-medium transition-all duration-300 xl:text-[15px] ${isActive ? "text-[#f85b0b]" : "text-[#171717] hover:text-[#f85b0b]"}`;
 
   return (
     <>
