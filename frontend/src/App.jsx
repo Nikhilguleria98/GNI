@@ -9,7 +9,7 @@ import TestimonialsSection from "./pages/Home/Testimonials";
 import ApplyNowSection from "./pages/Home/ApplyNowSection";
 import ProgramsPage from "./pages/Programs/ProgramsPage";
 import ProgramDetailsPage from "./pages/Programs/ProgramDetailsPage";
-import ProgramFaculty from "./pages/Programs/ProgramFaculty";                         
+import ProgramFaculty from "./pages/Programs/ProgramFaculty";
 import ProgramTestimonial from "./pages/Programs/ProgramTestinomial";
 import ProgramRecruiters from "./pages/Programs/ProgramRecruiters";
 import ProgramInfrastructure from "./pages/Programs/ProgramInfrastructure";
@@ -35,19 +35,29 @@ import ContactFormSection from "./pages/Contact/Contact";
 import AdmissionHelpline from "./pages/Contact/AdmissionHelpline";
 import DepartmentContacts from "./pages/Contact/DepartmentContacts";
 
-import {placementData,facultyData,recruiterData,placementTestimonialsData} from "./data/placementData";
+import EventDetailsPage from "./pages/Events/EventDetailsPage";
+
+import {
+  placementData,
+  facultyData,
+  recruiterData,
+  placementTestimonialsData,
+} from "./data/placementData";
+
 import ScrollToTop from "./components/ScrollTop/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
-    <ScrollToTop />
+      <ScrollToTop />
       <GniScrollEffect />
 
       <Navbar />
 
       <Routes>
-        <Route path="/" element={
+        <Route
+          path="/"
+          element={
             <>
               <Hero />
               <WhyChooseUsSection />
@@ -60,33 +70,39 @@ function App() {
 
         <Route path="/programs" element={<ProgramsPage />} />
 
-        <Route path="/programs/:program" element={ <ProgramDetailsPage />} />
-
-        <Route path="/programs/:program/faculty" element={ <ProgramFaculty data={facultyData} />
-          }
+        <Route
+          path="/programs/:program"
+          element={<ProgramDetailsPage />}
         />
 
-        <Route path="/programs/:program/testimonials" element={
-            <ProgramTestimonial />
-          }
+        <Route
+          path="/programs/:program/faculty"
+          element={<ProgramFaculty data={facultyData} />}
         />
 
-        <Route path="/programs/:program/recruiters" element={
-            <ProgramRecruiters
-              data={recruiterData}
-            />
-          }
+        <Route
+          path="/programs/:program/testimonials"
+          element={<ProgramTestimonial />}
         />
 
-        <Route path="/programs/:program/infrastructure" element={
-            <ProgramInfrastructure />
-          }
+        <Route
+          path="/programs/:program/recruiters"
+          element={<ProgramRecruiters data={recruiterData} />}
         />
 
-        <Route path="/programs/:program/apply" element={<ProgramsCTA />}
+        <Route
+          path="/programs/:program/infrastructure"
+          element={<ProgramInfrastructure />}
         />
 
-        <Route path="/about" element={
+        <Route
+          path="/programs/:program/apply"
+          element={<ProgramsCTA />}
+        />
+
+        <Route
+          path="/about"
+          element={
             <>
               <AboutHeroSection />
               <AboutWelcomeSection />
@@ -96,14 +112,14 @@ function App() {
           }
         />
 
-        <Route path="/placements" element={
+        <Route
+          path="/placements"
+          element={
             <>
               <PlacementHero data={placementData} />
               <PlacementOverview />
               <PlacementFaculty data={facultyData} />
-              <PlacementRecruiters
-                data={recruiterData}
-              />
+              <PlacementRecruiters data={recruiterData} />
               <PlacementTestimonials
                 data={placementTestimonialsData}
               />
@@ -112,7 +128,9 @@ function App() {
           }
         />
 
-        <Route path="/campus-life" element={
+        <Route
+          path="/campus-life"
+          element={
             <>
               <CampusHero />
               <CampusGallery />
@@ -120,7 +138,9 @@ function App() {
           }
         />
 
-        <Route path="/contact" element={
+        <Route
+          path="/contact"
+          element={
             <>
               <ContactHero />
               <ContactFormSection />
@@ -128,6 +148,12 @@ function App() {
               <DepartmentContacts />
             </>
           }
+        />
+
+        {/* Events */}
+        <Route
+          path="/events/:eventSlug"
+          element={<EventDetailsPage />}
         />
       </Routes>
 

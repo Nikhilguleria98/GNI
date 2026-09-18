@@ -173,13 +173,13 @@ const Footer = () => {
               </li>
 
               <li>
-                <a href="/programs/computer-applications" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
+                <a href="/programs/computer-application" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
                   Computer Applications
                 </a>
               </li>
 
               <li>
-                <a href="/programs/bpharm" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
+                <a href="/programs/pharmacy" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
                   B.Pharm
                 </a>
               </li>

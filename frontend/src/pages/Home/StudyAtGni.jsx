@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { FaCogs, FaSun, FaCapsules, FaArrowRight } from "react-icons/fa";
 
 const programs = [
@@ -25,21 +26,25 @@ const events = [
     date: "FEB 14, 2026",
     title: "University 2026 Scholarship Result Declared",
     description: "We are pleased to announce the scholarship results for our deserving students.",
+    slug: "scholarship-result",
   },
   {
     date: "FEB 17, 2026",
     title: "Faculty Development Program (FDP)",
     description: "We are pleased to announce our upcoming faculty development program.",
+    slug: "faculty-development",
   },
   {
     date: "FEB 18, 2026",
     title: "Research & Innovation Conference",
     description: "Join us for an inspiring conference focused on research and innovation.",
+    slug: "research-innovation",
   },
   {
     date: "FEB 19, 2026",
     title: "Skill Development Workshop",
     description: "A practical workshop designed to enhance professional and technical skills.",
+    slug: "skill-development",
   },
 ];
 
@@ -300,10 +305,13 @@ const StudyAtGniSection = () => {
                 deserving students.
               </p>
 
-              <button type="button" className="mt-3 flex items-center gap-1 text-[12px] font-semibold text-white sm:text-[13px] md:text-[14px]">
+              <Link
+                to="/events/scholarship-result"
+                className="mt-3 flex items-center gap-1 text-[12px] font-semibold text-white sm:text-[13px] md:text-[14px]"
+              >
                 Read More
                 <FaArrowRight className="text-[#ff5b00]" />
-              </button>
+              </Link>
 
             </div>
 
@@ -327,10 +335,13 @@ const StudyAtGniSection = () => {
                   {event.description}
                 </p>
 
-                <button type="button" className="mt-3 flex items-center gap-1 text-[12px] font-semibold text-[#ff5b00] sm:text-[13px] md:text-[14px]">
+                <Link
+                  to={`/events/${event.slug}`}
+                  className="mt-3 flex items-center gap-1 text-[12px] font-semibold text-[#ff5b00] sm:text-[13px] md:text-[14px]"
+                >
                   Read More
                   <FaArrowRight />
-                </button>
+                </Link>
 
               </article>
             ))}
