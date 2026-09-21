@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { IoArrowUndo } from "react-icons/io5";
+
 const programs = [
   { name: "B.Tech", slug: "btech" },
   { name: "M.Tech", slug: "mtech" },
@@ -22,7 +23,7 @@ const studyItems = [
 const ProgramsSlider = ({ isOpen, onClose }) => {
   return (
     <div
-      className={`fixed inset-0 z-[100] flex items-center justify-center p-3 md:p-5 ${
+      className={`fixed inset-0 z-[100] flex items-center justify-center p-2 md:p-5 ${
         isOpen ? "visible" : "pointer-events-none invisible"
       }`}
       onClick={onClose}
@@ -37,7 +38,7 @@ const ProgramsSlider = ({ isOpen, onClose }) => {
       {/* Modal */}
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`relative z-10 w-full max-w-7xl h-[90vh] overflow-hidden rounded-3xl bg-white shadow-2xl transition-transform transition-opacity duration-500 will-change-transform ${
+        className={`relative z-10 h-[92vh] w-full max-w-[1400px] overflow-hidden rounded-2xl bg-white shadow-2xl transition-all duration-500 ${
           isOpen
             ? "translate-x-0 opacity-100"
             : "translate-x-full opacity-0"
@@ -45,34 +46,34 @@ const ProgramsSlider = ({ isOpen, onClose }) => {
       >
         {/* Close Button */}
         <button
-             type="button"
-             onClick={onClose}
-             className="absolute right-4 top-4 z-30 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md text-2xl"
+          type="button"
+          onClick={onClose}
+          className="absolute right-4 top-4 z-30 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-lg"
         >
-          <IoArrowUndo size={28}/>
+          <IoArrowUndo size={30} />
         </button>
 
-        {/* Content */}
+        {/* Scroll Area */}
         <div className="h-full overflow-y-auto">
-          <div className="h-full p-5 md:p-8">
-            <div className="grid h-full grid-cols-1 gap-8 lg:grid-cols-[35%_65%]">
+          <div className="p-4 md:p-7">
+            <div className="grid min-h-[820px] grid-cols-1 lg:grid-cols-[42%_58%]">
 
-              {/* LEFT SIDE */}
-              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-1">
+              {/* LEFT SECTION */}
+              <div className="grid grid-cols-1 gap-10 bg-white p-4 md:p-8 lg:grid-cols-2">
 
                 {/* Programs */}
                 <div>
-                  <h3 className="mb-5 text-lg font-bold text-[#5146e5]">
-                    OUR PROGRAMS
+                  <h3 className="mb-8 text-lg font-bold uppercase tracking-wide text-[#5146e5] md:text-xl">
+                    Our Programs
                   </h3>
 
-                  <div className="space-y-1">
+                  <div className="space-y-6">
                     {programs.map((program) => (
                       <Link
                         key={program.slug}
                         to={`/programs/${program.slug}`}
                         onClick={onClose}
-                        className="block rounded-lg px-3 py-2 text-base font-semibold text-black transition hover:bg-[#f5f3ff] hover:text-[#f85b0b]"
+                        className="block text-lg font-semibold text-black transition-all duration-300 hover:text-[#f35b0a]"
                       >
                         {program.name}
                       </Link>
@@ -82,61 +83,64 @@ const ProgramsSlider = ({ isOpen, onClose }) => {
 
                 {/* Study Here */}
                 <div>
-                  <h3 className="mb-5 text-lg font-bold text-[#5146e5]">
-                    STUDY HERE
+                  <h3 className="mb-8 text-lg font-bold uppercase tracking-wide text-[#5146e5] md:text-xl">
+                    Study Here
                   </h3>
 
-                  <div className="space-y-1">
+                  <div className="space-y-6">
                     {studyItems.map((item) => (
-                      <button
+                      <div
                         key={item}
-                        className="block w-full rounded-lg px-3 py-2 text-left text-base font-semibold text-black transition hover:bg-[#f5f3ff] hover:text-[#f85b0b]"
+                        className="text-lg font-semibold text-black"
                       >
                         {item}
-                      </button>
+                      </div>
                     ))}
                   </div>
                 </div>
               </div>
 
-              {/* RIGHT SIDE */}
-              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#d8d5ff] via-[#e9dcfa] to-[#ffd1e5]">
+              {/* RIGHT SECTION */}
+              <div className="p-2 md:p-4">
+                <div className="relative flex h-full min-h-[500px] overflow-hidden rounded-[28px] bg-gradient-to-br from-[#d8d5ff] via-[#ece4ff] to-[#ffd8e7]">
 
-                {/* Content */}
-                <div className="relative z-10 flex h-full flex-col justify-center p-6 sm:p-8 md:p-10 lg:w-[65%]">
-                  <h1 className="mb-4 text-3xl font-bold leading-tight text-black sm:text-4xl md:text-5xl">
-                    Admissions Open 2026!
-                  </h1>
+                  {/* Content */}
+                  <div className="relative z-10 flex w-full flex-col p-6 sm:p-8 md:p-10 lg:w-[65%] lg:p-12">
+                    <h1 className="mb-5 text-4xl font-bold leading-tight text-black sm:text-5xl md:text-6xl">
+                      Admissions Open
+                      <br />
+                      2026!
+                    </h1>
 
-                  <p className="text-sm leading-relaxed text-black sm:text-base md:text-lg">
-                    Become part of a vibrant learning community that inspires
-                    innovation, leadership, and academic excellence. Explore
-                    career-oriented programs designed to prepare you for
-                    tomorrow&apos;s opportunities.
-                  </p>
+                    <p className="max-w-[550px] text-base leading-relaxed text-black sm:text-lg md:text-[20px] md:leading-9">
+                      Become part of a vibrant learning community that inspires
+                      innovation, leadership, and academic excellence. Explore
+                      career-oriented programs designed to prepare you for
+                      tomorrow&apos;s opportunities.
+                    </p>
 
-                  <button className="mt-6 w-fit rounded-lg bg-black px-5 py-3 text-white font-semibold transition hover:bg-[#5146e5]">
-                    Apply Today →
-                  </button>
+                    <button className="mt-8 w-fit rounded-lg bg-black px-6 py-3 text-base font-semibold text-white transition-all duration-300 hover:bg-[#f35b0a]">
+                      Apply Today →
+                    </button>
+                  </div>
+
+                  {/* Student Image */}
+                  <img
+                    src="/student.png"
+                    alt="Student"
+                    className="
+                      absolute
+                      bottom-0
+                      right-0
+                      w-[220px]
+                      object-contain
+
+                      sm:w-[280px]
+                      md:w-[340px]
+                      lg:w-[420px]
+                    "
+                  />
                 </div>
-
-                {/* Student Image */}
-                <img
-                  src="/student.png"
-                  alt="Student"
-                  className="
-                    absolute
-                    bottom-0
-                    right-0
-                    h-[45%]
-                    w-auto
-                    object-contain
-
-                    sm:h-[55%]
-                    md:h-[65%]
-                    lg:h-[80%]
-                  "
-                />
               </div>
 
             </div>

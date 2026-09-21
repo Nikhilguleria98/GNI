@@ -72,33 +72,19 @@ function App() {
 
         <Route
           path="/programs/:program"
-          element={<ProgramDetailsPage />}
+          element={<><ProgramDetailsPage />
+            <ProgramFaculty data={facultyData} />
+            <ProgramTestimonial  data={placementTestimonialsData} />
+            <ProgramRecruiters data={recruiterData} />
+            <ProgramInfrastructure />
+            <ProgramsCTA />  
+            </>
+          }
         />
 
-        <Route
-          path="/programs/:program/faculty"
-          element={<ProgramFaculty data={facultyData} />}
-        />
+       
 
-        <Route
-          path="/programs/:program/testimonials"
-          element={<ProgramTestimonial />}
-        />
-
-        <Route
-          path="/programs/:program/recruiters"
-          element={<ProgramRecruiters data={recruiterData} />}
-        />
-
-        <Route
-          path="/programs/:program/infrastructure"
-          element={<ProgramInfrastructure />}
-        />
-
-        <Route
-          path="/programs/:program/apply"
-          element={<ProgramsCTA />}
-        />
+      
 
         <Route
           path="/about"
