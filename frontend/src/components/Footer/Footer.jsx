@@ -117,8 +117,9 @@ const Footer = () => {
                 </a>
               </li>
 
+              {/* Events */}
               <li>
-                <a href="#" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
+                <a href="/events/scholarship-result" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
                   Events
                 </a>
               </li>
@@ -251,7 +252,7 @@ const Footer = () => {
                   Phone:
                 </p>
 
-                <a href="tel:+91989650140" className="text-[13px] text-[#ff6b35] underline underline-offset-2 sm:text-[14px]">
+                <a href="tel:+919896500140" className="text-[13px] text-[#ff6b35] underline underline-offset-2 sm:text-[14px]">
                   (+91) 98965-00140
                 </a>
 

@@ -1,6 +1,6 @@
 import { FaMapMarkerAlt, FaUsers, FaStar, FaRegStar } from "react-icons/fa";
 
-const WhyChooseUs = () => {
+const ChooseUs = () => {
   const stats = [
     {
       value: "100%",
@@ -98,4 +98,4 @@ const WhyChooseUs = () => {
   );
 };
 
-export default WhyChooseUs;
+export default ChooseUs;

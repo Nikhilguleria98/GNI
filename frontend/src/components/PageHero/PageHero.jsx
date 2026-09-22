@@ -1,6 +1,6 @@
 import { FiCheckCircle, FiArrowRight, FiUsers, FiCalendar, FiMapPin, FiMail } from "react-icons/fi";
 
-import { FaCheck, FaArrowRight } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
 const PageHero = ({
   variant,
@@ -88,16 +88,23 @@ const PageHero = ({
 
         <div className="relative z-10 mx-auto flex min-h-[360px] w-full max-w-7xl items-center px-4 py-8 sm:min-h-[420px] sm:px-8 sm:py-12 md:min-h-[480px] md:px-10 lg:min-h-[540px] lg:px-12 xl:min-h-[570px]">
 
-          <div className="group w-full max-w-[520px] bg-black/25 px-4 py-4 backdrop-blur-[1px] sm:max-w-[580px] sm:px-5 sm:py-5 md:max-w-[650px] md:px-6 md:py-6 lg:max-w-[700px] lg:px-7 lg:py-6">
+          <div className="w-full max-w-[520px] bg-black/25 px-4 py-4 backdrop-blur-[1px] sm:max-w-[580px] sm:px-5 sm:py-5 md:max-w-[650px] md:px-6 md:py-6 lg:max-w-[700px] lg:px-7 lg:py-6">
 
-            <h1 className="text-[28px] font-extrabold leading-[1.15] text-white sm:text-[36px] md:text-[42px] lg:text-[48px] xl:text-[50px]">
-              {title}{" "}
-              <span className="text-[#ff6b35]">
-                {titleHighlight}
-              </span>
-            </h1>
+            <div className="group w-fit">
 
-            <div className="mt-3 h-[2px] w-full origin-left scale-x-0 rounded-full bg-[#ff6b35] transition-transform duration-700 ease-out group-hover:scale-x-100 sm:mt-4" />
+              <h1 className="text-[28px] font-extrabold leading-[1.15] text-white sm:text-[36px] md:text-[42px] lg:text-[48px] xl:text-[50px]">
+                {title}{" "}
+                <span className="text-[#ff6b35]">
+                  Jindal's
+                </span>{" "}
+                <span className="text-white">
+                  Guru Nanak Institutions, Mullana
+                </span>
+              </h1>
+
+              <div className="mt-3 h-[2px] w-full origin-left scale-x-0 rounded-full bg-[#ff6b35] transition-transform duration-700 ease-out group-hover:scale-x-100 sm:mt-4" />
+
+            </div>
 
             <h2 className="mt-3 text-[13px] font-bold leading-snug text-[#ff6b35] sm:mt-4 sm:text-[15px] md:text-[17px] lg:text-[18px]">
               {subtitle}
@@ -251,38 +258,41 @@ const PageHero = ({
 
           <div className="w-full max-w-2xl text-white">
 
-            <span className="mb-4 inline-block max-w-full rounded-sm bg-white/15 px-3 py-1.5 text-[12px] font-semibold uppercase leading-5 tracking-wide backdrop-blur-sm sm:mb-5 sm:text-[15px] md:text-[17px] lg:text-[18px]">
-              {badge}
-            </span>
+            {/* admission badge */}
+            <div className="mb-5 inline-flex max-w-full items-center rounded-md bg-[#df2929] px-3 py-2 sm:mb-7 sm:px-5 sm:py-3">
+              <span className="text-[11px] font-bold leading-5 text-white sm:text-[13px] lg:text-[14px]">
+                {badge}
+              </span>
+            </div>
 
+            {/* heading */}
             <h1 className="text-[28px] font-bold leading-[1.15] sm:text-[36px] md:text-[42px] lg:text-[48px] xl:text-[50px]">
               {title}
             </h1>
 
+            {/* description */}
             <p className="mt-4 w-full max-w-xl text-[13px] leading-6 text-white/95 sm:mt-5 sm:text-[15px] sm:leading-7 md:text-[17px] md:leading-7 lg:text-[18px] lg:leading-7">
               {description}
             </p>
 
+            {/* features */}
             <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3 text-[11px] font-medium sm:mt-7 sm:gap-x-6 sm:text-[13px] md:text-[14px]">
 
               <div className="flex min-w-0 items-center gap-2">
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/70">
-                  <FaCheck className="h-2.5 w-2.5" />
-                </span>
+                <FiCheckCircle className="h-[17px] w-[17px] shrink-0 text-green-400 sm:h-5 sm:w-5" strokeWidth={2} aria-hidden="true" />
 
                 <span>{features[0]}</span>
               </div>
 
               <div className="flex min-w-0 items-center gap-2">
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/70">
-                  <FaCheck className="h-2.5 w-2.5" />
-                </span>
+                <FiCheckCircle className="h-[17px] w-[17px] shrink-0 text-green-400 sm:h-5 sm:w-5" strokeWidth={2} aria-hidden="true" />
 
                 <span>{features[1]}</span>
               </div>
 
             </div>
 
+            {/* button */}
             <button type="button" onClick={onButtonClick} className="mt-7 inline-flex items-center rounded-md bg-orange-500 px-5 py-3 text-[13px] font-semibold text-white shadow-lg transition-all duration-300 hover:bg-orange-600 hover:shadow-xl active:scale-95 sm:px-7 sm:py-3.5 sm:text-[15px] md:text-[16px]">
               {buttonText}
               <FaArrowRight className="ml-2 h-3 w-3" />
@@ -297,4 +307,4 @@ const PageHero = ({
   return null;
 };
 
-export default PageHero; 
+export default PageHero;

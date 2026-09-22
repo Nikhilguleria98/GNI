@@ -25,8 +25,6 @@ export default function CampusHero() {
                 "Student Clubs",
                 "Sports & Events",
             ]}
-            buttonText="Explore Campus"
-            onButtonClick={handleExploreCampus}
-        />
+            buttonText="Explore Campus" onButtonClick={handleExploreCampus} />
     );
 }

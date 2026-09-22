@@ -1,71 +1,46 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import {
-  FaArrowRight,
-  FaCalendarAlt,
-  FaHome,
-  FaTag,
-  FaCheckCircle,
-  FaGraduationCap,
-  FaBriefcase,
-  FaBookOpen,
-} from "react-icons/fa";
+import { FaArrowRight, FaCalendarAlt, FaHome, FaTag, FaCheckCircle, FaGraduationCap, FaBriefcase, FaBookOpen } from "react-icons/fa";
 
 const events = {
   "scholarship-result": {
     title: "Student Scholarships & Academic Excellence",
     date: "GNI STUDENT INITIATIVE",
-    images: [
-      "/scholarship.png",
-      "/scholarship.png",
-      "/scholarship.png",
-      "/scholarship.png",
-    ],
-    intro:
-      "Guru Nanak Institutions, Hema Majra Road, Mullana (Ambala), supports students through academic opportunities and initiatives that encourage learning, achievement and overall development.",
+    images: ["/scholarship.png", "/scholarship.png", "/scholarship.png", "/scholarship.png"],
+    intro: "Guru Nanak Institutions, Hema Majra Road, Mullana (Ambala), supports students through academic opportunities and initiatives that encourage learning, achievement and overall development.",
     sections: [
       {
         title: "Encouraging Academic Excellence",
-        text:
-          "GNI encourages students to work towards academic excellence and make the most of the learning opportunities available across its institutions.",
+        text: "GNI encourages students to work towards academic excellence and make the most of the learning opportunities available across its institutions."
       },
       {
         title: "Supporting Student Growth",
-        text:
-          "Along with classroom learning, students are encouraged to develop professional skills, participate in academic activities and prepare for future career opportunities.",
+        text: "Along with classroom learning, students are encouraged to develop professional skills, participate in academic activities and prepare for future career opportunities."
       },
       {
         title: "Student Development",
         points: [
           "Focus on academic learning and achievement.",
           "Opportunities for professional and personal development.",
-          "Supportive academic environment for students.",
-        ],
-      },
-    ],
+          "Supportive academic environment for students."
+        ]
+      }
+    ]
   },
 
   "faculty-development": {
     title: "Faculty Development & Academic Learning",
     date: "GNI ACADEMIC INITIATIVE",
-    images: [
-      "/faculty-development.jpg",
-      "/faculty-development.jpg",
-      "/faculty-development.jpg",
-      "/faculty-development.jpg",
-    ],
-    intro:
-      "Guru Nanak Institutions promotes continuous academic development and knowledge sharing among faculty members to support an effective learning environment for students.",
+    images: ["/faculty-development.jpg", "/faculty-development.jpg", "/faculty-development.jpg", "/faculty-development.jpg"],
+    intro: "Guru Nanak Institutions promotes continuous academic development and knowledge sharing among faculty members to support an effective learning environment for students.",
     sections: [
       {
         title: "Academic Development",
-        text:
-          "Faculty members contribute to the academic environment through teaching, academic discussions and continuous improvement in educational practices.",
+        text: "Faculty members contribute to the academic environment through teaching, academic discussions and continuous improvement in educational practices."
       },
       {
         title: "Knowledge Sharing",
-        text:
-          "Academic interaction and knowledge sharing help faculty members exchange ideas and explore new approaches to teaching and learning.",
+        text: "Academic interaction and knowledge sharing help faculty members exchange ideas and explore new approaches to teaching and learning."
       },
       {
         title: "Key Focus Areas",
@@ -73,32 +48,24 @@ const events = {
           "Continuous academic learning.",
           "Knowledge sharing among faculty members.",
           "Improvement of teaching and learning practices.",
-        ],
-      },
-    ],
+        ]
+      }
+    ]
   },
 
   "research-innovation": {
     title: "Research & Innovation at GNI",
     date: "GNI ACADEMIC INITIATIVE",
-    images: [
-      "/research-innovation.jpg",
-      "/research-innovation.jpg",
-      "/research-innovation.jpg",
-      "/research-innovation.jpg",
-    ],
-    intro:
-      "Guru Nanak Institutions encourages students and faculty members to explore research, technology and innovative ideas as part of academic and professional development.",
+    images: ["/research-innovation.jpg", "/research-innovation.jpg", "/research-innovation.jpg", "/research-innovation.jpg"],
+    intro: "Guru Nanak Institutions encourages students and faculty members to explore research, technology and innovative ideas as part of academic and professional development.",
     sections: [
       {
         title: "Promoting Innovation",
-        text:
-          "GNI provides an academic environment where students and faculty can explore new ideas, technical concepts and research-oriented learning.",
+        text: "GNI provides an academic environment where students and faculty can explore new ideas, technical concepts and research-oriented learning."
       },
       {
         title: "Learning Beyond the Classroom",
-        text:
-          "Research and practical learning allow students to connect academic concepts with real-world applications and emerging technologies.",
+        text: "Research and practical learning allow students to connect academic concepts with real-world applications and emerging technologies."
       },
       {
         title: "Innovation Focus",
@@ -106,32 +73,24 @@ const events = {
           "Research-oriented academic learning.",
           "Technology and innovation awareness.",
           "Opportunities to explore new ideas and applications.",
-        ],
-      },
-    ],
+        ]
+      }
+    ]
   },
 
   "skill-development": {
     title: "Skill Development & Career Preparation",
     date: "GNI STUDENT DEVELOPMENT",
-    images: [
-      "/skill-development.jpg",
-      "/skill-development.jpg",
-      "/skill-development.jpg",
-      "/skill-development.jpg",
-    ],
-    intro:
-      "Guru Nanak Institutions focuses on helping students develop academic, technical and professional skills that can support their future career journey.",
+    images: ["/skill-development.jpg", "/skill-development.jpg", "/skill-development.jpg", "/skill-development.jpg"],
+    intro: "Guru Nanak Institutions focuses on helping students develop academic, technical and professional skills that can support their future career journey.",
     sections: [
       {
         title: "Developing Industry-Ready Skills",
-        text:
-          "Students are encouraged to develop practical knowledge and professional skills alongside their academic studies.",
+        text: "Students are encouraged to develop practical knowledge and professional skills alongside their academic studies."
       },
       {
         title: "Career & Professional Growth",
-        text:
-          "GNI's academic and placement-related activities provide students with opportunities to prepare for professional careers and interact with the world of work.",
+        text: "GNI's academic and placement-related activities provide students with opportunities to prepare for professional careers and interact with the world of work."
       },
       {
         title: "Student Skill Development",
@@ -139,28 +98,28 @@ const events = {
           "Technical and practical learning.",
           "Professional and communication skills.",
           "Career preparation and placement-oriented development.",
-        ],
-      },
-    ],
-  },
+        ]
+      }
+    ]
+  }
 };
 
 const latestEvents = [
   {
     slug: "faculty-development",
     title: "Faculty Development & Academic Learning",
-    date: "GNI ACADEMIC INITIATIVE",
+    date: "GNI ACADEMIC INITIATIVE"
   },
   {
     slug: "research-innovation",
     title: "Research & Innovation at GNI",
-    date: "GNI ACADEMIC INITIATIVE",
+    date: "GNI ACADEMIC INITIATIVE"
   },
   {
     slug: "skill-development",
     title: "Skill Development & Career Preparation",
-    date: "GNI STUDENT DEVELOPMENT",
-  },
+    date: "GNI STUDENT DEVELOPMENT"
+  }
 ];
 
 const EventDetailsPage = () => {
@@ -177,10 +136,7 @@ const EventDetailsPage = () => {
             Event Not Found
           </h1>
 
-          <Link
-            to="/"
-            className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#ff5b00] px-5 py-3 text-sm font-semibold text-white"
-          >
+          <Link to="/" className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#ff5b00] px-5 py-3 text-sm font-semibold text-white">
             Back to Home
             <FaArrowRight />
           </Link>
@@ -195,10 +151,7 @@ const EventDetailsPage = () => {
 
         {/* Breadcrumb */}
         <div className="mb-7 flex flex-wrap items-center gap-2 text-xs text-gray-500 sm:text-sm">
-          <Link
-            to="/"
-            className="flex items-center gap-2 hover:text-[#ff5b00]"
-          >
+          <Link to="/" className="flex items-center gap-2 hover:text-[#ff5b00]">
             <FaHome />
             Home
           </Link>
@@ -244,11 +197,7 @@ const EventDetailsPage = () => {
 
               {/* Big Image */}
               <div className="h-[300px] overflow-hidden rounded-xl sm:h-[400px] lg:h-[500px]">
-                <img
-                  src={event.images[activeImage]}
-                  alt={event.title}
-                  className="h-full w-full object-cover"
-                />
+                <img src={event.images[activeImage]} alt={event.title} className="h-full w-full object-cover" />
               </div>
 
               {/* Small Images */}
@@ -257,20 +206,8 @@ const EventDetailsPage = () => {
                   const imageIndex = index + 1;
 
                   return (
-                    <button
-                      key={imageIndex}
-                      onClick={() => setActiveImage(imageIndex)}
-                      className={`h-[110px] overflow-hidden rounded-xl sm:h-[130px] lg:h-auto lg:min-h-0 ${
-                        activeImage === imageIndex
-                          ? "ring-2 ring-[#ff5b00]"
-                          : ""
-                      }`}
-                    >
-                      <img
-                        src={image}
-                        alt={`${event.title} ${imageIndex}`}
-                        className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-                      />
+                    <button key={imageIndex} onClick={() => setActiveImage(imageIndex)} className={`h-[110px] overflow-hidden rounded-xl sm:h-[130px] lg:h-auto lg:min-h-0 ${activeImage === imageIndex ? "ring-2 ring-[#ff5b00]" : ""}`}>
+                      <img src={image} alt={`${event.title} ${imageIndex}`} className="h-full w-full object-cover transition-transform duration-300 hover:scale-105" />
                     </button>
                   );
                 })}
@@ -305,10 +242,7 @@ const EventDetailsPage = () => {
                   {section.points && (
                     <ul className="mt-4 space-y-3 pl-4">
                       {section.points.map((point, pointIndex) => (
-                        <li
-                          key={pointIndex}
-                          className="flex items-start gap-3 text-[15px] leading-6 text-gray-600"
-                        >
+                        <li key={pointIndex} className="flex items-start gap-3 text-[15px] leading-6 text-gray-600">
                           <FaCheckCircle className="mt-1 shrink-0 text-[#ff5b00]" />
                           <span>{point}</span>
                         </li>
@@ -431,11 +365,7 @@ const EventDetailsPage = () => {
 
               <div className="mt-5 divide-y divide-gray-200">
                 {latestEvents.map((item) => (
-                  <Link
-                    key={item.slug}
-                    to={`/events/${item.slug}`}
-                    className="group block py-5 first:pt-0 last:pb-0"
-                  >
+                  <Link key={item.slug} to={`/events/${item.slug}`} className="group block py-5 first:pt-0 last:pb-0">
                     <p className="text-[11px] font-medium uppercase tracking-wide text-gray-400">
                       {item.date}
                     </p>
@@ -452,10 +382,7 @@ const EventDetailsPage = () => {
                 ))}
               </div>
 
-              <Link
-                to="/"
-                className="mt-6 flex items-center justify-center gap-2 rounded-full bg-[#ff5b00] px-5 py-3 text-sm font-semibold text-white hover:bg-[#e65000]"
-              >
+              <Link to="/" className="mt-6 flex items-center justify-center gap-2 rounded-full bg-[#ff5b00] px-5 py-3 text-sm font-semibold text-white hover:bg-[#e65000]">
                 View All Events
                 <FaArrowRight />
               </Link>
@@ -493,10 +420,7 @@ const EventDetailsPage = () => {
             </div>
 
             {/* CTA Button */}
-            <Link
-              to="/programs"
-              className="inline-flex w-fit shrink-0 items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-[#ff5b00] transition hover:shadow-lg"
-            >
+            <Link to="/programs" className="inline-flex w-fit shrink-0 items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-[#ff5b00] transition hover:shadow-lg">
               View Programs
               <FaArrowRight />
             </Link>

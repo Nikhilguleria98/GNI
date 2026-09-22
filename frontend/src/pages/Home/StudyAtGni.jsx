@@ -48,7 +48,7 @@ const events = [
   }
 ];
 
-const StudyAtGniSection = () => {
+const StudyAtGni = () => {
   return (
     <section className="w-full overflow-hidden bg-white">
 
@@ -354,4 +354,4 @@ const StudyAtGniSection = () => {
   );
 };
 
-export default StudyAtGniSection;
+export default StudyAtGni;

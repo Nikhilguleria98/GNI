@@ -60,7 +60,7 @@ export default function CampusGallery() {
 
     return (
         <>
-            <section className="bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+            <section id="campus-content" className="bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
                 <div className="mx-auto max-w-7xl">
 
                     {sections.map((section, sectionIndex) => (
@@ -69,7 +69,19 @@ export default function CampusGallery() {
                             {/* heading */}
                             <div className="group mb-5 text-center sm:mb-6 md:mb-7">
                                 <h2 className="text-[22px] font-bold leading-tight text-gray-900 sm:text-[26px] md:text-[30px] lg:text-[34px]">
-                                    {section.title}
+                                    {sectionIndex === 0 ? (
+                                        <>
+                                            <span className="text-orange-500">Modern</span> Campus
+                                        </>
+                                    ) : sectionIndex === 1 ? (
+                                        <>
+                                            Student <span className="text-orange-500">Clubs</span>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <span className="text-orange-500">Sports</span> & Events
+                                        </>
+                                    )}
                                 </h2>
 
                                 <div className="mx-auto mt-3 h-[2px] w-10 overflow-hidden sm:w-12">
@@ -87,6 +99,7 @@ export default function CampusGallery() {
                                     </div>
                                 ))}
                             </div>
+
                         </div>
                     ))}
                 </div>
@@ -107,7 +120,8 @@ export default function CampusGallery() {
                         <img src={selectedImage.images[selectedImage.index].src} alt={selectedImage.images[selectedImage.index].alt} className="max-h-[80vh] max-w-full rounded-md object-contain" />
 
                         <p className="mt-3 text-sm font-medium text-white">
-                            {selectedImage.index + 1} / {selectedImage.images.length}
+                            {selectedImage.index + 1} /{" "}
+                            {selectedImage.images.length}
                         </p>
                     </div>
 

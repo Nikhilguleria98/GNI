@@ -25,7 +25,7 @@ const testimonials = [
   }
 ];
 
-export default function TestimonialsSection() {
+export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleCardClick = (index) => {

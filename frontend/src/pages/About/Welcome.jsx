@@ -22,7 +22,7 @@ const slides = [
   },
 ];
 
-const AboutWelcomeSection = () => {
+const Welcome = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
@@ -96,4 +96,4 @@ const AboutWelcomeSection = () => {
   );
 };
 
-export default AboutWelcomeSection;
+export default Welcome;
