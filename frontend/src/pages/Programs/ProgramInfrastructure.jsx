@@ -2,9 +2,9 @@ import { useParams } from "react-router-dom";
 import { courseData } from "./programCatalog";
 
 export default function ProgramInfrastructure() {
-  const { programSlug } = useParams();
+  const { program} = useParams();
 
-  const data = courseData[programSlug];
+  const data = courseData[program];
 
   if (!data) {
     return (
@@ -46,17 +46,17 @@ export default function ProgramInfrastructure() {
 
         {/* Content */}
         <div className="relative z-10 flex h-full items-center">
-          <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12">
+          <div className="mx-auto w-full max-w-7xl mt-50 px-5 sm:px-8 lg:px-12">
             <div className="max-w-3xl">
               <h2 className="text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl">
                 Central Library
               </h2>
 
               <p className="mt-4 text-sm leading-7 text-gray-200 sm:text-base md:text-lg lg:text-xl">
-                Our modern library houses an extensive collection of books,
-                journals, e-resources, and digital databases, providing
-                students with an ideal environment for learning, research,
-                and academic excellence.
+                Our modern library houses an extensive collection <br/> of books,
+                journals, e-resources, and digital <br/> databases, providing
+                students with an ideal <br/>environment for learning, research,
+                and academic <br/> excellence.
               </p>
             </div>
           </div>
