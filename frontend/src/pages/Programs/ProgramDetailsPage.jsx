@@ -105,13 +105,16 @@ const ProgramDetailsPage = () => {
         type="button"
         className="group inline-flex h-11 min-w-[170px] items-center justify-center gap-4 rounded-md bg-[#f4510b] px-6 text-[14px] font-bold text-white transition-all duration-300 hover:bg-[#df4607] hover:shadow-lg sm:h-12 sm:min-w-[180px] sm:text-[15px] md:h-14 md:min-w-[193px] md:px-7 md:text-[17px]"
       >
-        <span>Apply Now</span>
+         <Link
+            to="/apply-now"
+           className="group inline-flex h-11 min-w-[170px] items-center justify-center gap-4 rounded-md bg-[#f4510b] px-6 text-[14px] font-bold text-white transition-all duration-300 hover:bg-[#df4607]"
+            >
+              <span>Apply Now</span>
 
-        <FiArrowRight
-          className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 sm:h-[22px] sm:w-[22px] md:h-6 md:w-6"
-          strokeWidth={2}
-          aria-hidden="true"
-        />
+            <FiArrowRight
+            className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
+            />
+         </Link>
       </button>
     </div>
   </div>
