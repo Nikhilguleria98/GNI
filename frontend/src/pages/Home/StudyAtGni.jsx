@@ -26,26 +26,26 @@ const events = [
     date: "FEB 14, 2026",
     title: "University 2026 Scholarship Result Declared",
     description: "We are pleased to announce the scholarship results for our deserving students.",
-    slug: "scholarship-result",
+    slug: "scholarship-result"
   },
   {
     date: "FEB 17, 2026",
     title: "Faculty Development Program (FDP)",
     description: "We are pleased to announce our upcoming faculty development program.",
-    slug: "faculty-development",
+    slug: "faculty-development"
   },
   {
     date: "FEB 18, 2026",
     title: "Research & Innovation Conference",
     description: "Join us for an inspiring conference focused on research and innovation.",
-    slug: "research-innovation",
+    slug: "research-innovation"
   },
   {
     date: "FEB 19, 2026",
     title: "Skill Development Workshop",
     description: "A practical workshop designed to enhance professional and technical skills.",
-    slug: "skill-development",
-  },
+    slug: "skill-development"
+  }
 ];
 
 const StudyAtGniSection = () => {
@@ -127,12 +127,12 @@ const StudyAtGniSection = () => {
       </div>
 
       {/* placement & recruiters */}
-      <div className="w-full bg-[#f5f5f5]">
+      <div className="w-full bg-[#f5f5f5] lg:bg-[linear-gradient(to_right,#f5f5f5_50%,#dedede_50%)]">
 
         <div className="mx-auto grid min-w-0 max-w-7xl lg:grid-cols-2">
 
           {/* placements */}
-          <div className="min-w-0 px-5 py-10 sm:px-8 sm:py-12 lg:px-10 lg:py-12">
+          <div className="min-w-0 bg-[#f5f5f5] px-5 py-10 sm:px-8 sm:py-12 lg:px-10 lg:py-12">
 
             {/* heading & stats */}
             <div className="flex min-w-0 flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
@@ -170,8 +170,8 @@ const StudyAtGniSection = () => {
                   development of my personality. I have established my
                   leadership, time management and team skills and have also
                   been able to advance these skills to the whole new augment
-                  level. The infrastructure of GNI is one of the finest in the
-                  NCR region is what stands out the most.
+                  level. The infrastructure of GNI is one of the finest
+                  in the NCR region is what stands out the most.
                 </p>
 
                 <p className="mt-5 text-[14px] font-bold text-[#ff5b00] sm:text-[15px] md:text-[16px]">
@@ -189,10 +189,14 @@ const StudyAtGniSection = () => {
 
               </div>
 
-              {/* studet image */}
+              {/* student image */}
               <div className="hidden w-[100px] shrink-0 sm:block sm:w-[115px]">
                 <div className="relative h-[145px] w-full overflow-hidden">
-                  <img src="/placement.png" alt="GNI student" className="absolute inset-0 h-full w-full object-cover" />
+                  <img
+                    src="/placement.png"
+                    alt="GNI student"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
                 </div>
               </div>
 
@@ -201,7 +205,7 @@ const StudyAtGniSection = () => {
           </div>
 
           {/* recruiters */}
-          <div className="min-w-0 bg-[#dedede] px-5 py-10 sm:px-8 sm:py-12 lg:px-10 lg:py-12">
+          <div className="min-w-0 bg-[#dedede] px-5 py-10 sm:px-8 sm:py-12 lg:bg-transparent lg:px-10 lg:py-12">
 
             <h3 className="text-[14px] font-extrabold tracking-[0.12em] text-[#ff5b00] sm:text-[15px] md:text-[16px]">
               RECRUITERS
@@ -305,10 +309,7 @@ const StudyAtGniSection = () => {
                 deserving students.
               </p>
 
-              <Link
-                to="/events/scholarship-result"
-                className="mt-3 flex items-center gap-1 text-[12px] font-semibold text-white sm:text-[13px] md:text-[14px]"
-              >
+              <Link to="/events/scholarship-result" className="mt-3 flex items-center gap-1 text-[12px] font-semibold text-white sm:text-[13px] md:text-[14px]">
                 Read More
                 <FaArrowRight className="text-[#ff5b00]" />
               </Link>
@@ -335,10 +336,7 @@ const StudyAtGniSection = () => {
                   {event.description}
                 </p>
 
-                <Link
-                  to={`/events/${event.slug}`}
-                  className="mt-3 flex items-center gap-1 text-[12px] font-semibold text-[#ff5b00] sm:text-[13px] md:text-[14px]"
-                >
+                <Link to={`/events/${event.slug}`} className="mt-3 flex items-center gap-1 text-[12px] font-semibold text-[#ff5b00] sm:text-[13px] md:text-[14px]">
                   Read More
                   <FaArrowRight />
                 </Link>
