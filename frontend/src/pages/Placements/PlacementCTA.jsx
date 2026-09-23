@@ -2,7 +2,7 @@ import { FiArrowRight } from "react-icons/fi";
 import { useState } from "react";
 import ApplyNowForm from "../../components/ApplyNowForm/ApplyNowForm";
 
-export default function ProgramsCTA() {
+export default function PlacementCTA() {
   const [showApplyForm, setShowApplyForm] = useState(false);
 
   return (

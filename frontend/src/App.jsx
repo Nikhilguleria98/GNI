@@ -31,7 +31,7 @@ import PlacementTestimonials from "./pages/Placements/PlacementTestimonials";
 import CampusHero from "./pages/CampusLife/CampusHero";
 import CampusGallery from "./pages/CampusLife/CampusGallery";
 
-import ApplyNowPage from "./pages/ApplyNow/ApplyNowPage";
+
 
 import ContactHero from "./pages/Contact/ContactHero";
 import ContactFormSection from "./pages/Contact/Contact";
@@ -121,7 +121,7 @@ function App() {
             </>
           }
         />
-        <Route path="/apply-now" element={<ApplyNowPage />} />
+       
 
         <Route
           path="/contact"

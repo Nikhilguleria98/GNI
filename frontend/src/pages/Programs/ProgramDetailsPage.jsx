@@ -1,14 +1,15 @@
 import { Link, useParams } from "react-router-dom";
 import { FiCheckCircle, FiArrowRight } from "react-icons/fi";
 import { programCatalog, programs, programData, whyChooseData } from "./programCatalog";
-
+import { useState } from "react";
+import ApplyNowForm from "../../components/ApplyNowForm/ApplyNowForm";
 const ProgramDetailsPage = () => {
   const { program: programSlug } = useParams();
-
+   const [showApplyForm, setShowApplyForm] = useState(false);
   const program =
     programCatalog.find((item) => item.slug === programSlug) ||
     programCatalog.find((item) => item.slug === "btech");
-
+   
   const programDetails = programs[programSlug] || programs.btech;
 
   const descriptionParagraphs = Array.isArray(programDetails?.description)
@@ -102,20 +103,14 @@ const ProgramDetailsPage = () => {
       </div>
 
       <button
-        type="button"
+         type="button"
+         onClick={() => setShowApplyForm(true)}
         className="group inline-flex h-11 min-w-[170px] items-center justify-center gap-4 rounded-md bg-[#f4510b] px-6 text-[14px] font-bold text-white transition-all duration-300 hover:bg-[#df4607] hover:shadow-lg sm:h-12 sm:min-w-[180px] sm:text-[15px] md:h-14 md:min-w-[193px] md:px-7 md:text-[17px]"
-      >
-         <Link
-            to="/apply-now"
-           className="group inline-flex h-11 min-w-[170px] items-center justify-center gap-4 rounded-md bg-[#f4510b] px-6 text-[14px] font-bold text-white transition-all duration-300 hover:bg-[#df4607]"
-            >
-              <span>Apply Now</span>
+       >
+        <span>Apply Now</span>
 
-            <FiArrowRight
-            className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-            />
-         </Link>
-      </button>
+        <FiArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+     </button>
     </div>
   </div>
 </section>
@@ -285,6 +280,10 @@ const ProgramDetailsPage = () => {
           </div>
         </div>
       </section>
+      <ApplyNowForm
+            isOpen={showApplyForm}
+            onClose={() => setShowApplyForm(false)}
+        />
     </>
   );
 };
