@@ -205,7 +205,7 @@ const Footer = () => {
               </li>
 
               <li>
-                <a href="#" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
+                <a href="/examination" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
                   Examination
                 </a>
               </li>

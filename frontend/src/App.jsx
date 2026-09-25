@@ -54,6 +54,13 @@ import AdmissionProgrammes from "./pages/OnlineAdmission/AdmissionProgrammes";
 import AdmissionEnquiry from "./pages/OnlineAdmission/AdmissionEnquiry";
 import OnlineAdmissionCTA from "./pages/OnlineAdmission/OnlineAdmissionCTA";
 
+
+import ExaminationHero from "./pages/Examination/ExaminationHero";
+import ExaminationOverview from "./pages/Examination/ExaminationOverview";
+import ExaminationGuidelines from "./pages/Examination/ExaminationGuidelines";
+import ExaminationResources from "./pages/Examination/ExaminationResources";
+import ExaminationCTA from "./pages/Examination/ExaminationCTA";
+
 function App() {
   return (
     <BrowserRouter>
@@ -170,6 +177,17 @@ function App() {
         <AdmissionProgrammes />
         <AdmissionEnquiry />
         <OnlineAdmissionCTA />
+        </>
+        }
+       />
+
+        <Route path="/examination" element={
+          <>
+          <ExaminationHero />
+          <ExaminationOverview />
+          <ExaminationGuidelines />
+          <ExaminationResources />
+          <ExaminationCTA />
         </>
         }
        />
