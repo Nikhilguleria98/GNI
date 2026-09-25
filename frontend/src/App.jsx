@@ -60,6 +60,7 @@ import ExaminationOverview from "./pages/Examination/ExaminationOverview";
 import ExaminationGuidelines from "./pages/Examination/ExaminationGuidelines";
 import ExaminationResources from "./pages/Examination/ExaminationResources";
 import ExaminationCTA from "./pages/Examination/ExaminationCTA";
+import StudyRecruiters from "./pages/Study/StudyRecruiters";
 
 function App() {
   return (
@@ -136,6 +137,7 @@ function App() {
            <StudyHero />
            <StudyOverview />
            <StudyBenefits />
+           <StudyRecruiters data={recruiterData}/>
            <StudyCTA />
         </>
          }
