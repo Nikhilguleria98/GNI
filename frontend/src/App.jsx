@@ -43,6 +43,11 @@ import EventDetailsPage from "./pages/Events/EventDetailsPage";
 import {placementData,facultyData,recruiterData,placementTestimonialsData} from "./data/placementData";
 
 import ScrollToTop from "./components/ScrollTop/ScrollToTop";
+import OnlineAdmissionHero from "./pages/OnlineAdmission/OnlineAdmissionHero";
+import AdmissionProcess from "./pages/OnlineAdmission/AdmissionProcess";
+import AdmissionProgrammes from "./pages/OnlineAdmission/AdmissionProgrammes";
+import AdmissionEnquiry from "./pages/OnlineAdmission/AdmissionEnquiry";
+import OnlineAdmissionCTA from "./pages/OnlineAdmission/OnlineAdmissionCTA";
 
 function App() {
   return (
@@ -140,6 +145,17 @@ function App() {
           path="/events/:eventSlug"
           element={<EventDetailsPage />}
         />
+
+        <Route path="/online-admission" element={
+          <>
+        <OnlineAdmissionHero />
+        <AdmissionProcess />
+        <AdmissionProgrammes />
+        <AdmissionEnquiry />
+        <OnlineAdmissionCTA />
+        </>
+        }
+       />
       </Routes>
 
       <Footer />

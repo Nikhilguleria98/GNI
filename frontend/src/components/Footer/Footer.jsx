@@ -199,7 +199,7 @@ const Footer = () => {
             <ul className="space-y-2.5">
 
               <li>
-                <a href="#" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
+                <a href="/online-admission" className="text-[13px] text-gray-500 transition-colors hover:text-[#ff6b35] sm:text-[14px]">
                   Online Admission
                 </a>
               </li>
