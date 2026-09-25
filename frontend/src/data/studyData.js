@@ -34,7 +34,7 @@ const studyData = {
     description:
       "State-of-the-art laboratories with modern equipment.",
 
-    image: "/g3.png",
+    heroImage: "/Advan.jpg",
 
     points: [
       "Modern Equipment",
