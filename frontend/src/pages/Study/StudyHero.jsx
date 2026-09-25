@@ -4,8 +4,8 @@ import { IoCheckmarkDoneCircle } from "react-icons/io5";
 import studyData from "../../data/studyData";
 import { useParams } from "react-router-dom";
 const StudyHero = () => {
-  const { feature } = useParams();
-  const study = studyData[feature];
+  const { studySlug } = useParams();
+  const study = studyData[studySlug];
     if (!study) {
         return (
             <div className="flex min-h-screen items-center justify-center">

@@ -9,9 +9,8 @@ import { studyOverviewData } from "../../data/studyData";
 import { useParams } from "react-router-dom";
 
 const StudyOverview = () => {
-  const { feature } = useParams();
-
-  const data = studyOverviewData[feature];
+  const { studySlug } = useParams();
+  const data = studyOverviewData[studySlug];
 
   const [activeCard, setActiveCard] = useState(0);
 

@@ -11,13 +11,34 @@ const programs = [
 ];
 
 const studyItems = [
-  "Experienced & Dedicated Faculty",
-  "Modern Smart Classrooms",
-  "Advanced Laboratories",
-  "Industry-Oriented Curriculum",
-  "Excellent Placement Support",
-  "Innovation & Research Culture",
-  "Vibrant Campus Life",
+  {
+    name: "Experienced & Dedicated Faculty",
+    slug: "faculty",
+  },
+  {
+    name: "Modern Smart Classrooms",
+    slug: "classrooms",
+  },
+  {
+    name: "Advanced Laboratories",
+    slug: "laboratories",
+  },
+  {
+    name: "Industry-Oriented Curriculum",
+    slug: "curriculum",
+  },
+  {
+    name: "Excellent Placement Support",
+    slug: "placements",
+  },
+  {
+    name: "Innovation & Research Culture",
+    slug: "research",
+  },
+  {
+    name: "Vibrant Campus Life",
+    slug: "campus",
+  },
 ];
 
 const ProgramsSlider = ({ isOpen, onClose }) => {
@@ -88,15 +109,17 @@ const ProgramsSlider = ({ isOpen, onClose }) => {
                   </h3>
 
                   <div className="space-y-6">
-                    {studyItems.map((item) => (
-                      <div
-                        key={item}
-                        className="text-lg font-semibold text-black"
-                      >
-                        {item}
-                      </div>
-                    ))}
-                  </div>
+  {studyItems.map((item) => (
+    <Link
+      key={item.slug}
+      to={`/study/${item.slug}`}
+      onClick={onClose}
+      className="block text-lg font-semibold text-black transition-all duration-300 hover:text-[#f35b0a]"
+    >
+      {item.name}
+    </Link>
+  ))}
+</div>
                 </div>
               </div>
 

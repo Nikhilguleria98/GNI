@@ -21,6 +21,11 @@ import Welcome from "./pages/About/Welcome";
 import VisionMissionSection from "./pages/About/VisionMission";
 import Management from "./pages/About/Management";
 
+import StudyHero from "./pages/Study/StudyHero";
+import StudyOverview from "./pages/Study/StudyOverview";
+import StudyBenefits from "./pages/Study/StudyBenefits";
+import StudyCTA from "./pages/Study/StudyCTA";
+
 import PlacementHero from "./pages/Placements/Hero";
 import PlacementOverview from "./pages/Placements/PlacementOverview";
 import PlacementFaculty from "./pages/Placements/PlacementFaculty";
@@ -115,6 +120,18 @@ function App() {
               <PlacementCTA />
             </>
           }
+        />
+
+        <Route
+            path="/study/:studySlug"
+           element={
+        <>
+           <StudyHero />
+           <StudyOverview />
+           <StudyBenefits />
+           <StudyCTA />
+        </>
+         }
         />
 
         <Route
