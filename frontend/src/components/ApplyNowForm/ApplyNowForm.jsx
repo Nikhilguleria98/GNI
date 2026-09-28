@@ -48,7 +48,7 @@ const ApplyNowForm = ({ isOpen, onClose }) => {
       <div className={`fixed inset-0 z-[9998] bg-black/50 transition-opacity duration-500 ${isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`} onClick={onClose} />
 
       {/* right drawer */}
-      <div className={`fixed right-0 top-0 z-[9999] h-full w-full max-w-[900px] bg-white shadow-2xl transition-transform duration-500 ease-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
+      <div onClick={(e) => e.stopPropagation()} className={`fixed right-0 top-0 z-[9999] h-full w-full max-w-[900px] bg-white shadow-2xl transition-transform duration-500 ease-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
 
         {/* header */}
         <div className="flex h-[78px] items-center justify-between bg-gradient-to-r from-[#f4510b] to-[#8f2d00] px-5 text-white sm:px-7">

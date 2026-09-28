@@ -107,10 +107,10 @@ const StudyOverview = () => {
                     setActiveCard(index)
                   }
                   className={`cursor-pointer rounded-[24px] p-8 transition-all duration-300 ${
-                    isActive
-                      ? "bg-[#f35b0a] text-white shadow-xl scale-[1.02]"
-                      : "bg-[#f8f4f1] text-black hover:shadow-lg"
-                  }`}
+                         isActive
+                          ? "bg-[#f35b0a] text-white shadow-xl scale-[1.02]"
+                          : "bg-[#f8f4f1] text-black hover:shadow-lg"
+                       }`}
                 >
                   {getIcon(index, isActive)}
 

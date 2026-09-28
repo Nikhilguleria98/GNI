@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { IoArrowUndo } from "react-icons/io5";
-
 const programs = [
   { name: "B.Tech", slug: "btech" },
   { name: "M.Tech", slug: "mtech" },
@@ -41,7 +40,7 @@ const studyItems = [
   },
 ];
 
-const ProgramsSlider = ({ isOpen, onClose }) => {
+const ProgramsSlider = ({ isOpen, onClose, onApply }) => {
   return (
     <div
       className={`fixed inset-0 z-[100] flex items-center justify-center p-2 md:p-5 ${
@@ -109,17 +108,17 @@ const ProgramsSlider = ({ isOpen, onClose }) => {
                   </h3>
 
                   <div className="space-y-6">
-  {studyItems.map((item) => (
-    <Link
-      key={item.slug}
-      to={`/study/${item.slug}`}
-      onClick={onClose}
-      className="block text-lg font-semibold text-black transition-all duration-300 hover:text-[#f35b0a]"
-    >
-      {item.name}
-    </Link>
-  ))}
-</div>
+                      {studyItems.map((item) => (
+                       <Link
+                          key={item.slug}
+                         to={`/study/${item.slug}`}
+                          onClick={onClose}
+                          className="block text-lg font-semibold text-black transition-all duration-300 hover:text-[#f35b0a]"
+                        >
+                    {item.name}
+                     </Link>
+                      ))}
+                     </div>
                 </div>
               </div>
 
@@ -142,7 +141,9 @@ const ProgramsSlider = ({ isOpen, onClose }) => {
                       tomorrow&apos;s opportunities.
                     </p>
 
-                    <button className="mt-8 w-fit rounded-lg bg-black px-6 py-3 text-base font-semibold text-white transition-all duration-300 hover:bg-[#f35b0a]">
+                          <button className="mt-8 w-fit rounded-lg bg-black px-6 py-3 text-base font-semibold text-white transition-all duration-300 hover:bg-[#f35b0a]"
+                            onClick={onApply}
+                    >
                       Apply Today →
                     </button>
                   </div>
@@ -171,6 +172,7 @@ const ProgramsSlider = ({ isOpen, onClose }) => {
         </div>
       </div>
     </div>
+     
   );
 };
 

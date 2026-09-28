@@ -225,6 +225,7 @@ const Navbar = () => {
       <ProgramsSlider
         isOpen={programs}
         onClose={() => setPrograms(false)}
+        onApply={openApply}
       />
     </>
   );
